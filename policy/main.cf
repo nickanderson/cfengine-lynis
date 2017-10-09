@@ -194,6 +194,11 @@ bundle agent inventory
         string => "$(d[details[]][$(detail_ids)][id]) $(d[details[]][$(detail_ids)][description][desc]). $(d[details[]][$(detail_ids)][description][field]) prefers $(d[details[]][$(detail_ids)][description][prefval]) over  $(d[details[]][$(detail_ids)][description][value])",
         meta => { "inventory", "attribute_name=CISOfy Lynis Suggestion $(d[details[]][$(detail_ids)][id])"};
 
+      # Inventory Lynis Security Hardening index
+      "hardening_index"
+        string => "$(d[hardening_index])",
+        meta => { "inventory", "attribute_name=CISOfy Lynis Hardening Index"};
+
  reports:
 
     inform_mode::
