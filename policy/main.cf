@@ -11,8 +11,9 @@ bundle agent globals
       "hash_type"    string => "sha256";
       "tar_url"      string => "https://github.com/CISOfy/lynis/archive/$(version).tar.gz";
 
-      "install_prefix" string => "/opt/lynis";
+      "max_report_age" string => "1";
 
+      "install_prefix" string => "/opt/lynis";
       "report_data" string => "/var/log/lynis-report.dat";
 }
 
@@ -27,11 +28,28 @@ bundle agent main
     methods:
 
       "globals";
+      "report_freshness";
       "install_tar_gz";
       "audit";
       "report_format";
       "inventory";
 
+}
+bundle agent report_freshness
+{
+  vars:
+      "max_age" string => "$(globals.max_age)";
+      "data" string => "$(globals.report_data)";
+      "prefix" string => "$(globals.install_prefix)";
+
+  files:
+      "$(report_data)"
+        delete => default:tidy,
+        file_select => default:days_old( $(max_age) );
+
+      "$(prefix)/lynis-report.json"
+        delete => default:tidy,
+        file_select => default:days_old( $(max_age) );
 }
 
 bundle agent install_tar_gz
@@ -51,12 +69,6 @@ bundle agent install_tar_gz
 
       "$(prefix)"
         create => "true";
-
-  reports:
-
-      "G $(prefix)";
-      "CONVERTER $(converter)";
-      "LYNIS $(lynis)";
 
   packages:
 

@@ -6,7 +6,45 @@ lynis]] system audits.
 
 * Installation
 
-Run make install
+From the root of a repository clone ~make install~.
+
+The policy will be installed into =services/cfengine-lynis=.
+
+Ensure the policy is included in inputs. For example, it can be included via
+augments if you are running the MPF:
+
+#+BEGIN_SRC json
+  {
+    "inputs" : [ "services/cfengine-lynis/main.cf" ]
+  }
+#+END_SRC
+
+Ensure the policy actuated.
+
+If the class =services_autorun= is defined and you are running the MPF it will
+be automatically actuated.
+
+It can be appended to the main =bundlesequence= via augments if you are running
+the MPF:
+
+#+BEGIN_SRC json
+  {
+    "vars" : {
+      "control_common_bundlesequence_end": [ "lynis:main" ]
+    }
+  }
+#+END_SRC
+
+Or you can actuate it with a =methods= promise from your existing policy.
+
+#+BEGIN_SRC cfengine3
+  bundle agent example
+  {
+      methods:
+        "CISOfy Lynis"
+          usebundle => lynis:main;
+  }
+#+END_SRC
 
 * Configuration
 
