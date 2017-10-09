@@ -1,0 +1,191 @@
+body file control
+{
+  namespace => "lynis";
+}
+
+bundle agent globals
+{
+  vars:
+      "version"      string => "2.5.5";
+      "archive_hash" string => "852a9380a51002ad3f8d3a231767b6f532a325a93cfc28aaed5bdd097145326a";
+      "hash_type"    string => "sha256";
+      "tar_url"      string => "https://github.com/CISOfy/lynis/archive/$(version).tar.gz";
+
+      "install_prefix" string => "/opt/lynis";
+
+      "report_data" string => "/var/log/lynis-report.dat";
+}
+
+bundle agent main
+{
+  meta:
+
+    default:services_autorun::
+
+      "tags" slist => { "autorun" };
+
+    methods:
+
+      "globals";
+      "install_tar_gz";
+      "audit";
+      "report_format";
+      "inventory";
+
+}
+
+bundle agent install_tar_gz
+{
+  vars:
+      "url[lynis]"     string => "https://github.com/CISOfy/lynis/archive/$(globals.version).tar.gz";
+      "url[converter]" string => "https://raw.githubusercontent.com/d4t4king/lynis-report-converter/master/lynis-report-converter.pl";
+      "lynis_archive"  string => "$(globals.install_prefix)/lynis-$(globals.version).tar.gz";
+      "converter"      string => "$(globals.install_prefix)/lynis-report-converter.pl";
+      "lynis"          string => "$(globals.install_prefix)/lynis-$(globals.version)/lynis";
+      "prefix"         string => "$(globals.install_prefix)";
+      "hash_type"      string => "$(globals.hash_type)";
+      "archive_hash"   string => "$(globals.archive_hash)";
+      "version"        string => "$(globals.version)";
+
+  files:
+
+      "$(prefix)"
+        create => "true";
+
+  reports:
+
+      "G $(prefix)";
+      "CONVERTER $(converter)";
+      "LYNIS $(lynis)";
+
+  packages:
+
+    centos|redhat::
+
+      "perl-Module-Load-Conditional"
+        policy => "present";
+
+      "perl-JSON"
+        policy => "present";
+
+  commands:
+
+      # Download the lynis-report-converter to $(converter) if it does not exist
+
+      "/usr/bin/curl"
+        unless => fileexists( "$(converter)" ),
+        arglist => {
+                     "$(url[converter])",
+                     "--output",
+                     "$(converter)",
+                     "-k"
+                   };
+
+      # Download $(lynis_archive) if it does not match the
+      # $(globals.hash_type) digest of $(globals.archive_hash)
+
+      "/usr/bin/curl"
+        handle => "fetch_lynis_archive",
+        arglist => {
+                     "$(url[lynis])",
+                     "-L",
+                     "--max-redirs",
+                     "3",
+                     "--output",
+                     "$(lynis_archive)",
+                     "-k"
+                   },
+        if => not(strcmp(
+                          file_hash( $(lynis_archive), $(hash_type) ),
+                          $(archive_hash)
+                        ));
+
+      # Unpack $(lynis_archive) into $(globals.install_prefix) if
+      # $(lynis_archive) matches the $(globals.hash_type) digest of
+      # $(globals_archive_hash) AND
+      # $(globals.install_prefix)/lynis-$(globals.version) does
+      # not exist.
+
+      "/bin/tar"
+        arglist => {
+                     "-zxf",
+                     "$(lynis_archive)",
+                     "-C",
+                     "$(prefix)"
+                   },
+        if => and(strcmp(
+                          file_hash( $(lynis_archive), $(hash_type) ),
+                          $(archive_hash)),
+                  not( fileexists( "$(prefix)/lynis-$(version)") ) );
+}
+
+bundle agent audit
+# @brief Run lynis from the unpacked tar file if $(globals.report_data) is
+# not available.
+{
+  vars:
+      "report_data" string => "$(globals.report_data)";
+      "lynis" string => "$(install_tar_gz.lynis)";
+      "lynis_dir" string => dirname( $(lynis) );
+
+  commands:
+
+     "$(lynis)"
+        contain => default:in_dir_shell( "$(lynis_dir)" ),
+        arglist => { "audit", "system", "--quiet", "--quick" },
+        if => not( fileexists( $(report_data) ) );
+}
+
+bundle agent report_format
+# @brief Ensure there is an easily consumable version of the lynis report data
+{
+  vars:
+      "report_data" string => "$(globals.report_data)";
+      "converter"   string => "$(install_tar_gz.converter)";
+      "prefix"      string => "$(globals.install_prefix)";
+
+  commands:
+
+      "/usr/bin/perl"
+        arglist => {
+                     $(converter),
+                     "--input",
+                     "/var/log/lynis-report.dat",
+                     "--json",
+                     "--output",
+                     "$(prefix)/lynis-report.json"
+                   },
+        if => not(fileexists( "$(prefix)/lynis-report.json" ));
+}
+
+bundle agent inventory
+# @brief Parse the JSON version of the lynis report data and inventory interesting data
+{
+  vars:
+
+      "prefix"      string => "$(globals.install_prefix)";
+
+      "d"
+        data => readjson("$(prefix)/lynis-report.json", inf ),
+        if => fileexists("$(prefix)/lynis-report.json");
+
+      "s" slist => getindices( "d[suggestion[]]" );
+      "detail_ids" slist => getindices( "d[details[]]" );
+
+      # Inventory the high level suggestions for CFEngine Enterprise Mission Portal
+      "suggestion_id[$(d[suggestion[]][$(s)][id])]"
+        string => "$(d[suggestion[]][$(s)][id])",
+        meta => { "inventory", "attribute_name=CISOfy Lynis Suggestion"};
+
+      # Inventory the suggestion details for CFEngine Enterprise Mission Portal
+      "detail[$(detail_ids)]"
+        string => "$(d[details[]][$(detail_ids)][id]) $(d[details[]][$(detail_ids)][description][desc]). $(d[details[]][$(detail_ids)][description][field]) prefers $(d[details[]][$(detail_ids)][description][prefval]) over  $(d[details[]][$(detail_ids)][description][value])",
+        meta => { "inventory", "attribute_name=CISOfy Lynis Suggestion $(d[details[]][$(detail_ids)][id])"};
+
+ reports:
+
+    inform_mode::
+     # Report suggestion details
+
+     "bundle $(this.bundle): $(d[details[]][$(detail_ids)][id]) $(d[details[]][$(detail_ids)][description][desc]). $(d[details[]][$(detail_ids)][description][field]) prefers $(d[details[]][$(detail_ids)][description][prefval]) over  $(d[details[]][$(detail_ids)][description][value])";
+}

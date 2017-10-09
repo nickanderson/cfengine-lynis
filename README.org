@@ -1,0 +1,51 @@
+#+Title: cfengine-lynis
+
+CFEngine policy to automate the installation, running, and reporting of [[https://cisofy.com/lynis/][CISOfy's
+lynis]] system audits.
+
+
+* Installation
+
+Run make install
+
+* Configuration
+
+
+* Usage :ATTACH:
+:PROPERTIES:
+:ID:       4f23848e-ef9c-44aa-b268-dafe86ff7979
+:Attachments: 2017-10-09_Selection_003_2017-10-09_12-50-52.png 2017-10-09_Selection_003_2017-10-09_14-38-01.png
+:END:
+
+When the policy is run with the =inform_mode= class defined it will report the
+findings.
+
+#+BEGIN_EXAMPLE
+R: bundle lynis_inventory: SSH-7408 sshd option AllowTcpForwarding. AllowTcpForwarding prefers NO over  YES
+R: bundle lynis_inventory: SSH-7408 sshd optio/cfenginen ClientAliveCountMax. ClientAliveCountMax prefers 2 over  3
+R: bundle lynis_inventory: SSH-7408 sshd option Compression. Compression prefers NO over  DELAYED
+R: bundle lynis_inventory: SSH-7408 sshd option LogLevel. LogLevel prefers VERBOSE over  INFO
+R: bundle lynis_inventory: SSH-7408 sshd option MaxAuthTries. MaxAuthTries prefers 2 over  6
+R: bundle lynis_inventory: SSH-7408 sshd option MaxSessions. MaxSessions prefers 2 over  10
+R: bundle lynis_inventory: SSH-7408 sshd option PermitRootLogin. PermitRootLogin prefers NO over  YES
+R: bundle lynis_inventory: SSH-7408 sshd option Port. Port prefers  over  22
+R: bundle lynis_inventory: SSH-7408 sshd option TCPKeepAlive. TCPKeepAlive prefers NO over  YES
+R: bundle lynis_inventory: SSH-7408 sshd option X11Forwarding. X11Forwarding prefers NO over  YES
+R: bundle lynis_inventory: KRNL-6000 Restrict use of dmesg. kernel.dmesg_restrict prefers 1 over  0
+R: bundle lynis_inventory: KRNL-6000 Restrict access to kernel symbols. kernel.kptr_restrict prefers 2 over  1
+R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv4.conf.all.accept_redirects prefers 0 over  1
+R: bundle lynis_inventory: KRNL-6000 Log all packages for which the host does not have a path back to the source. net.ipv4.conf.all.log_martians prefers 1 over  0
+R: bundle lynis_inventory: KRNL-6000 Enforce ingress/egress filtering for packets. net.ipv4.conf.all.rp_filter prefers 1 over  0
+R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv4.conf.all.send_redirects prefers 0 over  1
+R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv4.conf.default.accept_redirects prefers 0 over  1
+R: bundle lynis_inventory: KRNL-6000 Log all packages for which the host does not have a path back to the source. net.ipv4.conf.default.log_martians prefers 1 over  0
+R: bundle lynis_inventory: KRNL-6000 Do not use TCP time stamps. net.ipv4.tcp_timestamps prefers 0 over  1
+R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv6.conf.all.accept_redirects prefers 0 over  1
+R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv6.conf.default.accept_redirects prefers 0 over  1
+#+END_EXAMPLE
+
+CFEngine Enterprise will automatically collect and report on inventoried
+variables.
+
+#+DOWNLOADED: file:///home/nickanderson/Pictures/Screenshots/2017-10-09_Selection_003.png @ 2017-10-09 14:38:01
+[[file:data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/2017-10-09_Selection_003_2017-10-09_14-38-01.png]]
