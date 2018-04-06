@@ -82,6 +82,9 @@ bundle agent install_tar_gz
       "perl-JSON"
         policy => "present";
 
+      "perl-Data-Dumper"
+        policy => "present";
+
   commands:
 
       # Download the lynis-report-converter to $(converter) if it does not exist
