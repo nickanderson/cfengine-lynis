@@ -67,7 +67,9 @@ bundle agent install_tar_gz
 
   files:
 
-      "$(prefix)"
+      "$(prefix)/."
+        comment => "The directory that we are installing to needs to exist or
+                    downloads will fail.",
         create => "true";
 
   packages:
