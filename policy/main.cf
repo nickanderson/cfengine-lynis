@@ -99,7 +99,7 @@ bundle agent install_tar_gz
       # Download the lynis-report-converter to $(converter) if it does not exist
 
       "/usr/bin/curl"
-        if => not( fileexists( $(converter) ) ),
+        unless => fileexists( "$(converter)" ),
         arglist => {
                      "--silent",
                      "$(url[converter])",
@@ -114,6 +114,7 @@ bundle agent install_tar_gz
       "/usr/bin/curl"
         handle => "fetch_lynis_archive",
         arglist => {
+                     "--silent",
                      "$(url[lynis])",
                      "-L",
                      "--max-redirs",
@@ -122,10 +123,11 @@ bundle agent install_tar_gz
                      "$(lynis_archive)",
                      "-k"
                    },
-        if => not(strcmp(
-                          file_hash( $(lynis_archive), $(hash_type) ),
-                          $(archive_hash)
-                        ));
+        unless => fileexists( $(lynis_archive) );
+        # if => not(strcmp(
+        #                   file_hash( $(lynis_archive), $(hash_type) ),
+        #                   $(archive_hash)
+        #                 ));
 
       # Unpack $(lynis_archive) into $(globals.install_prefix) if
       # $(lynis_archive) matches the $(globals.hash_type) digest of
