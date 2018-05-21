@@ -101,6 +101,7 @@ bundle agent install_tar_gz
       "/usr/bin/curl"
         unless => fileexists( "$(converter)" ),
         arglist => {
+                     "--silent",
                      "$(url[converter])",
                      "--output",
                      "$(converter)",
