@@ -7,10 +7,11 @@ bundle agent globals
 {
   vars:
     !windows::
-      "version"      string => "2.5.5";
-      "archive_hash" string => "852a9380a51002ad3f8d3a231767b6f532a325a93cfc28aaed5bdd097145326a";
+      "version"      string => "2.6.4";
+      "archive_hash" string => "487dc69cb8c484f05b8d8dc3e425ede0af91cb3524e7e69ed6d83a675ac16e18";
+
       "hash_type"    string => "sha256";
-      "tar_url"      string => "https://github.com/CISOfy/lynis/archive/$(version).tar.gz";
+      "tar_url"      string => "https://downloads.cisofy.com/lynis/lynis-$(version).tar.gz";
 
       "max_report_age" string => "1";
 
