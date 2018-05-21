@@ -99,7 +99,7 @@ bundle agent install_tar_gz
       # Download the lynis-report-converter to $(converter) if it does not exist
 
       "/usr/bin/curl"
-        unless => fileexists( "$(converter)" ),
+        unless => fileexists( $(converter) ),
         arglist => {
                      "--silent",
                      "$(url[converter])",
