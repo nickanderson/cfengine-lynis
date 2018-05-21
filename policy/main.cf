@@ -6,6 +6,7 @@ body file control
 bundle agent globals
 {
   vars:
+    !windows::
       "version"      string => "2.5.5";
       "archive_hash" string => "852a9380a51002ad3f8d3a231767b6f532a325a93cfc28aaed5bdd097145326a";
       "hash_type"    string => "sha256";
@@ -21,11 +22,13 @@ bundle agent main
 {
   meta:
 
-    default:services_autorun::
+    default:services_autorun.!windows::
 
       "tags" slist => { "autorun" };
 
-    methods:
+  methods:
+
+    !windows::
 
       "globals";
       "report_freshness";
@@ -38,11 +41,13 @@ bundle agent main
 bundle agent report_freshness
 {
   vars:
+    !windows::
       "max_age" string => "$(globals.max_age)";
       "data" string => "$(globals.report_data)";
       "prefix" string => "$(globals.install_prefix)";
 
   files:
+    !windows::
       "$(report_data)"
         delete => default:tidy,
         file_select => default:days_old( $(max_age) );
@@ -55,6 +60,7 @@ bundle agent report_freshness
 bundle agent install_tar_gz
 {
   vars:
+    !windows::
       "url[lynis]"     string => "https://github.com/CISOfy/lynis/archive/$(globals.version).tar.gz";
       "url[converter]" string => "https://raw.githubusercontent.com/d4t4king/lynis-report-converter/master/lynis-report-converter.pl";
       "lynis_archive"  string => "$(globals.install_prefix)/lynis-$(globals.version).tar.gz";
@@ -66,7 +72,7 @@ bundle agent install_tar_gz
       "version"        string => "$(globals.version)";
 
   files:
-
+    !windows::
       "$(prefix)/."
         comment => "The directory that we are installing to needs to exist or
                     downloads will fail.",
@@ -86,6 +92,8 @@ bundle agent install_tar_gz
         policy => "present";
 
   commands:
+
+    !windows::
 
       # Download the lynis-report-converter to $(converter) if it does not exist
 
@@ -141,11 +149,16 @@ bundle agent audit
 # not available.
 {
   vars:
+
+    !windows::
+
       "report_data" string => "$(globals.report_data)";
       "lynis" string => "$(install_tar_gz.lynis)";
       "lynis_dir" string => dirname( $(lynis) );
 
   commands:
+
+    !windows::
 
      "$(lynis)"
         contain => default:in_dir_shell( "$(lynis_dir)" ),
@@ -157,6 +170,9 @@ bundle agent report_format
 # @brief Ensure there is an easily consumable version of the lynis report data
 {
   vars:
+
+    !windows::
+
       "report_data" string => "$(globals.report_data)";
       "converter"   string => "$(install_tar_gz.converter)";
       "prefix"      string => "$(globals.install_prefix)";
@@ -179,6 +195,8 @@ bundle agent inventory
 # @brief Parse the JSON version of the lynis report data and inventory interesting data
 {
   vars:
+
+    !windows::
 
       "prefix"      string => "$(globals.install_prefix)";
 
@@ -206,7 +224,7 @@ bundle agent inventory
 
  reports:
 
-    inform_mode::
+    inform_mode.!windows::
      # Report suggestion details
 
      "bundle $(this.bundle): $(d[details[]][$(detail_ids)][id]) $(d[details[]][$(detail_ids)][description][desc]). $(d[details[]][$(detail_ids)][description][field]) prefers $(d[details[]][$(detail_ids)][description][prefval]) over  $(d[details[]][$(detail_ids)][description][value])";
