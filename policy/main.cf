@@ -6,7 +6,7 @@ body file control
 bundle agent globals
 {
   vars:
-    !windows::
+    linux::
       "version"      string => "2.6.4";
       "archive_hash" string => "487dc69cb8c484f05b8d8dc3e425ede0af91cb3524e7e69ed6d83a675ac16e18";
 
@@ -23,13 +23,13 @@ bundle agent main
 {
   meta:
 
-    default:services_autorun.!windows::
+    default:services_autorun.linux::
 
       "tags" slist => { "autorun" };
 
   methods:
 
-    !windows::
+    linux::
 
       "globals";
       "report_freshness";
@@ -42,13 +42,13 @@ bundle agent main
 bundle agent report_freshness
 {
   vars:
-    !windows::
+    linux::
       "max_age" string => "$(globals.max_age)";
       "data" string => "$(globals.report_data)";
       "prefix" string => "$(globals.install_prefix)";
 
   files:
-    !windows::
+    linux::
       "$(report_data)"
         delete => default:tidy,
         file_select => default:days_old( $(max_age) );
@@ -61,7 +61,7 @@ bundle agent report_freshness
 bundle agent install_tar_gz
 {
   vars:
-    !windows::
+    linux::
       "url[lynis]"     string => "https://github.com/CISOfy/lynis/archive/$(globals.version).tar.gz";
       "url[converter]" string => "https://raw.githubusercontent.com/d4t4king/lynis-report-converter/master/lynis-report-converter.pl";
       "lynis_archive"  string => "$(globals.install_prefix)/lynis-$(globals.version).tar.gz";
@@ -73,7 +73,7 @@ bundle agent install_tar_gz
       "version"        string => "$(globals.version)";
 
   files:
-    !windows::
+    linux::
       "$(prefix)/."
         comment => "The directory that we are installing to needs to exist or
                     downloads will fail.",
@@ -94,7 +94,7 @@ bundle agent install_tar_gz
 
   commands:
 
-    !windows::
+    linux::
 
       # Download the lynis-report-converter to $(converter) if it does not exist
 
@@ -154,7 +154,7 @@ bundle agent audit
 {
   vars:
 
-    !windows::
+   linux::
 
       "report_data" string => "$(globals.report_data)";
       "lynis" string => "$(install_tar_gz.lynis)";
@@ -162,7 +162,7 @@ bundle agent audit
 
   commands:
 
-    !windows::
+    linux::
 
      "$(lynis)"
         contain => default:in_dir_shell( "$(lynis_dir)" ),
@@ -175,7 +175,7 @@ bundle agent report_format
 {
   vars:
 
-    !windows::
+    linux::
 
       "report_data" string => "$(globals.report_data)";
       "converter"   string => "$(install_tar_gz.converter)";
@@ -200,7 +200,7 @@ bundle agent inventory
 {
   vars:
 
-    !windows::
+    linux::
 
       "prefix"      string => "$(globals.install_prefix)";
 
@@ -228,7 +228,10 @@ bundle agent inventory
 
  reports:
 
-    inform_mode.!windows::
+    inform_mode.!linux::
+      "NOTICE: This platform is not currently supported by $(this.namespace):$(this.bundle) in $(this.promise_filename)";
+
+    inform_mode.linux::
      # Report suggestion details
 
      "bundle $(this.bundle): $(d[details[]][$(detail_ids)][id]) $(d[details[]][$(detail_ids)][description][desc]). $(d[details[]][$(detail_ids)][description][field]) prefers $(d[details[]][$(detail_ids)][description][prefval]) over  $(d[details[]][$(detail_ids)][description][value])";
