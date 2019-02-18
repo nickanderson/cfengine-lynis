@@ -53,10 +53,10 @@ Or you can actuate it with a =methods= promise from your existing policy.
 * Configuration
 
 
-* Usage :ATTACH:
+* Usage                                                              :ATTACH:
 :PROPERTIES:
 :ID:       4f23848e-ef9c-44aa-b268-dafe86ff7979
-:Attachments: 2017-10-09_Selection_003_2017-10-09_12-50-52.png 2017-10-09_Selection_003_2017-10-09_14-38-01.png
+:Attachments: 2017-10-09_Selection_003_2017-10-09_12-50-52.png 2017-10-09_Selection_003_2017-10-09_14-38-01.png CISOfy-lynis-2.7.1-summary_2019-02-18_12-16-01.png
 :END:
 
 When the policy is run with the =inform_mode= class defined it will report the
@@ -89,5 +89,6 @@ R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.
 CFEngine Enterprise will automatically collect and report on inventoried
 variables.
 
-#+DOWNLOADED: file:///home/nickanderson/Pictures/Screenshots/2017-10-09_Selection_003.png @ 2017-10-09 14:38:01
-[[file:data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/2017-10-09_Selection_003_2017-10-09_14-38-01.png]]
+#+DOWNLOADED: file:///home/nickanderson/Pictures/Screenshots/CISOfy-lynis-2.7.1-summary.png @ 2019-02-18 12:16:02
+[[file:data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/CISOfy-lynis-2.7.1-summary_2019-02-18_12-16-01.png]]
+
