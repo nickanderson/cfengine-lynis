@@ -8,7 +8,13 @@ Inventories:
 - Suggestion IDs
 - Suggestion Details
 
-* Installation
+
+#+DOWNLOADED: file:///home/nickanderson/Pictures/Screenshots/CISOfy-lynis-2.7.1-summary.png @ 2019-02-18 12:16:02
+[[file:data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/CISOfy-lynis-2.7.1-summary_2019-02-18_12-16-01.png]]
+
+* Install and configuration
+
+** Manual installation
 
 From the root of a repository clone ~make install~.
 
@@ -48,6 +54,14 @@ Or you can actuate it with a =methods= promise from your existing policy.
         "CISOfy Lynis"
           usebundle => lynis:main;
   }
+#+END_SRC
+
+** cpm
+
+Install with cpm (the unofficial cfengine package|policy manager).
+
+#+BEGIN_SRC sh
+  cpm install cfengine-lynis 
 #+END_SRC
 
 * Configuration
