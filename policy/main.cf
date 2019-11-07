@@ -6,15 +6,24 @@ body file control
 bundle agent globals
 {
   vars:
-    linux::
-      "version"      string => "2.7.1";
-      "archive_hash" string => "f23dd57561f273a7e39e4597277571973dadbab6a131a4712340a6d0b36091f5";
+    default:linux::
+      "version"
+        string => ifelse(
+                          isvariable( "def.lynis[globals][version]"),
+                                      "$(def.lynis[globals][version])",
+                          "2.7.1");
+
+      "archive_hash"
+        string => ifelse(
+                          isvariable( "def.lynis[globals][archive_hash]"),
+                          "$(def.lynis[globals][archive_hash])",
+        "f23dd57561f273a7e39e4597277571973dadbab6a131a4712340a6d0b36091f5");
       # Website SHA256 hash: f23dd57561f273a7e39e4597277571973dadbab6a131a4712340a6d0b36091f5
 
       "hash_type"    string => "sha256";
       "tar_url"      string => "https://downloads.cisofy.com/lynis/lynis-$(version).tar.gz";
 
-      "max_report_age" string => "1";
+      "max_age" string => "1";
 
       "install_prefix" string => "/opt/lynis";
       "report_data" string => "/var/log/lynis-report.dat";
@@ -22,11 +31,6 @@ bundle agent globals
 
 bundle agent main
 {
-  meta:
-
-    default:services_autorun.default:linux::
-
-      "tags" slist => { "autorun" };
 
   methods:
 
@@ -43,14 +47,15 @@ bundle agent main
 bundle agent report_freshness
 {
   vars:
-    linux::
+
+    default:linux::
       "max_age" string => "$(globals.max_age)";
       "data" string => "$(globals.report_data)";
       "prefix" string => "$(globals.install_prefix)";
 
   files:
-    linux::
-      "$(report_data)"
+    default:linux::
+      "$(data)"
         delete => default:tidy,
         file_select => default:days_old( $(max_age) );
 
@@ -62,7 +67,7 @@ bundle agent report_freshness
 bundle agent install_tar_gz
 {
   vars:
-    linux::
+    default:linux::
       # The github and website packages have differnt shas
       #"url[lynis]"     string => "https://github.com/CISOfy/lynis/archive/$(globals.version).tar.gz";
       "url[lynis]"     string => "$(globals.tar_url)";
@@ -76,7 +81,7 @@ bundle agent install_tar_gz
       "version"        string => "$(globals.version)";
 
   files:
-    linux::
+    default:linux::
       "$(prefix)/."
         comment => "The directory that we are installing to needs to exist or
                     downloads will fail.",
@@ -87,7 +92,7 @@ bundle agent install_tar_gz
 
   packages:
 
-    centos|redhat::
+    default:centos|default:redhat::
 
       "perl-Module-Load-Conditional"
         policy => "present";
@@ -98,9 +103,13 @@ bundle agent install_tar_gz
       "perl-Data-Dumper"
         policy => "present";
 
+    default:ubuntu|default:debian::
+      "libjson-perl"
+        policy => "present";
+
   commands:
 
-    linux::
+    default:linux::
 
       # Download the lynis-report-converter to $(converter) if it does not exist
 
@@ -129,7 +138,7 @@ bundle agent install_tar_gz
                      "$(lynis_archive)",
                      #"-k"
                    },
-        unless => fileexists( $(lynis_archive) );
+        if => not(fileexists( $(lynis_archive) ));
         # if => not(strcmp(
         #                   file_hash( $(lynis_archive), $(hash_type) ),
         #                   $(archive_hash)
@@ -164,7 +173,7 @@ bundle agent audit
 {
   vars:
 
-   linux::
+   default:linux::
 
       "report_data" string => "$(globals.report_data)";
       "lynis" string => "$(install_tar_gz.lynis)";
@@ -172,7 +181,7 @@ bundle agent audit
 
   commands:
 
-    linux::
+    default:linux::
 
      "$(lynis)"
         contain => default:in_dir_shell( "$(lynis_dir)" ),
@@ -185,7 +194,7 @@ bundle agent report_format
 {
   vars:
 
-    linux::
+    default:linux::
 
       "report_data" string => "$(globals.report_data)";
       "converter"   string => "$(install_tar_gz.converter)";
@@ -210,7 +219,7 @@ bundle agent inventory
 {
   vars:
 
-    linux::
+    default:linux::
 
       "prefix"      string => "$(globals.install_prefix)";
 
@@ -220,7 +229,8 @@ bundle agent inventory
 
       "v"
         string => "$(d[lynis_version])",
-        meta => { "inventory", "attribute_name=CISOfy Lynis Version" };
+        meta => { "inventory", "attribute_name=CISOfy Lynis Version" },
+        if => isvariable( "d[lynis_version]" );
 
       "s" slist => getindices( "d[suggestion[]]" );
       "detail_ids" slist => getindices( "d[details[]]" );
@@ -238,15 +248,15 @@ bundle agent inventory
       # Inventory Lynis Security Hardening index
       "hardening_index"
         string => "$(d[hardening_index])",
-        meta => { "inventory", "attribute_name=CISOfy Lynis Hardening Index"};
-
+        meta => { "inventory", "attribute_name=CISOfy Lynis Hardening Index"},
+        if => isvariable( "d[hardening_index]" );
 
  reports:
 
-    inform_mode.!linux::
+    default:inform_mode.!default:linux::
       "NOTICE: This platform is not currently supported by $(this.namespace):$(this.bundle) in $(this.promise_filename)";
 
-    inform_mode.linux::
+    default:inform_mode.default:linux::
      # Report suggestion details
 
      "bundle $(this.bundle): $(d[details[]][$(detail_ids)][id]) $(d[details[]][$(detail_ids)][description][desc]). $(d[details[]][$(detail_ids)][description][field]) prefers $(d[details[]][$(detail_ids)][description][prefval]) over  $(d[details[]][$(detail_ids)][description][value])";
