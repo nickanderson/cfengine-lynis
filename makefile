@@ -1,5 +1,6 @@
 MASTERFILES ?= /var/cfengine/masterfiles
-PROJECT ?= $(shell basename $(CURDIR) )
+#PROJECT ?= $(shell basename $(CURDIR) )
+PROJECT ?= lynis
 INSTALL_TARGET=${MASTERFILES}/services/${PROJECT}
 FILES=$(shell find .)
 install: ${FILES}
