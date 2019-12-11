@@ -240,10 +240,21 @@ bundle agent inventory
         string => "$(d[suggestion[]][$(s)][id])",
         meta => { "inventory", "attribute_name=CISOfy Lynis Suggestion"};
 
+      # Inventory the high level suggestions for CFEngine Enterprise Mission Portal
+      "suggestion_descriptions[$(d[suggestion[]][$(s)][id])]"
+        string => "$(d[suggestion[]][$(s)][id]): $(d[suggestion[]][$(s)][description]) ",
+        meta => { "inventory", "attribute_name=CISOfy Lynis High level suggestions"};
+
       # Inventory the suggestion details for CFEngine Enterprise Mission Portal
       "detail[$(detail_ids)]"
         string => "$(d[details[]][$(detail_ids)][id]) $(d[details[]][$(detail_ids)][description][desc]). $(d[details[]][$(detail_ids)][description][field]) prefers $(d[details[]][$(detail_ids)][description][prefval]) over  $(d[details[]][$(detail_ids)][description][value])",
-        meta => { "inventory", "attribute_name=CISOfy Lynis Suggestion $(d[details[]][$(detail_ids)][id])"};
+        meta => { "inventory", "attribute_name=CISOfy Lynis Detailed Suggestion $(d[details[]][$(detail_ids)][id])"};
+
+      # Inventory report scan completion datetime
+      "report_datetime_end"
+        string => "$(d[report_datetime_end])",
+        meta => { "inventory", "attribute_name=CISOfy Lynis Datetime scan completed"},
+        if => isvariable( "d[report_datetime_end]" );
 
       # Inventory Lynis Security Hardening index
       "hardening_index"
