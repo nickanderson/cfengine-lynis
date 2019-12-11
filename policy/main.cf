@@ -11,13 +11,13 @@ bundle agent globals
         string => ifelse(
                           isvariable( "def.lynis[globals][version]"),
                                       "$(def.lynis[globals][version])",
-                          "2.7.1");
+                          "2.7.5");
 
       "archive_hash"
         string => ifelse(
                           isvariable( "def.lynis[globals][archive_hash]"),
                           "$(def.lynis[globals][archive_hash])",
-        "f23dd57561f273a7e39e4597277571973dadbab6a131a4712340a6d0b36091f5");
+                          "3d27ade73a5c1248925ad9c060024940ce5d2029f40aaa901f43314888fe324d");
       # Website SHA256 hash: f23dd57561f273a7e39e4597277571973dadbab6a131a4712340a6d0b36091f5
 
       "hash_type"    string => "sha256";
