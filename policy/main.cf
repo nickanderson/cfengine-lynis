@@ -92,7 +92,7 @@ bundle agent install_tar_gz
 
   packages:
 
-    default:centos|default:redhat::
+    (default:centos|default:redhat)::
 
       "perl-Module-Load-Conditional"
         policy => "present";
@@ -100,7 +100,17 @@ bundle agent install_tar_gz
       "perl-JSON"
         policy => "present";
 
+    (default:centos|default:redhat).!(default:centos_6|default:redhat_6)::
+
       "perl-Data-Dumper"
+        policy => "present";
+
+    default:centos_6|default:redhat_6::
+
+      "perl-Data-Dumper-Concise"
+        policy => "present";
+
+      "perl-Data-Dumper-Names"
         policy => "present";
 
     default:ubuntu|default:debian::
