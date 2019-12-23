@@ -212,7 +212,7 @@ bundle agent report_format
 
   commands:
 
-      "/usr/bin/perl"
+      "$(paths.perl)"
         arglist => {
                      $(converter),
                      "--input",
