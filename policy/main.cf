@@ -212,6 +212,7 @@ bundle agent report_format
 
   commands:
 
+    default:_stdlib_path_exists_perl::
       "$(paths.perl)"
         arglist => {
                      $(converter),
