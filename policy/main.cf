@@ -136,7 +136,7 @@ bundle agent install_tar_gz
       # Download $(lynis_archive) if it does not match the
       # $(globals.hash_type) digest of $(globals.archive_hash)
 
-      "/usr/bin/curl"
+      "$(paths.curl)"
         handle => "fetch_lynis_archive",
         arglist => {
                      "--silent",
