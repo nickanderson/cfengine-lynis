@@ -168,4 +168,3 @@ Build a custom dashboard to visualize the latest scan result.
 #+CAPTION: Example dashboard visualizing last Lynis scan result
 #+DOWNLOADED: file:///home/nickanderson/Downloads/CFEngine-3.15.0-CISOfy-Lynis-Security-Dashboard_2020-02-20T17-41-18.130Z.png @ 2020-02-20 12:17:10
 [[./data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/2020-02-20_12-17-10_CFEngine-3.15.0-CISOfy-Lynis-Security-Dashboard_2020-02-20T17-41-18.130Z.png]]
-* Development Notes                                                :noexport:
