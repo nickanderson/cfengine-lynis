@@ -1,18 +1,26 @@
 #+Title: cfengine-lynis
 
 CFEngine policy to automate the installation, running, and reporting of [[https://cisofy.com/lynis/][CISOfy's
-lynis]] system audits.
+Lynis]] system audits.
 
 Inventories:
+- Lynis Version
+- Last scan date
 - Hardening Index
-- Suggestion IDs
+- Warnings
+- Suggestions
 - Suggestion Details
+- Finding IDs (Control IDs that produced Warnings or Suggestions)
+- Count of Finding IDs
 
+#+CAPTION: CISOfy Lynis Scan Inventory Summary
+#+DOWNLOADED: file:///home/nickanderson/Downloads/CFEngine-3.15.0-CISOfy-Lynis-Scan-Summary_2020-02-20T18-08-11.385Z.png @ 2020-02-20 12:09:38
+[[./images/2020-02-20_12-09-38_CFEngine-3.15.0-CISOfy-Lynis-Scan-Summary_2020-02-20T18-08-11.385Z.png]]
 
-#+DOWNLOADED: file:///home/nickanderson/Pictures/Screenshots/CISOfy-lynis-2.7.1-summary.png @ 2019-02-18 12:16:02
-[[file:data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/CISOfy-lynis-2.7.1-summary_2019-02-18_12-16-01.png]]
-
-* Install and configuration
+* Install and configuration                                          :ATTACH:
+:PROPERTIES:
+:ID:       8690ea14-1422-437d-b42a-5c244df87290
+:END:
 
 ** Manual installation
 
@@ -76,663 +84,89 @@ Install with cpm (the unofficial cfengine package|policy manager).
 When the policy is run with the =inform_mode= class defined it will report the
 findings.
 
+#+CAPTION: Example of policy output produced when run with =inform_mode= class defined
 #+BEGIN_EXAMPLE
-R: bundle lynis_inventory: SSH-7408 sshd option AllowTcpForwarding. AllowTcpForwarding prefers NO over  YES
-R: bundle lynis_inventory: SSH-7408 sshd optio/cfenginen ClientAliveCountMax. ClientAliveCountMax prefers 2 over  3
-R: bundle lynis_inventory: SSH-7408 sshd option Compression. Compression prefers NO over  DELAYED
-R: bundle lynis_inventory: SSH-7408 sshd option LogLevel. LogLevel prefers VERBOSE over  INFO
-R: bundle lynis_inventory: SSH-7408 sshd option MaxAuthTries. MaxAuthTries prefers 2 over  6
-R: bundle lynis_inventory: SSH-7408 sshd option MaxSessions. MaxSessions prefers 2 over  10
-R: bundle lynis_inventory: SSH-7408 sshd option PermitRootLogin. PermitRootLogin prefers NO over  YES
-R: bundle lynis_inventory: SSH-7408 sshd option Port. Port prefers  over  22
-R: bundle lynis_inventory: SSH-7408 sshd option TCPKeepAlive. TCPKeepAlive prefers NO over  YES
-R: bundle lynis_inventory: SSH-7408 sshd option X11Forwarding. X11Forwarding prefers NO over  YES
-R: bundle lynis_inventory: KRNL-6000 Restrict use of dmesg. kernel.dmesg_restrict prefers 1 over  0
-R: bundle lynis_inventory: KRNL-6000 Restrict access to kernel symbols. kernel.kptr_restrict prefers 2 over  1
-R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv4.conf.all.accept_redirects prefers 0 over  1
-R: bundle lynis_inventory: KRNL-6000 Log all packages for which the host does not have a path back to the source. net.ipv4.conf.all.log_martians prefers 1 over  0
-R: bundle lynis_inventory: KRNL-6000 Enforce ingress/egress filtering for packets. net.ipv4.conf.all.rp_filter prefers 1 over  0
-R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv4.conf.all.send_redirects prefers 0 over  1
-R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv4.conf.default.accept_redirects prefers 0 over  1
-R: bundle lynis_inventory: KRNL-6000 Log all packages for which the host does not have a path back to the source. net.ipv4.conf.default.log_martians prefers 1 over  0
-R: bundle lynis_inventory: KRNL-6000 Do not use TCP time stamps. net.ipv4.tcp_timestamps prefers 0 over  1
-R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv6.conf.all.accept_redirects prefers 0 over  1
-R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv6.conf.default.accept_redirects prefers 0 over  1
+R: CISOfy Lynis Version: 2.7.5
+R: Last scan completed: 2020-02-20 17:26:05
+R: Hardening index: 66 (higher is better)
+R: ----- Control IDs with findings (suggestion, warning) ------
+R: KRNL-6000
+R: HRDN-7222
+R: AUTH-9328
+R: SSH-7408
+R: STRG-1846
+R: FILE-6310
+R: PKGS-7420
+R: MAIL-8818
+R: FINT-4350
+R: STRG-1840
+R: NETW-3032
+R: BANN-7126
+R: AUTH-9286
+R: BANN-7130
+R: ACCT-9630
+R: LYNIS
+R: ACCT-9622
+R: NAME-4406
+R: HRDN-7230
+R: ----- Warnings -----
+R: MAIL-8818 -- Found some information disclosure in SMTP banner (OS or software name)
+R: ----- Suggestions -----
+R: KRNL-6000 -- One or more sysctl values differ from the scan profile and could be tweaked
+R: HRDN-7222 -- Harden compilers like restricting access to root user only
+R: AUTH-9328 -- Default umask in /etc/profile or /etc/profile.d/custom.sh could be more strict (e.g. 027)
+R: SSH-7408 -- Consider hardening SSH configuration
+R: STRG-1846 -- Disable drivers like firewire storage when not used, to prevent unauthorized storage or data theft
+R: FILE-6310 -- To decrease the impact of a full /var file system, place /var on a separate partition
+R: PKGS-7420 -- Consider using a tool to automatically apply upgrades
+R: MAIL-8818 -- You are advised to hide the mail_name (option: smtpd_banner) from your postfix configuration. Use postconf -e or change your main.cf file (/etc/postfix/main.cf)
+R: FINT-4350 -- Install a file integrity tool to monitor changes to critical and sensitive files
+R: STRG-1840 -- Disable drivers like USB storage when not used, to prevent unauthorized storage or data theft
+R: NETW-3032 -- Consider running ARP monitoring software (arpwatch,arpon)
+R: BANN-7126 -- Add a legal banner to /etc/issue, to warn unauthorized users
+R: AUTH-9286 -- Configure maximum password age in /etc/login.defs
+R: BANN-7130 -- Add legal banner to /etc/issue.net, to warn unauthorized users
+R: ACCT-9630 -- Audit daemon is enabled with an empty ruleset. Disable the daemon or define rules
+R: LYNIS -- This release is more than 4 months old. Consider upgrading
+R: ACCT-9622 -- Enable process accounting
+R: NAME-4406 -- Split resolving between localhost and the hostname of the system
+R: HRDN-7230 -- Harden the system by installing at least one malware scanner, to perform periodic file system scans
+R: ----- Details -----
+R: SSH-7408 LogLevel -- LogLevel value is 'INFO' prefer 'VERBOSE'
+R: SSH-7408 TCPKeepAlive -- TCPKeepAlive value is 'YES' prefer 'NO'
+R: KRNL-6000 kernel.dmesg_restrict -- kernel.dmesg_restrict value is '0' prefer '1'
+R: KRNL-6000 kernel.sysrq -- kernel.sysrq value is '16' prefer '0'
+R: SSH-7408 X11Forwarding -- X11Forwarding value is 'YES' prefer 'NO'
+R: SSH-7408 MaxAuthTries -- MaxAuthTries value is '6' prefer '3'
+R: SSH-7408 AllowTcpForwarding -- AllowTcpForwarding value is 'YES' prefer 'NO'
+R: KRNL-6000 net.ipv6.conf.all.accept_redirects -- net.ipv6.conf.all.accept_redirects value is '1' prefer '0'
+R: KRNL-6000 net.ipv4.conf.default.accept_redirects -- net.ipv4.conf.default.accept_redirects value is '1' prefer '0'
+R: KRNL-6000 net.ipv6.conf.default.accept_redirects -- net.ipv6.conf.default.accept_redirects value is '1' prefer '0'
+R: KRNL-6000 kernel.kptr_restrict -- kernel.kptr_restrict value is '0' prefer '2'
+R: SSH-7408 PermitRootLogin -- PermitRootLogin value is 'YES' prefer '(NO|PROHIBIT-PASSWORD|WITHOUT-PASSWORD)'
+R: SSH-7408 MaxSessions -- MaxSessions value is '10' prefer '2'
+R: SSH-7408 Port -- Port value is '22' prefer ''
+R: SSH-7408 ClientAliveCountMax -- ClientAliveCountMax value is '3' prefer '2'
+R: KRNL-6000 net.ipv4.conf.all.accept_redirects -- net.ipv4.conf.all.accept_redirects value is '1' prefer '0'
+R: KRNL-6000 net.ipv4.conf.all.log_martians -- net.ipv4.conf.all.log_martians value is '0' prefer '1'
+R: KRNL-6000 kernel.yama.ptrace_scope -- kernel.yama.ptrace_scope value is '0' prefer '1 2 3'
+R: SSH-7408 AllowAgentForwarding -- AllowAgentForwarding value is 'YES' prefer 'NO'
+R: KRNL-6000 net.ipv4.conf.all.send_redirects -- net.ipv4.conf.all.send_redirects value is '1' prefer '0'
+R: SSH-7408 Compression -- Compression value is 'YES' prefer 'NO'
+R: KRNL-6000 net.ipv4.conf.default.log_martians -- net.ipv4.conf.default.log_martians value is '0' prefer '1'
 #+END_EXAMPLE
 
 CFEngine Enterprise will automatically collect and report on inventoried
 variables.
 
-#+DOWNLOADED: file:///home/nickanderson/Pictures/Screenshots/CISOfy-lynis-2.7.1-summary.png @ 2019-02-18 12:16:02
-[[file:data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/CISOfy-lynis-2.7.1-summary_2019-02-18_12-16-01.png]]
+#+CAPTION: CISOfy Lynis Scan Inventory Summary
+#+DOWNLOADED: file:///home/nickanderson/src/cfengine-lynis/images/2020-02-20_12-09-38_CFEngine-3.15.0-CISOfy-Lynis-Scan-Summary_2020-02-20T18-08-11.385Z.png @ 2020-02-20 12:13:50
+[[attachment:2020-02-20_12-13-50_2020-02-20_12-09-38_CFEngine-3.15.0-CISOfy-Lynis-Scan-Summary_2020-02-20T18-08-11.385Z.png]]
 
+Build a custom dashboard to visualize the latest scan result.
 
-* Development Notes :noexport:
-** TODO Parse lynis-report.dat natively
-:PROPERTIES:
-:CREATED:  2019-12-16
-:END:
+#+CAPTION: Example dashboard visualizing last Lynis scan result
+#+DOWNLOADED: file:///home/nickanderson/Downloads/CFEngine-3.15.0-CISOfy-Lynis-Security-Dashboard_2020-02-20T17-41-18.130Z.png @ 2020-02-20 12:17:10
+[[attachment:2020-02-20_12-17-10_CFEngine-3.15.0-CISOfy-Lynis-Security-Dashboard_2020-02-20T17-41-18.130Z.png]]
 
-Instead of using [[https://github.com/d4t4king/lynis-report-converter][~lynis-report-converter.pl~]] (GPL v3.0) which adds dependencies ( =perl-Module-Load-Conditional=, =perl-JSON=, =perl-Data-Dumper= ), consider using builtin capabilities.
-
-- =readenvfile()=
-- =data_readstringarrayidx()= :: Able to parse with this, but lots of work, especially in comparison to reading a json file. Each key needs to be handled separately, especially for keys ending in =[]= like =suggestion[]==.
-
-*** Example Report
-#+begin_src text :tangle /tmp/lynis-report.dat
-  # Lynis Report
-  report_version_major=1
-  report_version_minor=0
-  report_datetime_start=2019-12-16 18:33:44
-  auditor=[Not Specified]
-  lynis_version=2.7.4
-  os=Linux
-  os_name=CentOS
-  os_fullname=CentOS release 6.5 (Final)
-  os_version=CentOS release 6.5 (Final)
-  linux_version=CentOS
-  os_kernel_version=2.6.32
-  os_kernel_version_full=2.6.32-431.el6.x86_64
-  hostname=hub
-  test_category=all
-  test_group=all
-  plugin_directory=./plugins
-  lynis_update_available=-1
-  suggestion[]=LYNIS|This release is more than 4 months old. Consider upgrading|-|-|
-  binaries_count=992
-  binary_paths=/var/cfengine/bin,/usr/bin,/usr/sbin,/bin,/sbin,/usr/local/sbin,/usr/local/bin,/usr/local/libexec,/usr/libexec
-  vm=1
-  vmtype=virtualbox
-  container=0
-  systemd=0
-  plugins_enabled=0
-  hostid=46dc14c5ff2f7c9dfbc66d9895cb1baf35ec233d
-  hostid2=ece29edf2514bc462ea00ccd1eee0214a89078b745f54f461b393ff9b698c262
-  suggestion[]=BOOT-5122|Set a password on GRUB bootloader to prevent altering boot configuration (e.g. boot in single user mode without password)|-|-|
-  boot_service_tool=chkconfig
-  boot_service[]=auditd
-  boot_service[]=blk-availability
-  boot_service[]=cfengine3
-  boot_service[]=crond
-  boot_service[]=ip6tables
-  boot_service[]=iptables
-  boot_service[]=lvm2-monitor
-  boot_service[]=netfs
-  boot_service[]=network
-  boot_service[]=nfslock
-  boot_service[]=postfix
-  boot_service[]=rpcbind
-  boot_service[]=rpcgssd
-  boot_service[]=rsyslog
-  boot_service[]=sshd
-  boot_service[]=udev-post
-  boot_service[]=vboxadd
-  boot_service[]=vboxadd-service
-  boot_service[]=vboxadd-x11
-  uptime_in_seconds=707
-  uptime_in_days=0
-  boot_loader=GRUB
-  boot_uefi_booted=0
-  boot_uefi_booted_secure=0
-  service_manager=upstart
-  linux_default_runlevel=3
-  cpu_pae=1
-  cpu_nx=1
-  linux_kernel_release=2.6.32-431.el6.x86_64
-  linux_kernel_version=#1 SMP Fri Nov 22 03:15:09 UTC 2013
-  linux_kernel_type=modular
-  loaded_kernel_module[]=ata_generic
-  loaded_kernel_module[]=ata_piix
-  loaded_kernel_module[]=crc_t10dif
-  loaded_kernel_module[]=dm_log
-  loaded_kernel_module[]=dm_mirror
-  loaded_kernel_module[]=dm_mod
-  loaded_kernel_module[]=dm_region_hash
-  loaded_kernel_module[]=drm
-  loaded_kernel_module[]=e1000
-  loaded_kernel_module[]=ext4
-  loaded_kernel_module[]=i2c_core
-  loaded_kernel_module[]=i2c_piix4
-  loaded_kernel_module[]=inet_diag
-  loaded_kernel_module[]=ipv6
-  loaded_kernel_module[]=jbd2
-  loaded_kernel_module[]=mbcache
-  loaded_kernel_module[]=output
-  loaded_kernel_module[]=pata_acpi
-  loaded_kernel_module[]=sd_mod
-  loaded_kernel_module[]=sg
-  loaded_kernel_module[]=tcp_diag
-  loaded_kernel_module[]=vboxguest
-  loaded_kernel_module[]=vboxsf
-  loaded_kernel_module[]=vboxvideo
-  loaded_kernel_module[]=video
-  linux_config_file=/boot/config-2.6.32-431.el6.x86_64
-  linux_kernel_io_scheduler[]=cfq
-  memory_size=502056
-  memory_units=kB
-  auth_group_ids_unique=1
-  auth_group_names_unique=1
-  real_user[]=root,0
-  real_user[]=vagrant,500
-  pam_cracklib=1
-  pam_module[]=/lib64/security/pam_access.so
-  pam_module[]=/lib64/security/pam_cap.so
-  pam_module[]=/lib64/security/pam_chroot.so
-  pam_module[]=/lib64/security/pam_console.so
-  pam_module[]=/lib64/security/pam_cracklib.so
-  pam_module[]=/lib64/security/pam_debug.so
-  pam_module[]=/lib64/security/pam_deny.so
-  pam_module[]=/lib64/security/pam_echo.so
-  pam_module[]=/lib64/security/pam_env.so
-  pam_module[]=/lib64/security/pam_exec.so
-  pam_module[]=/lib64/security/pam_faildelay.so
-  pam_module[]=/lib64/security/pam_faillock.so
-  pam_module[]=/lib64/security/pam_filter.so
-  pam_module[]=/lib64/security/pam_ftp.so
-  pam_module[]=/lib64/security/pam_group.so
-  pam_module[]=/lib64/security/pam_issue.so
-  pam_module[]=/lib64/security/pam_keyinit.so
-  pam_module[]=/lib64/security/pam_lastlog.so
-  pam_module[]=/lib64/security/pam_limits.so
-  pam_module[]=/lib64/security/pam_listfile.so
-  pam_module[]=/lib64/security/pam_localuser.so
-  pam_module[]=/lib64/security/pam_loginuid.so
-  pam_module[]=/lib64/security/pam_mail.so
-  pam_module[]=/lib64/security/pam_mkhomedir.so
-  pam_module[]=/lib64/security/pam_motd.so
-  pam_module[]=/lib64/security/pam_namespace.so
-  pam_module[]=/lib64/security/pam_nologin.so
-  pam_module[]=/lib64/security/pam_permit.so
-  pam_module[]=/lib64/security/pam_postgresok.so
-  pam_module[]=/lib64/security/pam_pwhistory.so
-  pam_module[]=/lib64/security/pam_rhosts.so
-  pam_module[]=/lib64/security/pam_rootok.so
-  pam_module[]=/lib64/security/pam_securetty.so
-  pam_module[]=/lib64/security/pam_selinux.so
-  pam_module[]=/lib64/security/pam_sepermit.so
-  pam_module[]=/lib64/security/pam_shells.so
-  pam_module[]=/lib64/security/pam_stress.so
-  pam_module[]=/lib64/security/pam_succeed_if.so
-  pam_module[]=/lib64/security/pam_tally2.so
-  pam_module[]=/lib64/security/pam_time.so
-  pam_module[]=/lib64/security/pam_timestamp.so
-  pam_module[]=/lib64/security/pam_tty_audit.so
-  pam_module[]=/lib64/security/pam_umask.so
-  pam_module[]=/lib64/security/pam_unix.so
-  pam_module[]=/lib64/security/pam_userdb.so
-  pam_module[]=/lib64/security/pam_warn.so
-  pam_module[]=/lib64/security/pam_wheel.so
-  pam_module[]=/lib64/security/pam_xauth.so
-  suggestion[]=AUTH-9286|Configure minimum password age in /etc/login.defs|-|-|
-  suggestion[]=AUTH-9286|Configure maximum password age in /etc/login.defs|-|-|
-  warning[]=AUTH-9308|No password set for single mode|-|-|
-  suggestion[]=AUTH-9308|Set password for single user mode to minimize physical access attack surface|-|-|
-  suggestion[]=AUTH-9328|Default umask in /etc/profile or /etc/profile.d/custom.sh could be more strict (e.g. 027)|-|-|
-  manual_event[]=AUTH-9328:03
-  auth_failed_logins_logged=0
-  ldap_auth_enabled=0
-  ldap_pam_enabled=0
-  password_min_days=-1
-  password_max_days=-1
-  available_shell[]=/bin/sh
-  available_shell[]=/bin/bash
-  available_shell[]=/sbin/nologin
-  available_shell[]=/bin/dash
-  session_timeout_enabled=0
-  suggestion[]=FILE-6310|To decrease the impact of a full /home file system, place /home on a separate partition|-|-|
-  suggestion[]=FILE-6310|To decrease the impact of a full /tmp file system, place /tmp on a separate partition|-|-|
-  suggestion[]=FILE-6310|To decrease the impact of a full /var file system, place /var on a separate partition|-|-|
-  lvm_volume_group[]=VolGroup
-  lvm_volume[]=lv_root
-  lvm_volume[]=lv_swap
-  file_systems_ext[]=/|ext4|
-  file_systems_ext[]=/boot|ext4|
-  swap_partition[]=/dev/mapper/VolGroup-lv_swap,/dev/mapper/VolGroup-lv_swap,
-  suggestion[]=FILE-6354|Check 5 files in /tmp which are older than 90 days|-|-|
-  suggestion[]=STRG-1840|Disable drivers like USB storage when not used, to prevent unauthorized storage or data theft|-|-|
-  suggestion[]=STRG-1846|Disable drivers like firewire storage when not used, to prevent unauthorized storage or data theft|-|-|
-  resolv_conf_search_domain[]=home.cmdln.org
-  resolv_conf_option[]=single-request-reopen
-  suggestion[]=NAME-4028|Check DNS configuration for the dns domain name|-|-|
-  localhost-mapped-to=::1
-  name_cache_used=0
-  package_manager[]=rpm
-  installed_packages=221
-  warning[]=PKGS-7383|YUM is not properly configured or registered for this platform (no repolist found)|-|-|
-  suggestion[]=PKGS-7384|Install package 'yum-utils' for better consistency checking of the package database|-|-|
-  suggestion[]=PKGS-7386|Install package yum-plugin-security if possible, to maintain security updates easier (yum install yum-plugin-security)|-|-|
-  suggestion[]=PKGS-7398|Install a package audit tool to determine vulnerable packages|-|-|
-  installed_kernel_packages=1
-  suggestion[]=PKGS-7420|Consider using a tool to automatically apply upgrades|-|-|
-  unattended_upgrade_option_available=1
-  installed_packages_array=|MAKEDEV,3.24-6.el6.x86_64,|acl,2.2.49-6.el6.x86_64,|attr,2.4.44-7.el6.x86_64,|audit,2.2-2.el6.x86_64,|audit-libs,2.2-2.el6.x86_64,|authconfig,6.1.12-13.el6.x86_64,|basesystem,10.0-4.el6.noarch,|bash,4.1.2-15.el6_4.x86_64,|binutils,2.20.51.0.2-5.36.el6.x86_64,|bzip2,1.0.5-7.el6_0.x86_64,|bzip2-libs,1.0.5-7.el6_0.x86_64,|ca-certificates,2013.1.94-65.0.el6.noarch,|centos-release,6-5.el6.centos.11.1.x86_64,|cfengine-nova-hub,3.10.2-1.x86_64,|checkpolicy,2.0.22-1.el6.x86_64,|chkconfig,1.3.49.3-2.el6_4.1.x86_64,|cloog-ppl,0.15.7-1.2.el6.x86_64,|coreutils,8.4-31.el6.x86_64,|coreutils-libs,8.4-31.el6.x86_64,|cpio,2.10-11.el6_3.x86_64,|cpp,4.4.7-4.el6.x86_64,|cracklib,2.8.16-4.el6.x86_64,|cracklib-dicts,2.8.16-4.el6.x86_64,|cronie,1.4.4-12.el6.x86_64,|cronie-anacron,1.4.4-12.el6.x86_64,|crontabs,1.10-33.el6.noarch,|curl,7.19.7-37.el6_4.x86_64,|cyrus-sasl,2.1.23-13.el6_3.1.x86_64,|cyrus-sasl-lib,2.1.23-13.el6_3.1.x86_64,|dash,0.5.5.1-4.el6.x86_64,|db4,4.7.25-18.el6_4.x86_64,|db4-utils,4.7.25-18.el6_4.x86_64,|dbus-glib,0.86-6.el6.x86_64,|dbus-libs,1.2.24-7.el6_3.x86_64,|device-mapper,1.02.79-8.el6.x86_64,|device-mapper-event,1.02.79-8.el6.x86_64,|device-mapper-event-libs,1.02.79-8.el6.x86_64,|device-mapper-libs,1.02.79-8.el6.x86_64,|device-mapper-persistent-data,0.2.8-2.el6.x86_64,|dhclient,4.1.1-38.P1.el6.centos.x86_64,|dhcp-common,4.1.1-38.P1.el6.centos.x86_64,|diffutils,2.8.1-28.el6.x86_64,|dracut,004-335.el6.noarch,|dracut-kernel,004-335.el6.noarch,|e2fsprogs,1.41.12-18.el6.x86_64,|e2fsprogs-libs,1.41.12-18.el6.x86_64,|efibootmgr,0.5.4-11.el6.x86_64,|elfutils-libelf,0.152-1.el6.x86_64,|epel-release,6-8.noarch,|ethtool,3.5-1.el6.x86_64,|expat,2.0.1-11.el6_2.x86_64,|file,5.04-15.el6.x86_64,|file-libs,5.04-15.el6.x86_64,|filesystem,2.4.30-3.el6.x86_64,|findutils,4.4.2-6.el6.x86_64,|fipscheck,1.2.0-7.el6.x86_64,|fipscheck-lib,1.2.0-7.el6.x86_64,|gamin,0.1.10-9.el6.x86_64,|gawk,3.1.7-10.el6.x86_64,|gcc,4.4.7-4.el6.x86_64,|gdbm,1.8.0-36.el6.x86_64,|glib2,2.26.1-3.el6.x86_64,|glibc,2.12-1.132.el6.x86_64,|glibc-common,2.12-1.132.el6.x86_64,|glibc-devel,2.12-1.132.el6.x86_64,|glibc-headers,2.12-1.132.el6.x86_64,|gmp,4.3.1-7.el6_2.2.x86_64,|gnupg2,2.0.14-6.el6_4.x86_64,|gpg-pubkey,c105b9de-4e0fd3a3.(none),|gpgme,1.1.8-3.el6.x86_64,|grep,2.6.3-4.el6.x86_64,|groff,1.18.1.4-21.el6.x86_64,|grub,0.97-83.el6.x86_64,|grubby,7.0.15-5.el6.x86_64,|gzip,1.3.12-19.el6_4.x86_64,|hwdata,0.233-9.1.el6.noarch,|info,4.13a-8.el6.x86_64,|initscripts,9.03.40-2.el6.centos.x86_64,|iproute,2.6.32-31.el6.x86_64,|iptables,1.4.7-11.el6.x86_64,|iptables-ipv6,1.4.7-11.el6.x86_64,|iputils,20071127-17.el6_4.2.x86_64,|kbd,1.15-11.el6.x86_64,|kbd-misc,1.15-11.el6.noarch,|kernel,2.6.32-431.el6.x86_64,|kernel-devel,2.6.32-431.el6.x86_64,|kernel-firmware,2.6.32-431.el6.noarch,|kernel-headers,2.6.32-431.el6.x86_64,|keyutils,1.4-4.el6.x86_64,|keyutils-libs,1.4-4.el6.x86_64,|krb5-libs,1.10.3-10.el6_4.6.x86_64,|less,436-10.el6.x86_64,|libacl,2.2.49-6.el6.x86_64,|libattr,2.4.44-7.el6.x86_64,|libblkid,2.17.2-12.14.el6.x86_64,|libcap,2.16-5.5.el6.x86_64,|libcap-ng,0.6.4-3.el6_0.1.x86_64,|libcom_err,1.41.12-18.el6.x86_64,|libcurl,7.19.7-37.el6_4.x86_64,|libdrm,2.4.45-2.el6.x86_64,|libedit,2.11-4.20080712cvs.1.el6.x86_64,|libevent,1.4.13-4.el6.x86_64,|libffi,3.0.5-3.2.el6.x86_64,|libgcc,4.4.7-4.el6.x86_64,|libgcrypt,1.4.5-11.el6_4.x86_64,|libgomp,4.4.7-4.el6.x86_64,|libgpg-error,1.7-4.el6.x86_64,|libgssglue,0.1-11.el6.x86_64,|libidn,1.18-2.el6.x86_64,|libnih,1.0.1-7.el6.x86_64,|libpciaccess,0.13.1-2.el6.x86_64,|libselinux,2.0.94-5.3.el6_4.1.x86_64,|libselinux-utils,2.0.94-5.3.el6_4.1.x86_64,|libsemanage,2.0.43-4.2.el6.x86_64,|libsepol,2.0.41-4.el6.x86_64,|libss,1.41.12-18.el6.x86_64,|libssh2,1.4.2-1.el6.x86_64,|libstdc++,4.4.7-4.el6.x86_64,|libtasn1,2.3-3.el6_2.1.x86_64,|libtirpc,0.2.1-6.el6_4.x86_64,|libudev,147-2.51.el6.x86_64,|libusb,0.1.12-23.el6.x86_64,|libuser,0.56.13-5.el6.x86_64,|libutempter,1.1.5-4.1.el6.x86_64,|libuuid,2.17.2-12.14.el6.x86_64,|libxml2,2.7.6-14.el6.x86_64,|logrotate,3.7.8-17.el6.x86_64,|lua,5.1.4-4.1.el6.x86_64,|lvm2,2.02.100-8.el6.x86_64,|lvm2-libs,2.02.100-8.el6.x86_64,|m4,1.4.13-5.el6.x86_64,|make,3.81-20.el6.x86_64,|mingetty,1.08-5.el6.x86_64,|module-init-tools,3.9-21.el6_4.x86_64,|mpfr,2.4.1-6.el6.x86_64,|mysql-libs,5.1.71-1.el6.x86_64,|ncurses,5.7-3.20090208.el6.x86_64,|ncurses-base,5.7-3.20090208.el6.x86_64,|ncurses-libs,5.7-3.20090208.el6.x86_64,|net-tools,1.60-110.el6_2.x86_64,|newt,0.52.11-3.el6.x86_64,|newt-python,0.52.11-3.el6.x86_64,|nfs-utils,1.2.3-39.el6.x86_64,|nfs-utils-lib,1.1.5-6.el6.x86_64,|nspr,4.10.0-1.el6.x86_64,|nss,3.15.1-15.el6.x86_64,|nss-softokn,3.14.3-9.el6.x86_64,|nss-softokn-freebl,3.14.3-9.el6.x86_64,|nss-sysinit,3.15.1-15.el6.x86_64,|nss-tools,3.15.1-15.el6.x86_64,|nss-util,3.15.1-3.el6.x86_64,|openldap,2.4.23-32.el6_4.1.x86_64,|openssh,5.3p1-94.el6.x86_64,|openssh-clients,5.3p1-94.el6.x86_64,|openssh-server,5.3p1-94.el6.x86_64,|openssl,1.0.1e-15.el6.x86_64,|p11-kit,0.18.5-2.el6.x86_64,|p11-kit-trust,0.18.5-2.el6.x86_64,|pam,1.1.1-17.el6.x86_64,|passwd,0.77-4.el6_2.2.x86_64,|pciutils-libs,3.1.10-2.el6.x86_64,|pcre,7.8-6.el6.x86_64,|perl,5.10.1-136.el6.x86_64,|perl-Module-Pluggable,3.90-136.el6.x86_64,|perl-Pod-Escapes,1.04-136.el6.x86_64,|perl-Pod-Simple,3.13-136.el6.x86_64,|perl-libs,5.10.1-136.el6.x86_64,|perl-version,0.77-136.el6.x86_64,|pinentry,0.7.6-6.el6.x86_64,|pkgconfig,0.23-9.1.el6.x86_64,|plymouth,0.8.3-27.el6.centos.x86_64,|plymouth-core-libs,0.8.3-27.el6.centos.x86_64,|plymouth-scripts,0.8.3-27.el6.centos.x86_64,|policycoreutils,2.0.83-19.39.el6.x86_64,|popt,1.13-7.el6.x86_64,|postfix,2.6.6-2.2.el6_1.x86_64,|ppl,0.10.2-11.el6.x86_64,|procps,3.2.8-25.el6.x86_64,|psmisc,22.6-15.el6_0.1.x86_64,|pth,2.0.7-9.3.el6.x86_64,|pygpgme,0.1-18.20090824bzr68.el6.x86_64,|python,2.6.6-51.el6.x86_64,|python-iniparse,0.3.1-2.1.el6.noarch,|python-libs,2.6.6-51.el6.x86_64,|python-pycurl,7.19.0-8.el6.x86_64,|python-urlgrabber,3.9.1-9.el6.noarch,|readline,6.0-4.el6.x86_64,|redhat-logos,60.0.14-12.el6.centos.noarch,|rootfiles,8.1-6.1.el6.noarch,|rpcbind,0.2.0-11.el6.x86_64,|rpm,4.8.0-37.el6.x86_64,|rpm-libs,4.8.0-37.el6.x86_64,|rpm-python,4.8.0-37.el6.x86_64,|rsyslog,5.8.10-8.el6.x86_64,|screen,4.0.3-19.el6.x86_64,|sed,4.2.1-10.el6.x86_64,|selinux-policy,3.7.19-231.el6.noarch,|selinux-policy-targeted,3.7.19-231.el6.noarch,|setup,2.8.14-20.el6_4.1.noarch,|shadow-utils,4.1.4.2-13.el6.x86_64,|shared-mime-info,0.70-4.el6.x86_64,|slang,2.2.1-1.el6.x86_64,|sqlite,3.6.20-1.el6.x86_64,|sudo,1.8.6p3-12.el6.x86_64,|system-config-firewall-base,1.2.27-5.el6.noarch,|sysvinit-tools,2.87-5.dsf.el6.x86_64,|tar,1.23-11.el6.x86_64,|tcp_wrappers-libs,7.6-57.el6.x86_64,|tzdata,2013g-1.el6.noarch,|udev,147-2.51.el6.x86_64,|upstart,0.6.5-12.el6_4.1.x86_64,|ustr,1.0.4-9.1.el6.x86_64,|util-linux-ng,2.17.2-12.14.el6.x86_64,|vim-minimal,7.2.411-1.8.el6.x86_64,|wget,1.12-1.8.el6.x86_64,|which,2.19-6.el6.x86_64,|xz-libs,4.999.9-0.3.beta.20091007git.el6.x86_64,|yum,3.2.29-40.el6.centos.noarch,|yum-metadata-parser,1.1.2-16.el6.x86_64,|yum-plugin-fastestmirror,1.1.30-14.el6.noarch,|zlib,1.2.3-29.el6.x86_64,
-  package_audit_tool=
-  package_audit_tool_found=0
-  vulnerable_packages_found=0
-  ipv6_mode=auto
-  ipv6_only=0
-  nameserver[]=10.0.2.3
-  default_gateway[]=10.0.2.2
-  network_interface[]=lo
-  network_interface[]=eth0
-  network_interface[]=eth1
-  network_mac_address[]=08:00:27:38:5A:4E
-  network_mac_address[]=08:00:27:9A:98:53
-  network_ipv4_address[]=10.0.2.15
-  network_ipv4_address[]=192.168.33.2
-  network_ipv4_address[]=127.0.0.1
-  network_ipv6_address[]=fe80::a00:27ff:fe9a:9853/64
-  network_ipv6_address[]=fe80::a00:27ff:fe38:5a4e/64
-  network_ipv6_address[]=::1/128
-  network_listen_port[]=0.0.0.0:111|udp|rpcbind|
-  network_listen_port[]=0.0.0.0:647|udp|rpcbind|
-  network_listen_port[]=0.0.0.0:666|udp|rpc.statd|
-  network_listen_port[]=0.0.0.0:58268|udp|rpc.statd|
-  network_listen_port[]=0.0.0.0:68|udp|dhclient|
-  network_listen_port[]=:::54383|udp|rpc.statd|
-  network_listen_port[]=:::111|udp|rpcbind|
-  network_listen_port[]=:::647|udp|rpcbind|
-  network_listen_port[]=0.0.0.0:111|tcp|rpcbind|
-  network_listen_port[]=0.0.0.0:22|tcp|sshd|
-  network_listen_port[]=127.0.0.1:5432|tcp|postgres|
-  network_listen_port[]=127.0.0.1:25|tcp|master|
-  network_listen_port[]=0.0.0.0:41470|tcp|rpc.statd|
-  network_listen_port[]=:::111|tcp|rpcbind|
-  network_listen_port[]=:::80|tcp|httpd|
-  network_listen_port[]=:::55152|tcp|rpc.statd|
-  network_listen_port[]=:::22|tcp|sshd|
-  network_listen_port[]=::1:5432|tcp|postgres|
-  network_listen_port[]=::1:25|tcp|master|
-  network_listen_port[]=:::443|tcp|httpd|
-  suggestion[]=NETW-3032|Consider running ARP monitoring software (arpwatch,arpon)|-|-|
-  dhcp_client_running=1
-  arpwatch_running=0
-  smtp_daemon[]=postfix
-  banner_software_disclosure[]=smtpd_banner = $myhostname ESMTP $mail_name
-  warning[]=MAIL-8818|Found some information disclosure in SMTP banner (OS or software name)|-|-|
-  suggestion[]=MAIL-8818|You are advised to hide the mail_name (option: smtpd_banner) from your postfix configuration. Use postconf -e or change your main.cf file (/etc/postfix/main.cf)|-|-|
-  imap_daemon=
-  pop3_daemon=
-  smtp_daemon=postfix
-  suggestion[]=FIRE-4590|Configure a firewall/packet filter to filter incoming and outgoing traffic|-|-|
-  firewall_active=0
-  firewall_empty_ruleset=0
-  firewall_installed=0
-  suggestion[]=SSH-7408|Consider hardening SSH configuration|AllowTcpForwarding (YES --> NO)|-|
-  details[]=SSH-7408|sshd|desc:sshd option AllowTcpForwarding;field:AllowTcpForwarding;prefval:NO;value:YES;|
-  suggestion[]=SSH-7408|Consider hardening SSH configuration|ClientAliveCountMax (3 --> 2)|-|
-  details[]=SSH-7408|sshd|desc:sshd option ClientAliveCountMax;field:ClientAliveCountMax;prefval:2;value:3;|
-  suggestion[]=SSH-7408|Consider hardening SSH configuration|Compression (DELAYED --> NO)|-|
-  details[]=SSH-7408|sshd|desc:sshd option Compression;field:Compression;prefval:NO;value:DELAYED;|
-  suggestion[]=SSH-7408|Consider hardening SSH configuration|LogLevel (INFO --> VERBOSE)|-|
-  details[]=SSH-7408|sshd|desc:sshd option LogLevel;field:LogLevel;prefval:VERBOSE;value:INFO;|
-  suggestion[]=SSH-7408|Consider hardening SSH configuration|MaxAuthTries (6 --> 3)|-|
-  details[]=SSH-7408|sshd|desc:sshd option MaxAuthTries;field:MaxAuthTries;prefval:3;value:6;|
-  suggestion[]=SSH-7408|Consider hardening SSH configuration|MaxSessions (10 --> 2)|-|
-  details[]=SSH-7408|sshd|desc:sshd option MaxSessions;field:MaxSessions;prefval:2;value:10;|
-  suggestion[]=SSH-7408|Consider hardening SSH configuration|PermitRootLogin (YES --> (NO|PROHIBIT-PASSWORD|WITHOUT-PASSWORD))|-|
-  details[]=SSH-7408|sshd|desc:sshd option PermitRootLogin;field:PermitRootLogin;prefval:(NO|PROHIBIT-PASSWORD|WITHOUT-PASSWORD);value:YES;|
-  suggestion[]=SSH-7408|Consider hardening SSH configuration|Port (22 --> )|-|
-  details[]=SSH-7408|sshd|desc:sshd option Port;field:Port;prefval:;value:22;|
-  suggestion[]=SSH-7408|Consider hardening SSH configuration|TCPKeepAlive (YES --> NO)|-|
-  details[]=SSH-7408|sshd|desc:sshd option TCPKeepAlive;field:TCPKeepAlive;prefval:NO;value:YES;|
-  suggestion[]=SSH-7408|Consider hardening SSH configuration|X11Forwarding (YES --> NO)|-|
-  details[]=SSH-7408|sshd|desc:sshd option X11Forwarding;field:X11Forwarding;prefval:NO;value:YES;|
-  suggestion[]=SSH-7408|Consider hardening SSH configuration|UsePrivilegeSeparation (YES --> SANDBOX)|-|
-  details[]=SSH-7408|sshd|desc:sshd option UsePrivilegeSeparation;field:UsePrivilegeSeparation;prefval:SANDBOX;value:YES;|
-  ssh_daemon_running=1
-  redis_server_running=1
-  exception_event[]=DBS-1882|Found Redis, but no configuration file. Report this if you know where it is located on your system.|
-  syslog_daemon_present=1
-  syslog_daemon[]=rsyslog
-  log_directory[]=/var/log
-  log_directory[]=/var/log
-  log_rotation_config_found=1
-  log_rotation_tool=logrotate
-  suggestion[]=BANN-7126|Add a legal banner to /etc/issue, to warn unauthorized users|-|-|
-  weak_banner_file[]=/etc/issue
-  suggestion[]=BANN-7130|Add legal banner to /etc/issue.net, to warn unauthorized users|-|-|
-  cronjob[]=/etc/cron.d/quickhub
-  cronjob[]=/etc/cron.d/0hourly
-  cronjob[]=/etc/cron.hourly/0anacron
-  cronjob[]=/etc/cron.daily/logrotate
-  scheduler[]=anacron
-  cronjob[]=1,5,cron.daily,nice,run-parts,/etc/cron.daily
-  cronjob[]=7,25,cron.weekly,nice,run-parts,/etc/cron.weekly
-  cronjob[]=@monthly,45,cron.monthly,nice,run-parts,/etc/cron.monthly
-  suggestion[]=ACCT-9622|Enable process accounting|-|-|
-  suggestion[]=ACCT-9626|Enable sysstat to collect accounting (no results)|-|-|
-  audit_trail_tool[]=auditd
-  linux_auditd_running=1
-  suggestion[]=ACCT-9630|Audit daemon is enabled with an empty ruleset. Disable the daemon or define rules|-|-|
-  logfile[]=/var/log/audit/audit.log
-  audit_daemon_running=1
-  tz_variable_empty=1
-  ntp_config_found=0
-  ntp_config_type_daemon=0
-  ntp_config_type_eventbased=0
-  ntp_config_type_scheduled=0
-  ntp_config_type_startup=0
-  ntp_daemon=
-  ntp_daemon_running=0
-  certificates=6
-  selinux_status=1
-  selinux_mode=permissive
-  framework_grsecurity=0
-  framework_selinux=1
-  suggestion[]=FINT-4350|Install a file integrity tool to monitor changes to critical and sensitive files|-|-|
-  automation_tool_running[]=cf-agent
-  automation_tool_present=1
-  malware_scanner_installed=0
-  home_directory[]=/
-  home_directory[]=/bin
-  home_directory[]=/dev
-  home_directory[]=/home/vagrant
-  home_directory[]=/root
-  home_directory[]=/sbin
-  home_directory[]=/usr/games
-  home_directory[]=/var/cache/rpcbind
-  home_directory[]=/var/cfengine/cfapache
-  home_directory[]=/var/empty/sshd
-  home_directory[]=/var/lib/nfs
-  home_directory[]=/var/spool/lpd
-  home_directory[]=/var/spool/mail
-  home_directory[]=/var/spool/postfix
-  details[]=KRNL-6000|sysctl|desc:Restrict use of dmesg;field:kernel.dmesg_restrict;prefval:1;value:0;|
-  details[]=KRNL-6000|sysctl|desc:Restrict access to kernel symbols;field:kernel.kptr_restrict;prefval:2;value:1;|
-  details[]=KRNL-6000|sysctl|desc:Disable/Ignore ICMP routing redirects;field:net.ipv4.conf.all.accept_redirects;prefval:0;value:1;|
-  details[]=KRNL-6000|sysctl|desc:Log all packages for which the host does not have a path back to the source;field:net.ipv4.conf.all.log_martians;prefval:1;value:0;|
-  details[]=KRNL-6000|sysctl|desc:Enforce ingress/egress filtering for packets;field:net.ipv4.conf.all.rp_filter;prefval:1;value:0;|
-  details[]=KRNL-6000|sysctl|desc:Disable/Ignore ICMP routing redirects;field:net.ipv4.conf.all.send_redirects;prefval:0;value:1;|
-  details[]=KRNL-6000|sysctl|desc:Disable/Ignore ICMP routing redirects;field:net.ipv4.conf.default.accept_redirects;prefval:0;value:1;|
-  details[]=KRNL-6000|sysctl|desc:Log all packages for which the host does not have a path back to the source;field:net.ipv4.conf.default.log_martians;prefval:1;value:0;|
-  details[]=KRNL-6000|sysctl|desc:Disable/Ignore ICMP routing redirects;field:net.ipv6.conf.all.accept_redirects;prefval:0;value:1;|
-  details[]=KRNL-6000|sysctl|desc:Disable/Ignore ICMP routing redirects;field:net.ipv6.conf.default.accept_redirects;prefval:0;value:1;|
-  suggestion[]=KRNL-6000|One or more sysctl values differ from the scan profile and could be tweaked||Change sysctl value or disable test (skip-test=KRNL-6000:<sysctl-key>)|
-  compiler_world_executable[]=/usr/bin/as
-  compiler_world_executable[]=/usr/bin/gcc
-  compiler_world_executable[]=/usr/bin/gcc
-  suggestion[]=HRDN-7222|Harden compilers like restricting access to root user only|-|-|
-  suggestion[]=HRDN-7230|Harden the system by installing at least one malware scanner, to perform periodic file system scans|-|Install a tool like rkhunter, chkrootkit, OSSEC|
-  compiler_installed=1
-  lynis_tests_done=218
-  report_datetime_end=2019-12-16 18:34:02
-  hardening_index=64
-  tests_executed=HRDN-7230|HRDN-7222|HRDN-7220|KRNL-6000|HOME-9350|HOME-9310|HOME-9302|FILE-7524|MALW-3284|MALW-3282|MALW-3280|MALW-3278|MALW-3276|MALW-3275|TOOL-5190|TOOL-5126|TOOL-5122|TOOL-5120|TOOL-5102|TOOL-5002|FINT-4350|FINT-4338|FINT-4330|FINT-4328|FINT-4326|FINT-4322|FINT-4318|FINT-4314|FINT-4310|MACF-6290|RBAC-6272|MACF-6240|MACF-6234|MACF-6232|MACF-6204|CONT-8102|CRYP-7902|TIME-3170|TIME-3148|TIME-3104|ACCT-9636|ACCT-9634|ACCT-9632|ACCT-9630|ACCT-9628|ACCT-9626|ACCT-9622|SCHD-7718|SCHD-7704|SCHD-7702|BANN-7130|BANN-7128|BANN-7126|BANN-7124|INSE-8322|INSE-8310|INSE-8342|INSE-8300|INSE-8102|INSE-8100|INSE-8000|LOGG-2180|LOGG-2170|LOGG-2154|LOGG-2150|LOGG-2148|LOGG-2146|LOGG-2142|LOGG-2138|LOGG-2240|LOGG-2230|LOGG-2210|LOGG-2136|LOGG-2132|LOGG-2130|SQD-3602|PHP-2211|LDAP-2219|DBS-1882|DBS-1880|DBS-1860|DBS-1840|DBS-1826|DBS-1820|DBS-1818|DBS-1804|SNMP-3302|SSH-7440|SSH-7408|SSH-7406|SSH-7404|SSH-7402|HTTP-6702|HTTP-6622|FIRE-4594|FIRE-4590|FIRE-4524|FIRE-4502|MAIL-8880|MAIL-8860|MAIL-8838|MAIL-8820|MAIL-8818|MAIL-8817|MAIL-8816|MAIL-8814|MAIL-8802|PRNT-2314|PRNT-2304|NETW-3032|NETW-3030|NETW-3028|NETW-3015|NETW-3012|NETW-3008|NETW-3006|NETW-3004|NETW-3001|NETW-2705|NETW-2704|NETW-2600|PKGS-7420|PKGS-7410|PKGS-7398|PKGS-7387|PKGS-7386|PKGS-7384|PKGS-7383|PKGS-7308|NAME-4408|NAME-4406|NAME-4404|NAME-4402|NAME-4304|NAME-4230|NAME-4202|NAME-4034|NAME-4032|NAME-4028|NAME-4020|NAME-4018|NAME-4016|STRG-1920|STRG-1906|STRG-1904|STRG-1902|STRG-1846|USB-3000|STRG-1842|STRG-1840|FILE-6430|FILE-6376|FILE-6374|FILE-6372|FILE-6368|FILE-6363|FILE-6362|FILE-6354|FILE-6336|FILE-6332|FILE-6329|FILE-6324|FILE-6323|FILE-6312|FILE-6311|FILE-6310|SHLL-6230|SHLL-6220|SHLL-6211|AUTH-9408|AUTH-9402|AUTH-9328|AUTH-9308|AUTH-9288|AUTH-9286|AUTH-9283|AUTH-9282|AUTH-9278|AUTH-9268|AUTH-9266|AUTH-9264|AUTH-9262|AUTH-9252|AUTH-9250|AUTH-9242|AUTH-9240|AUTH-9234|AUTH-9228|AUTH-9226|AUTH-9222|AUTH-9216|AUTH-9208|AUTH-9204|PROC-3614|PROC-3612|PROC-3602|KRNL-5830|KRNL-5820|KRNL-5730|KRNL-5728|KRNL-5726|KRNL-5723|KRNL-5695|KRNL-5677|KRNL-5622|BOOT-5260|BOOT-5202|BOOT-5184|BOOT-5177|BOOT-5155|BOOT-5142|BOOT-5139|BOOT-5122|BOOT-5121|BOOT-5116|BOOT-5108|BOOT-5104|CORE-1000|
-  tests_skipped=MALW-3288|MALW-3286|TOOL-5104|FINT-4402|FINT-4336|FINT-4334|FINT-4315|MACF-6242|MACF-6208|CONT-8108|CONT-8107|CONT-8106|CONT-8104|CONT-8004|TIME-3160|TIME-3136|TIME-3132|TIME-3128|TIME-3124|TIME-3120|TIME-3116|TIME-3112|TIME-3106|ACCT-9662|ACCT-9660|ACCT-9656|ACCT-9654|ACCT-9652|ACCT-9650|ACCT-2760|ACCT-2754|SCHD-7724|SCHD-7720|BANN-7113|INSE-8050|INSE-8200|INSE-8116|INSE-8106|INSE-8104|INSE-8016|INSE-8006|INSE-8004|INSE-8002|LOGG-2192|LOGG-2190|LOGG-2164|LOGG-2162|LOGG-2160|LOGG-2152|LOGG-2134|SQD-3680|SQD-3630|SQD-3624|SQD-3620|SQD-3616|SQD-3614|SQD-3613|SQD-3610|SQD-3606|SQD-3604|PHP-2378|PHP-2376|PHP-2374|PHP-2372|PHP-2368|PHP-2320|LDAP-2224|DBS-1888|DBS-1886|DBS-1884|DBS-1816|SNMP-3306|SNMP-3304|HTTP-6720|HTTP-6716|HTTP-6714|HTTP-6712|HTTP-6710|HTTP-6708|HTTP-6706|HTTP-6704|HTTP-6643|HTTP-6641|HTTP-6640|HTTP-6632|HTTP-6626|HTTP-6624|FIRE-4586|FIRE-4540|FIRE-4538|FIRE-4536|FIRE-4534|FIRE-4532|FIRE-4530|FIRE-4526|FIRE-4520|FIRE-4518|FIRE-4513|FIRE-4512|FIRE-4508|MAIL-8920|MAIL-8803|PRNT-2420|PRNT-2418|PRNT-2316|PRNT-2308|PRNT-2307|PRNT-2306|PRNT-2302|NETW-3014|PKGS-7394|PKGS-7393|PKGS-7392|PKGS-7390|PKGS-7388|PKGS-7382|PKGS-7381|PKGS-7380|PKGS-7378|PKGS-7370|PKGS-7366|PKGS-7354|PKGS-7352|PKGS-7350|PKGS-7348|PKGS-7346|PKGS-7345|PKGS-7334|PKGS-7332|PKGS-7330|PKGS-7328|PKGS-7322|PKGS-7320|PKGS-7314|PKGS-7312|PKGS-7310|PKGS-7306|PKGS-7304|PKGS-7303|PKGS-7302|PKGS-7301|NAME-4306|NAME-4238|NAME-4236|NAME-4232|NAME-4210|NAME-4206|NAME-4204|NAME-4036|NAME-4026|NAME-4024|STRG-1930|STRG-1928|STRG-1926|FILE-6410|FILE-6344|FILE-6439|FILE-6330|SHLL-6202|AUTH-9410|AUTH-9409|AUTH-9406|AUTH-9340|AUTH-9306|AUTH-9304|AUTH-9254|AUTH-9489|AUTH-9218|AUTH-9212|PROC-3604|KRNL-5788|KRNL-5770|KRNL-5831|KRNL-5745|BOOT-5263|BOOT-5262|BOOT-5180|BOOT-5165|BOOT-5159|BOOT-5126|BOOT-5261|BOOT-5124|BOOT-5117|BOOT-5106|BOOT-5102|
-  finish=true
-#+end_src
-
-*** CANCELLED readenvfile()
-CLOSED: [2019-12-16 Mon 13:42]
-
-Can't use readenvfile because indexes are not unique. This results in only being able to extract the last =suggestion[]= for example.
-
-#+BEGIN_SRC cfengine3 :include-stdlib t :log-level info :exports both 
-  bundle agent main
-  {
-    vars:
-        "d" data => readenvfile( "/tmp/lynis-report.dat" );
-    reports:
-      "$(d[suggestion[]])";
-  }
-#+END_SRC
-
-#+RESULTS:
-: R: HRDN-7230|Harden the system by installing at least one malware scanner, to perform periodic file system scans|-|Install a tool like rkhunter, chkrootkit, OSSEC|
-
-*** data_readstringarrayidx()
-
-**** extracting suggestions
-***** Basic Extraction
-#+BEGIN_SRC cfengine3 :include-stdlib t :log-level info :exports both
-  bundle agent main
-  {
-    vars:
-        "d"
-          data => data_readstringarrayidx( "/tmp/lynis-report.dat",
-                                           "",
-                                           "=",
-                                           inf,
-                                           inf);
-        "i" slist => getindices( d );
-        "suggestion[$(i)]"
-          string => "$(d[$(i)][1])",
-          if => strcmp( "suggestion[]", "$(d[$(i)][0])");
-
-   reports:
-
-      "$(d[$(i)][1])"
-        if => strcmp( "suggestion[]", "$(d[$(i)][0])");
-      # "$(with)" with => string_mustache( '{{%-top-}}', d );
-  }
-#+END_SRC
-
-#+RESULTS:
-#+begin_example
-R: LYNIS|This release is more than 4 months old. Consider upgrading|-|-|
-R: BOOT-5122|Set a password on GRUB bootloader to prevent altering boot configuration (e.g. boot in single user mode without password)|-|-|
-R: AUTH-9286|Configure minimum password age in /etc/login.defs|-|-|
-R: AUTH-9286|Configure maximum password age in /etc/login.defs|-|-|
-R: AUTH-9308|Set password for single user mode to minimize physical access attack surface|-|-|
-R: AUTH-9328|Default umask in /etc/profile or /etc/profile.d/custom.sh could be more strict (e.g. 027)|-|-|
-R: FILE-6310|To decrease the impact of a full /home file system, place /home on a separate partition|-|-|
-R: FILE-6310|To decrease the impact of a full /tmp file system, place /tmp on a separate partition|-|-|
-R: FILE-6310|To decrease the impact of a full /var file system, place /var on a separate partition|-|-|
-R: FILE-6354|Check 5 files in /tmp which are older than 90 days|-|-|
-R: STRG-1840|Disable drivers like USB storage when not used, to prevent unauthorized storage or data theft|-|-|
-R: STRG-1846|Disable drivers like firewire storage when not used, to prevent unauthorized storage or data theft|-|-|
-R: NAME-4028|Check DNS configuration for the dns domain name|-|-|
-R: PKGS-7384|Install package 'yum-utils' for better consistency checking of the package database|-|-|
-R: PKGS-7386|Install package yum-plugin-security if possible, to maintain security updates easier (yum install yum-plugin-security)|-|-|
-R: PKGS-7398|Install a package audit tool to determine vulnerable packages|-|-|
-R: PKGS-7420|Consider using a tool to automatically apply upgrades|-|-|
-R: NETW-3032|Consider running ARP monitoring software (arpwatch,arpon)|-|-|
-R: MAIL-8818|You are advised to hide the mail_name (option: smtpd_banner) from your postfix configuration. Use postconf -e or change your main.cf file (/etc/postfix/main.cf)|-|-|
-R: FIRE-4590|Configure a firewall/packet filter to filter incoming and outgoing traffic|-|-|
-R: SSH-7408|Consider hardening SSH configuration|AllowTcpForwarding (YES --> NO)|-|
-R: SSH-7408|Consider hardening SSH configuration|ClientAliveCountMax (3 --> 2)|-|
-R: SSH-7408|Consider hardening SSH configuration|Compression (DELAYED --> NO)|-|
-R: SSH-7408|Consider hardening SSH configuration|LogLevel (INFO --> VERBOSE)|-|
-R: SSH-7408|Consider hardening SSH configuration|MaxAuthTries (6 --> 3)|-|
-R: SSH-7408|Consider hardening SSH configuration|MaxSessions (10 --> 2)|-|
-R: SSH-7408|Consider hardening SSH configuration|PermitRootLogin (YES --> (NO|PROHIBIT-PASSWORD|WITHOUT-PASSWORD))|-|
-R: SSH-7408|Consider hardening SSH configuration|Port (22 --> )|-|
-R: SSH-7408|Consider hardening SSH configuration|TCPKeepAlive (YES --> NO)|-|
-R: SSH-7408|Consider hardening SSH configuration|X11Forwarding (YES --> NO)|-|
-R: SSH-7408|Consider hardening SSH configuration|UsePrivilegeSeparation (YES --> SANDBOX)|-|
-R: BANN-7126|Add a legal banner to /etc/issue, to warn unauthorized users|-|-|
-R: BANN-7130|Add legal banner to /etc/issue.net, to warn unauthorized users|-|-|
-R: ACCT-9622|Enable process accounting|-|-|
-R: ACCT-9626|Enable sysstat to collect accounting (no results)|-|-|
-R: ACCT-9630|Audit daemon is enabled with an empty ruleset. Disable the daemon or define rules|-|-|
-R: FINT-4350|Install a file integrity tool to monitor changes to critical and sensitive files|-|-|
-R: KRNL-6000|One or more sysctl values differ from the scan profile and could be tweaked||Change sysctl value or disable test (skip-test
-R: HRDN-7222|Harden compilers like restricting access to root user only|-|-|
-R: HRDN-7230|Harden the system by installing at least one malware scanner, to perform periodic file system scans|-|Install a tool like rkhunter, chkrootkit, OSSEC|
-#+end_example
-
-***** Extract separating suggestion ID from suggestion description
-I tease apart the suggestion ID and the comment from the =suggestion[]== prefixed lines in =lynis-report.dat=.
-
-#+BEGIN_SRC cfengine3 :include-stdlib t :log-level info :exports both :tangle /tmp/example.cf :extra-opts --show-evaluated-vars=default:main\.M
-  bundle agent main
-  {
-    vars:
-        "d"
-          data => data_readstringarrayidx( "/tmp/lynis-report.dat",
-                                           "",
-                                           "=",
-                                           inf,
-                                           inf);
-        "i" slist => getindices( d );
-
-        # Generate a datastructure to contain suggestsions.
-        # We extract the Suggestion ID to use as the key, and extract
-        # the description to use as the value.
-        "suggestion[$(with)]"
-          string => nth( string_split( "$(d[$(i)][1])", "\|", 3 ), 1 ),
-          if => strcmp( "suggestion[]", "$(d[$(i)][0])"),
-          with => nth( string_split( "$(d[$(i)][1])", "\|", 3 ), 0 );
-
-        "si" slist => getindices( suggestion );
-
-      reports:
-        "$(si) -- $(suggestion[$(si)])";
-
-  }
-#+END_SRC
-
-#+RESULTS:
-#+begin_example
-R: HRDN-7222 -- Harden compilers like restricting access to root user only
-R: AUTH-9286 -- Configure maximum password age in /etc/login.defs
-R: ACCT-9622 -- Enable process accounting
-R: BOOT-5122 -- Set a password on GRUB bootloader to prevent altering boot configuration (e.g. boot in single user mode without password)
-R: PKGS-7384 -- Install package 'yum-utils' for better consistency checking of the package database
-R: ACCT-9626 -- Enable sysstat to collect accounting (no results)
-R: LYNIS -- This release is more than 4 months old. Consider upgrading
-R: KRNL-6000 -- One or more sysctl values differ from the scan profile and could be tweaked
-R: FINT-4350 -- Install a file integrity tool to monitor changes to critical and sensitive files
-R: PKGS-7420 -- Consider using a tool to automatically apply upgrades
-R: BANN-7126 -- Add a legal banner to /etc/issue, to warn unauthorized users
-R: PKGS-7398 -- Install a package audit tool to determine vulnerable packages
-R: STRG-1846 -- Disable drivers like firewire storage when not used, to prevent unauthorized storage or data theft
-R: BANN-7130 -- Add legal banner to /etc/issue.net, to warn unauthorized users
-R: NAME-4028 -- Check DNS configuration for the dns domain name
-R: AUTH-9308 -- Set password for single user mode to minimize physical access attack surface
-R: SSH-7408 -- Consider hardening SSH configuration
-R: FILE-6310 -- To decrease the impact of a full /var file system, place /var on a separate partition
-R: FIRE-4590 -- Configure a firewall/packet filter to filter incoming and outgoing traffic
-R: FILE-6354 -- Check 5 files in /tmp which are older than 90 days
-R: HRDN-7230 -- Harden the system by installing at least one malware scanner, to perform periodic file system scans
-R: STRG-1840 -- Disable drivers like USB storage when not used, to prevent unauthorized storage or data theft
-R: ACCT-9630 -- Audit daemon is enabled with an empty ruleset. Disable the daemon or define rules
-R: NETW-3032 -- Consider running ARP monitoring software (arpwatch,arpon)
-R: AUTH-9328 -- Default umask in /etc/profile or /etc/profile.d/custom.sh could be more strict (e.g. 027)
-R: PKGS-7386 -- Install package yum-plugin-security if possible, to maintain security updates easier (yum install yum-plugin-security)
-R: MAIL-8818 -- You are advised to hide the mail_name (option: smtpd_banner) from your postfix configuration. Use postconf -e or change your main.cf file (/etc/postfix/main.cf)
-Variable name                            Variable value                                               Meta tags                               
-#+end_example
-
-But, since they are not unique, I lose the information when there are multiple suggestions with the same ID.
-
-***** Extract separating suggestion id from comment handling multiple comments on one suggestion
-
-#+BEGIN_SRC cfengine3 :include-stdlib t :log-level info :exports both :tangle /tmp/example.cf :extra-opts --show-evaluated-vars=default:main\.M
-  bundle agent main
-  {
-    vars:
-        "d"
-          data => data_readstringarrayidx( "/tmp/lynis-report.dat",
-                                           "",
-                                           "=",
-                                           inf,
-                                           inf);
-        "i" slist => getindices( d );
-
-        # Generate a datastructure to contain suggestsions.
-        # We extract the Suggestion ID to use as the key, and extract
-        # the description to use as the value.
-        # In order to not lose information when there are multiple suggestions with the same ID 
-        # we use the index position from the original structure to make unqiue entries for each comment
-        "suggestion[$(with)-$(i)]"
-          string => nth( string_split( "$(d[$(i)][1])", "\|", 3 ), 1 ),
-          if => strcmp( "suggestion[]", "$(d[$(i)][0])"),
-          with => nth( string_split( "$(d[$(i)][1])", "\|", 3 ), 0 );
-
-        "si" slist => getindices( suggestion );
-
-      reports:
-        "$(si) -- $(suggestion[$(si)])";
-
-  }
-#+END_SRC
-
-#+RESULTS:
-#+begin_example
-R: FILE-6310-161 -- To decrease the impact of a full /var file system, place /var on a separate partition
-R: KRNL-6000-328 -- One or more sysctl values differ from the scan profile and could be tweaked
-R: FILE-6354-168 -- Check 5 files in /tmp which are older than 90 days
-R: AUTH-9328-147 -- Default umask in /etc/profile or /etc/profile.d/custom.sh could be more strict (e.g. 027)
-R: BOOT-5122-28 -- Set a password on GRUB bootloader to prevent altering boot configuration (e.g. boot in single user mode without password)
-R: ACCT-9630-284 -- Audit daemon is enabled with an empty ruleset. Disable the daemon or define rules
-R: SSH-7408-252 -- Consider hardening SSH configuration
-R: PKGS-7420-183 -- Consider using a tool to automatically apply upgrades
-R: AUTH-9308-146 -- Set password for single user mode to minimize physical access attack surface
-R: SSH-7408-242 -- Consider hardening SSH configuration
-R: HRDN-7222-332 -- Harden compilers like restricting access to root user only
-R: SSH-7408-248 -- Consider hardening SSH configuration
-R: SSH-7408-254 -- Consider hardening SSH configuration
-R: BANN-7130-271 -- Add legal banner to /etc/issue.net, to warn unauthorized users
-R: ACCT-9626-281 -- Enable sysstat to collect accounting (no results)
-R: SSH-7408-240 -- Consider hardening SSH configuration
-R: LYNIS-18 -- This release is more than 4 months old. Consider upgrading
-R: PKGS-7384-179 -- Install package 'yum-utils' for better consistency checking of the package database
-R: HRDN-7230-333 -- Harden the system by installing at least one malware scanner, to perform periodic file system scans
-R: AUTH-9286-143 -- Configure minimum password age in /etc/login.defs
-R: ACCT-9622-280 -- Enable process accounting
-R: FILE-6310-160 -- To decrease the impact of a full /tmp file system, place /tmp on a separate partition
-R: PKGS-7398-181 -- Install a package audit tool to determine vulnerable packages
-R: FINT-4350-300 -- Install a file integrity tool to monitor changes to critical and sensitive files
-R: BANN-7126-269 -- Add a legal banner to /etc/issue, to warn unauthorized users
-R: NETW-3032-224 -- Consider running ARP monitoring software (arpwatch,arpon)
-R: SSH-7408-246 -- Consider hardening SSH configuration
-R: FILE-6310-159 -- To decrease the impact of a full /home file system, place /home on a separate partition
-R: STRG-1840-169 -- Disable drivers like USB storage when not used, to prevent unauthorized storage or data theft
-R: SSH-7408-238 -- Consider hardening SSH configuration
-R: SSH-7408-244 -- Consider hardening SSH configuration
-R: SSH-7408-256 -- Consider hardening SSH configuration
-R: FIRE-4590-234 -- Configure a firewall/packet filter to filter incoming and outgoing traffic
-R: NAME-4028-173 -- Check DNS configuration for the dns domain name
-R: MAIL-8818-230 -- You are advised to hide the mail_name (option: smtpd_banner) from your postfix configuration. Use postconf -e or change your main.cf file (/etc/postfix/main.cf)
-R: STRG-1846-170 -- Disable drivers like firewire storage when not used, to prevent unauthorized storage or data theft
-R: AUTH-9286-144 -- Configure maximum password age in /etc/login.defs
-R: PKGS-7386-180 -- Install package yum-plugin-security if possible, to maintain security updates easier (yum install yum-plugin-security)
-R: SSH-7408-250 -- Consider hardening SSH configuration
-R: SSH-7408-258 -- Consider hardening SSH configuration
-Variable name                            Variable value                                               Meta tags                               
-#+end_example
-
-These index positions are not desirable to have, they add confusion. I can probably use 2 data structures, one for use inventorying suggestion ids, and one for inventorying comments. Sucks to duplicate all that data.
-
-#+BEGIN_SRC cfengine3 :include-stdlib t :log-level info :exports both :tangle /tmp/example.cf
-  bundle agent main
-  {
-    vars:
-        "d"
-          data => data_readstringarrayidx( "/tmp/lynis-report.dat",
-                                           "",
-                                           "=",
-                                           inf,
-                                           inf);
-        "i" slist => getindices( d );
-
-
-      # used to inventory the Keys
-        "suggestion[$(with)]"
-          string => "$(with)",
-          if => strcmp( "suggestion[]", "$(d[$(i)][0])"),
-          with => nth( string_split( "$(d[$(i)][1])", "\|", 3 ), 0 );
-
-        "suggestions"
-          slist => getindices( suggestion );
-        # Generate a datastructure to contain suggestsions.
-        # We extract the Suggestion ID to use as the key, and extract
-        # the description to use as the value.
-        # In order to not lose information when there are multiple suggestions with the same ID 
-        # we use the index position from the original structure to make unqiue entries for each comment
-        # used to inventory suggestion comments witout dropping comments where there are more than 1 comment per finding
-        "suggestion_c[$(with)-$(i)]"
-          string => nth( string_split( "$(d[$(i)][1])", "\|", 3 ), 1 ),
-          if => strcmp( "suggestion[]", "$(d[$(i)][0])"),
-          with => nth( string_split( "$(d[$(i)][1])", "\|", 3 ), 0 );
-        "suggestion_ci" slist => getindices( suggestion_ci );
-
-      reports:
-        "$(suggestions) -- $(suggestion_c[$(suggestions)])";
-
-  }
-#+END_SRC
-
-#+RESULTS:
+* Development Notes                                                :noexport:
