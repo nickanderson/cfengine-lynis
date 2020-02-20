@@ -13,6 +13,7 @@ bundle agent globals
                                       "$(def.lynis[globals][version])",
                           "2.7.5");
 
+      #https://cisofy.com/downloads/lynis/
       "archive_hash"
         string => ifelse(
                           isvariable( "def.lynis[globals][archive_hash]"),
@@ -40,7 +41,6 @@ bundle agent main
       "report_freshness";
       "install_tar_gz";
       "audit";
-      "report_format";
       "inventory";
 
 }
@@ -50,18 +50,13 @@ bundle agent report_freshness
 
     default:linux::
       "max_age" string => "$(globals.max_age)";
-      "data" string => "$(globals.report_data)";
-      "prefix" string => "$(globals.install_prefix)";
+      "data_file" string => "$(globals.report_data)";
 
   files:
-    default:linux::
-      "$(data)"
-        delete => default:tidy,
-        file_select => default:days_old( $(max_age) );
-
-      "$(prefix)/lynis-report.json"
-        delete => default:tidy,
-        file_select => default:days_old( $(max_age) );
+    default:linux.GMT_Hr17_Q3::
+      "$(data_file)"
+        delete => default:tidy;
+        #file_select => default:days_old( $(max_age) );
 }
 
 bundle agent install_tar_gz
@@ -71,9 +66,7 @@ bundle agent install_tar_gz
       # The github and website packages have differnt shas
       #"url[lynis]"     string => "https://github.com/CISOfy/lynis/archive/$(globals.version).tar.gz";
       "url[lynis]"     string => "$(globals.tar_url)";
-      "url[converter]" string => "https://raw.githubusercontent.com/d4t4king/lynis-report-converter/master/lynis-report-converter.pl";
       "lynis_archive"  string => "$(globals.install_prefix)/lynis-$(globals.version).tar.gz";
-      "converter"      string => "$(globals.install_prefix)/lynis-report-converter.pl";
       "lynis"          string => "$(globals.install_prefix)/lynis-$(globals.version)/lynis";
       "prefix"         string => "$(globals.install_prefix)";
       "hash_type"      string => "$(globals.hash_type)";
@@ -90,48 +83,9 @@ bundle agent install_tar_gz
       # We extract into a version specific directory for install
       "$(prefix)/lynis-$(version)/." create => "true";
 
-  packages:
-
-    (default:centos|default:redhat)::
-
-      "perl-Module-Load-Conditional"
-        policy => "present";
-
-      "perl-JSON"
-        policy => "present";
-
-    (default:centos|default:redhat).!(default:centos_6|default:redhat_6)::
-
-      "perl-Data-Dumper"
-        policy => "present";
-
-    default:centos_6|default:redhat_6::
-
-      "perl-Data-Dumper-Concise"
-        policy => "present";
-
-      "perl-Data-Dumper-Names"
-        policy => "present";
-
-    default:ubuntu|default:debian::
-      "libjson-perl"
-        policy => "present";
-
   commands:
 
     default:linux::
-
-      # Download the lynis-report-converter to $(converter) if it does not exist
-
-      "$(paths.curl)"
-        unless => fileexists( "$(converter)" ),
-        arglist => {
-                     "--silent",
-                     "$(url[converter])",
-                     "--output",
-                     "$(converter)",
-                     "-k"
-                   };
 
       # Download $(lynis_archive) if it does not match the
       # $(globals.hash_type) digest of $(globals.archive_hash)
@@ -195,34 +149,8 @@ bundle agent audit
 
      "$(lynis)"
         contain => default:in_dir_shell( "$(lynis_dir)" ),
-        arglist => { "audit", "system", "--quiet", "--quick" },
+        arglist => { "audit", "system", "--quiet", "--auditor", "'CFEngine cf-agent'" },
         if => not( fileexists( $(report_data) ) );
-}
-
-bundle agent report_format
-# @brief Ensure there is an easily consumable version of the lynis report data
-{
-  vars:
-
-    default:linux::
-
-      "report_data" string => "$(globals.report_data)";
-      "converter"   string => "$(install_tar_gz.converter)";
-      "prefix"      string => "$(globals.install_prefix)";
-
-  commands:
-
-    default:_stdlib_path_exists_perl::
-      "$(paths.perl)"
-        arglist => {
-                     $(converter),
-                     "--input",
-                     "/var/log/lynis-report.dat",
-                     "--json",
-                     "--output",
-                     "$(prefix)/lynis-report.json"
-                   },
-        if => not(fileexists( "$(prefix)/lynis-report.json" ));
 }
 
 bundle agent inventory
@@ -232,46 +160,105 @@ bundle agent inventory
 
     default:linux::
 
-      "prefix"      string => "$(globals.install_prefix)";
+      "prefix"           string => "$(globals.install_prefix)";
+      "report_data_file" string => "$(globals.report_data)";
+
+
+      # The lynis-report.dat file fomrat is line based. getting it into
+      # digest able parts requires several promises.
+
+      # Example lynis-report.dat snippet
+      #  # Lynis Report
+      #  lynis_version=2.7.4
+      #  suggestion[]=BOOT-5122|Set a password on GRUB bootloader to prevent altering boot configuration (e.g. boot in single user mode without password)|-|-|
+      #  suggestion[]=FILE-6354|Check 5 files in /tmp which are older than 90 days|-|-|
+
+      # For more complex entries like suggestion, details, and warning entries,
+      # = Is the primary Key, value separator, followed by |. Since there can be
+      # multiple lines with the same key, we need to index based on the line
+      # number.
 
       "d"
-        data => readjson("$(prefix)/lynis-report.json", inf ),
-        if => fileexists("$(prefix)/lynis-report.json");
+        data => data_readstringarrayidx( $(report_data_file),
+                                         "",
+                                         "=",
+                                         inf,
+                                         inf),
+        if => fileexists( $(report_data_file) );
+      "i" slist => getindices( d );
+
+      # The simpler key=value fields that can not have duplicate keys should be indexed by key instead of line number
+      "kv"
+        data => data_readstringarray( $(report_data_file),
+                                      "",
+                                      "=",
+                                      inf,
+                                      inf),
+        if => fileexists( $(report_data_file) );
 
       "v"
-        string => "$(d[lynis_version])",
+        string => "$(kv[lynis_version])",
         meta => { "inventory", "attribute_name=CISOfy Lynis Version" },
-        if => isvariable( "d[lynis_version]" );
+        if => isvariable( "kv[lynis_version]" );
 
-      "s" slist => getindices( "d[suggestion[]]" );
-      "detail_ids" slist => getindices( "d[details[]]" );
 
-      # Inventory the high level suggestions for CFEngine Enterprise Mission Portal
-      "suggestion_id[$(d[suggestion[]][$(s)][id])]"
-        string => "$(d[suggestion[]][$(s)][id])",
-        meta => { "inventory", "attribute_name=CISOfy Lynis Suggestion"};
+      # Generate a datastructure to contain suggestsions.
+      # We extract the Suggestion ID to use as the key, and extract
+      # the description to use as the value.
+      # In order to not lose information when there are multiple suggestions with the same ID
+      # we use the index position from the original structure to make unqiue entries for each comment
+      "suggestion[$(with)]"
+        string => nth( string_split( "$(d[$(i)][1])", "\|", 3 ), 1 ),
+        if => strcmp( "suggestion[]", "$(d[$(i)][0])"),
+        meta => { "inventory", "attribute_name=CISOfy Lynis Suggestions", "lynis-control-id=$(with)" },
+        with => nth( string_split( "$(d[$(i)][1])", "\|", 3 ), 0 );
+      "si" slist => getindices( suggestion );
 
-      # Inventory the high level suggestions for CFEngine Enterprise Mission Portal
-      "suggestion_descriptions[$(d[suggestion[]][$(s)][id])]"
-        string => "$(d[suggestion[]][$(s)][id]): $(d[suggestion[]][$(s)][description]) ",
-        meta => { "inventory", "attribute_name=CISOfy Lynis High level suggestions"};
+      "warning[$(with)]"
+        string => nth( string_split( "$(d[$(i)][1])", "\|", 3 ), 1 ),
+        if => strcmp( "warning[]", "$(d[$(i)][0])"),
+        meta => { "inventory", "attribute_name=CISOfy Lynis Warnings", "lynis-control-id=$(with)" },
+        with => nth( string_split( "$(d[$(i)][1])", "\|", 3 ), 0 );
+      "wi" slist => getindices( suggestion );
 
-      # Inventory the suggestion details for CFEngine Enterprise Mission Portal
-      "detail[$(detail_ids)]"
-        string => "$(d[details[]][$(detail_ids)][id]) $(d[details[]][$(detail_ids)][description][desc]). $(d[details[]][$(detail_ids)][description][field]) prefers $(d[details[]][$(detail_ids)][description][prefval]) over  $(d[details[]][$(detail_ids)][description][value])",
-        meta => { "inventory", "attribute_name=CISOfy Lynis Detailed Suggestion $(d[details[]][$(detail_ids)][id])"};
+        # This is nasty. Very difficult to read, but it works.
+        # Parse details[]=KRNL-6000|sysctl|desc:Log all packages for which the host does not have a path back to the source;field:net.ipv4.conf.default.log_martians;prefval:1;value:0;|
+        # into details[KRNL-6000]=net.ipv4.conf.default.log_martians value is '0' prefer '1'
+
+        "details[$(with)]"
+          string => concat( nth( string_split( nth( string_split( nth( string_split( "$(d[$(i)][1])", "\|", 3 ), 2 ), ";", 3 ), 1), ":", 2), 1),
+                            " value is '",
+                            string_replace( nth( string_split( nth( string_split( nth( string_split( "$(d[$(i)][1])", "\|", 3 ), 2 ), ";", 4 ), 3), ":", 4), 1), ";|", ""),
+                            "' prefer '",
+                            nth( string_split( nth( string_split( nth( string_split( "$(d[$(i)][1])", "\|", 3 ), 2 ), ";", 4 ), 2), ":", 2), 1),
+                            "'"),
+          if => strcmp( "details[]", "$(d[$(i)][0])"),
+          meta => { "inventory", concat( "attribute_name=CISOfy Lynis Suggestion ", nth( string_split( "$(with)", " ", 2), 0), " details" ), "lynis-control-id=$(with)" },
+          with => concat( nth( string_split( "$(d[$(i)][1])", "\|", 3 ), 0 ), " ", nth( string_split( nth( string_split( nth( string_split( "$(d[$(i)][1])", "\|", 3 ), 2 ), ";", 3 ), 1), ":", 2), 1) );
+
+      "di"
+        slist => getindices( "details" );
+
+      "finding_ids"
+        slist => { @(si), @(wi)},
+        meta => { "inventory", "attribute_name=CISOfy Lynis Control ID findings" },
+        comment => "A list of the Lynis Control IDs surfaced as warnings or suggestions";
+
+      "count_findings"
+        int => length( finding_ids ),
+        meta => { "inventory", "attribute_name=CISOfy Lynis finding count" };
 
       # Inventory report scan completion datetime
       "report_datetime_end"
-        string => "$(d[report_datetime_end])",
-        meta => { "inventory", "attribute_name=CISOfy Lynis Datetime scan completed"},
-        if => isvariable( "d[report_datetime_end]" );
+        string => "$(kv[report_datetime_end])",
+        meta => { "inventory", "attribute_name=CISOfy Lynis datetime scan completed"},
+        if => isvariable( "kv[report_datetime_end]" );
 
       # Inventory Lynis Security Hardening index
       "hardening_index"
-        string => "$(d[hardening_index])",
+        int => "$(kv[hardening_index])",
         meta => { "inventory", "attribute_name=CISOfy Lynis Hardening Index"},
-        if => isvariable( "d[hardening_index]" );
+        if => isvariable( "kv[hardening_index]" );
 
  reports:
 
@@ -280,6 +267,18 @@ bundle agent inventory
 
     default:inform_mode.default:linux::
      # Report suggestion details
+      "CISOfy Lynis Version: $(v)";
+      "Last scan completed: $(report_datetime_end)";
+      "Hardening index: $(hardening_index) (higher is better)";
 
-     "bundle $(this.bundle): $(d[details[]][$(detail_ids)][id]) $(d[details[]][$(detail_ids)][description][desc]). $(d[details[]][$(detail_ids)][description][field]) prefers $(d[details[]][$(detail_ids)][description][prefval]) over  $(d[details[]][$(detail_ids)][description][value])";
+      "----- Control IDs with findings (suggestion, warning) ------";
+      "$(finding_ids)";
+      "----- Warnings -----";
+      "$(wi) -- $(warning[$(wi)])";
+
+      "----- Suggestions -----";
+      "$(si) -- $(suggestion[$(si)])";
+
+      "----- Details -----";
+      "$(di) -- $(details[$(di)])";
 }
