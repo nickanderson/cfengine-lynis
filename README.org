@@ -161,12 +161,11 @@ variables.
 
 #+CAPTION: CISOfy Lynis Scan Inventory Summary
 #+DOWNLOADED: file:///home/nickanderson/src/cfengine-lynis/images/2020-02-20_12-09-38_CFEngine-3.15.0-CISOfy-Lynis-Scan-Summary_2020-02-20T18-08-11.385Z.png @ 2020-02-20 12:13:50
-[[attachment:2020-02-20_12-13-50_2020-02-20_12-09-38_CFEngine-3.15.0-CISOfy-Lynis-Scan-Summary_2020-02-20T18-08-11.385Z.png]]
+[[./data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/2020-02-20_12-13-50_2020-02-20_12-09-38_CFEngine-3.15.0-CISOfy-Lynis-Scan-Summary_2020-02-20T18-08-11.385Z.png]]
 
 Build a custom dashboard to visualize the latest scan result.
 
 #+CAPTION: Example dashboard visualizing last Lynis scan result
 #+DOWNLOADED: file:///home/nickanderson/Downloads/CFEngine-3.15.0-CISOfy-Lynis-Security-Dashboard_2020-02-20T17-41-18.130Z.png @ 2020-02-20 12:17:10
-[[attachment:2020-02-20_12-17-10_CFEngine-3.15.0-CISOfy-Lynis-Security-Dashboard_2020-02-20T17-41-18.130Z.png]]
-
+[[./data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/2020-02-20_12-17-10_CFEngine-3.15.0-CISOfy-Lynis-Security-Dashboard_2020-02-20T17-41-18.130Z.png]]
 * Development Notes                                                :noexport:
