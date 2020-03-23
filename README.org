@@ -1,26 +1,18 @@
 #+Title: cfengine-lynis
 
 CFEngine policy to automate the installation, running, and reporting of [[https://cisofy.com/lynis/][CISOfy's
-Lynis]] system audits.
+lynis]] system audits.
 
 Inventories:
-- Lynis Version
-- Last scan date
 - Hardening Index
-- Warnings
-- Suggestions
+- Suggestion IDs
 - Suggestion Details
-- Finding IDs (Control IDs that produced Warnings or Suggestions)
-- Count of Finding IDs
 
-#+CAPTION: CISOfy Lynis Scan Inventory Summary
-#+DOWNLOADED: file:///home/nickanderson/Downloads/CFEngine-3.15.0-CISOfy-Lynis-Scan-Summary_2020-02-20T18-08-11.385Z.png @ 2020-02-20 12:09:38
-[[./images/2020-02-20_12-09-38_CFEngine-3.15.0-CISOfy-Lynis-Scan-Summary_2020-02-20T18-08-11.385Z.png]]
 
-* Install and configuration                                          :ATTACH:
-:PROPERTIES:
-:ID:       8690ea14-1422-437d-b42a-5c244df87290
-:END:
+#+DOWNLOADED: file:///home/nickanderson/Pictures/Screenshots/CISOfy-lynis-2.7.1-summary.png @ 2019-02-18 12:16:02
+[[file:data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/CISOfy-lynis-2.7.1-summary_2019-02-18_12-16-01.png]]
+
+* Install and configuration
 
 ** Manual installation
 
@@ -84,87 +76,33 @@ Install with cpm (the unofficial cfengine package|policy manager).
 When the policy is run with the =inform_mode= class defined it will report the
 findings.
 
-#+CAPTION: Example of policy output produced when run with =inform_mode= class defined
 #+BEGIN_EXAMPLE
-R: CISOfy Lynis Version: 2.7.5
-R: Last scan completed: 2020-02-20 17:26:05
-R: Hardening index: 66 (higher is better)
-R: ----- Control IDs with findings (suggestion, warning) ------
-R: KRNL-6000
-R: HRDN-7222
-R: AUTH-9328
-R: SSH-7408
-R: STRG-1846
-R: FILE-6310
-R: PKGS-7420
-R: MAIL-8818
-R: FINT-4350
-R: STRG-1840
-R: NETW-3032
-R: BANN-7126
-R: AUTH-9286
-R: BANN-7130
-R: ACCT-9630
-R: LYNIS
-R: ACCT-9622
-R: NAME-4406
-R: HRDN-7230
-R: ----- Warnings -----
-R: MAIL-8818 -- Found some information disclosure in SMTP banner (OS or software name)
-R: ----- Suggestions -----
-R: KRNL-6000 -- One or more sysctl values differ from the scan profile and could be tweaked
-R: HRDN-7222 -- Harden compilers like restricting access to root user only
-R: AUTH-9328 -- Default umask in /etc/profile or /etc/profile.d/custom.sh could be more strict (e.g. 027)
-R: SSH-7408 -- Consider hardening SSH configuration
-R: STRG-1846 -- Disable drivers like firewire storage when not used, to prevent unauthorized storage or data theft
-R: FILE-6310 -- To decrease the impact of a full /var file system, place /var on a separate partition
-R: PKGS-7420 -- Consider using a tool to automatically apply upgrades
-R: MAIL-8818 -- You are advised to hide the mail_name (option: smtpd_banner) from your postfix configuration. Use postconf -e or change your main.cf file (/etc/postfix/main.cf)
-R: FINT-4350 -- Install a file integrity tool to monitor changes to critical and sensitive files
-R: STRG-1840 -- Disable drivers like USB storage when not used, to prevent unauthorized storage or data theft
-R: NETW-3032 -- Consider running ARP monitoring software (arpwatch,arpon)
-R: BANN-7126 -- Add a legal banner to /etc/issue, to warn unauthorized users
-R: AUTH-9286 -- Configure maximum password age in /etc/login.defs
-R: BANN-7130 -- Add legal banner to /etc/issue.net, to warn unauthorized users
-R: ACCT-9630 -- Audit daemon is enabled with an empty ruleset. Disable the daemon or define rules
-R: LYNIS -- This release is more than 4 months old. Consider upgrading
-R: ACCT-9622 -- Enable process accounting
-R: NAME-4406 -- Split resolving between localhost and the hostname of the system
-R: HRDN-7230 -- Harden the system by installing at least one malware scanner, to perform periodic file system scans
-R: ----- Details -----
-R: SSH-7408 LogLevel -- LogLevel value is 'INFO' prefer 'VERBOSE'
-R: SSH-7408 TCPKeepAlive -- TCPKeepAlive value is 'YES' prefer 'NO'
-R: KRNL-6000 kernel.dmesg_restrict -- kernel.dmesg_restrict value is '0' prefer '1'
-R: KRNL-6000 kernel.sysrq -- kernel.sysrq value is '16' prefer '0'
-R: SSH-7408 X11Forwarding -- X11Forwarding value is 'YES' prefer 'NO'
-R: SSH-7408 MaxAuthTries -- MaxAuthTries value is '6' prefer '3'
-R: SSH-7408 AllowTcpForwarding -- AllowTcpForwarding value is 'YES' prefer 'NO'
-R: KRNL-6000 net.ipv6.conf.all.accept_redirects -- net.ipv6.conf.all.accept_redirects value is '1' prefer '0'
-R: KRNL-6000 net.ipv4.conf.default.accept_redirects -- net.ipv4.conf.default.accept_redirects value is '1' prefer '0'
-R: KRNL-6000 net.ipv6.conf.default.accept_redirects -- net.ipv6.conf.default.accept_redirects value is '1' prefer '0'
-R: KRNL-6000 kernel.kptr_restrict -- kernel.kptr_restrict value is '0' prefer '2'
-R: SSH-7408 PermitRootLogin -- PermitRootLogin value is 'YES' prefer '(NO|PROHIBIT-PASSWORD|WITHOUT-PASSWORD)'
-R: SSH-7408 MaxSessions -- MaxSessions value is '10' prefer '2'
-R: SSH-7408 Port -- Port value is '22' prefer ''
-R: SSH-7408 ClientAliveCountMax -- ClientAliveCountMax value is '3' prefer '2'
-R: KRNL-6000 net.ipv4.conf.all.accept_redirects -- net.ipv4.conf.all.accept_redirects value is '1' prefer '0'
-R: KRNL-6000 net.ipv4.conf.all.log_martians -- net.ipv4.conf.all.log_martians value is '0' prefer '1'
-R: KRNL-6000 kernel.yama.ptrace_scope -- kernel.yama.ptrace_scope value is '0' prefer '1 2 3'
-R: SSH-7408 AllowAgentForwarding -- AllowAgentForwarding value is 'YES' prefer 'NO'
-R: KRNL-6000 net.ipv4.conf.all.send_redirects -- net.ipv4.conf.all.send_redirects value is '1' prefer '0'
-R: SSH-7408 Compression -- Compression value is 'YES' prefer 'NO'
-R: KRNL-6000 net.ipv4.conf.default.log_martians -- net.ipv4.conf.default.log_martians value is '0' prefer '1'
+R: bundle lynis_inventory: SSH-7408 sshd option AllowTcpForwarding. AllowTcpForwarding prefers NO over  YES
+R: bundle lynis_inventory: SSH-7408 sshd optio/cfenginen ClientAliveCountMax. ClientAliveCountMax prefers 2 over  3
+R: bundle lynis_inventory: SSH-7408 sshd option Compression. Compression prefers NO over  DELAYED
+R: bundle lynis_inventory: SSH-7408 sshd option LogLevel. LogLevel prefers VERBOSE over  INFO
+R: bundle lynis_inventory: SSH-7408 sshd option MaxAuthTries. MaxAuthTries prefers 2 over  6
+R: bundle lynis_inventory: SSH-7408 sshd option MaxSessions. MaxSessions prefers 2 over  10
+R: bundle lynis_inventory: SSH-7408 sshd option PermitRootLogin. PermitRootLogin prefers NO over  YES
+R: bundle lynis_inventory: SSH-7408 sshd option Port. Port prefers  over  22
+R: bundle lynis_inventory: SSH-7408 sshd option TCPKeepAlive. TCPKeepAlive prefers NO over  YES
+R: bundle lynis_inventory: SSH-7408 sshd option X11Forwarding. X11Forwarding prefers NO over  YES
+R: bundle lynis_inventory: KRNL-6000 Restrict use of dmesg. kernel.dmesg_restrict prefers 1 over  0
+R: bundle lynis_inventory: KRNL-6000 Restrict access to kernel symbols. kernel.kptr_restrict prefers 2 over  1
+R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv4.conf.all.accept_redirects prefers 0 over  1
+R: bundle lynis_inventory: KRNL-6000 Log all packages for which the host does not have a path back to the source. net.ipv4.conf.all.log_martians prefers 1 over  0
+R: bundle lynis_inventory: KRNL-6000 Enforce ingress/egress filtering for packets. net.ipv4.conf.all.rp_filter prefers 1 over  0
+R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv4.conf.all.send_redirects prefers 0 over  1
+R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv4.conf.default.accept_redirects prefers 0 over  1
+R: bundle lynis_inventory: KRNL-6000 Log all packages for which the host does not have a path back to the source. net.ipv4.conf.default.log_martians prefers 1 over  0
+R: bundle lynis_inventory: KRNL-6000 Do not use TCP time stamps. net.ipv4.tcp_timestamps prefers 0 over  1
+R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv6.conf.all.accept_redirects prefers 0 over  1
+R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv6.conf.default.accept_redirects prefers 0 over  1
 #+END_EXAMPLE
 
 CFEngine Enterprise will automatically collect and report on inventoried
 variables.
 
-#+CAPTION: CISOfy Lynis Scan Inventory Summary
-#+DOWNLOADED: file:///home/nickanderson/src/cfengine-lynis/images/2020-02-20_12-09-38_CFEngine-3.15.0-CISOfy-Lynis-Scan-Summary_2020-02-20T18-08-11.385Z.png @ 2020-02-20 12:13:50
-[[./data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/2020-02-20_12-13-50_2020-02-20_12-09-38_CFEngine-3.15.0-CISOfy-Lynis-Scan-Summary_2020-02-20T18-08-11.385Z.png]]
+#+DOWNLOADED: file:///home/nickanderson/Pictures/Screenshots/CISOfy-lynis-2.7.1-summary.png @ 2019-02-18 12:16:02
+[[file:data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/CISOfy-lynis-2.7.1-summary_2019-02-18_12-16-01.png]]
 
-Build a custom dashboard to visualize the latest scan result.
-
-#+CAPTION: Example dashboard visualizing last Lynis scan result
-#+DOWNLOADED: file:///home/nickanderson/Downloads/CFEngine-3.15.0-CISOfy-Lynis-Security-Dashboard_2020-02-20T17-41-18.130Z.png @ 2020-02-20 12:17:10
-[[./data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/2020-02-20_12-17-10_CFEngine-3.15.0-CISOfy-Lynis-Security-Dashboard_2020-02-20T17-41-18.130Z.png]]

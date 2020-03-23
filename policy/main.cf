@@ -53,10 +53,9 @@ bundle agent report_freshness
       "data_file" string => "$(globals.report_data)";
 
   files:
-    default:linux.GMT_Hr17_Q3::
       "$(data_file)"
-        delete => default:tidy;
-        #file_select => default:days_old( $(max_age) );
+        delete => default:tidy,
+        file_select => default:days_old( $(max_age) );
 }
 
 bundle agent install_tar_gz
@@ -260,6 +259,12 @@ bundle agent inventory
         meta => { "inventory", "attribute_name=CISOfy Lynis Hardening Index"},
         if => isvariable( "kv[hardening_index]" );
 
+      "lynis_update_available"
+        string => ifelse( strcmp( "$(kv[lynis_update_available])", "-1", "No" ),
+                          strcmp( "$(kv[lynis_update_available])", "0", "Yes" ),
+                          "Unknown" ),
+        meta => { "inventory", "attribute_name=CISOfy Lynis Update Available"};
+
  reports:
 
     default:inform_mode.!default:linux::
@@ -281,4 +286,6 @@ bundle agent inventory
 
       "----- Details -----";
       "$(di) -- $(details[$(di)])";
+
+
 }
