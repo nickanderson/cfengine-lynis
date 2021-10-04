@@ -1,6 +1,0 @@
-{
-  "inputs": [ "services/lynis/policy/main.cf" ],
-  "vars": {
-    "control_common_bundlesequence_end": [ "lynis:main" ]
-    }
-}

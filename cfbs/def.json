@@ -1,0 +1,6 @@
+{
+    "inputs": [ "services/lynis/main.cf" ],
+    "vars": {
+        "control_common_bundlesequence_end": [ "lynis:main" ]
+    }
+}
