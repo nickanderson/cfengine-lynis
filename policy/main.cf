@@ -260,8 +260,8 @@ bundle agent inventory
         if => isvariable( "kv[hardening_index]" );
 
       "lynis_update_available"
-        string => ifelse( strcmp( "$(kv[lynis_update_available])", "-1", "No" ),
-                          strcmp( "$(kv[lynis_update_available])", "0", "Yes" ),
+        string => ifelse( strcmp( "$(kv[lynis_update_available])", "-1"), "No",
+                          strcmp( "$(kv[lynis_update_available])", "0"), "Yes",
                           "Unknown" ),
         meta => { "inventory", "attribute_name=CISOfy Lynis Update Available"};
 
