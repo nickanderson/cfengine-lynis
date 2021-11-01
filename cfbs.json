@@ -1,0 +1,16 @@
+{
+    "name": "inventory-local-users",
+    "description": "Inventory local users",
+    "provides": {
+        "inventory-lastlog": {
+            "description": "Inventory users who have logged in and when per lastlog",
+            "tags": ["untested", "security", "compliance"],
+            "repo": "https://github.com/nickanderson/cfengine-local_users",
+            "by": "https://github.com/nickanderson/",
+            "steps": [
+                "copy policy/main.cf services/inventory-lastlog/main.cf",
+                "json cfbs/def.json def.json"
+            ]
+        }
+    }
+}
