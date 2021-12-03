@@ -12,7 +12,7 @@ This module provides policy to automate the installation, running, and reporting
 - CISOfy Lynis Hardening Index :: Hardening index from last scan.
 - CISOfy Lynis Update Available :: Weather or not there is an updated version of Lynis available.
 
-[[https://raw.githubusercontent.com/nickanderson/cfengine-lynis/data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/CISOfy-lynis-2.7.1-summary_2019-02-18_12-16-01.png]]
+[[https://raw.github.com/nickanderson/cfengine-lynis/master/data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/2017-10-09_Selection_003_2017-10-09_14-38-01.png]]
 
 * Usage
 :PROPERTIES:
@@ -50,5 +50,4 @@ R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.
 CFEngine Enterprise will automatically collect and report on inventoried
 variables.
 
-[[https://raw.githubusercontent.com/nickanderson/cfengine-lynis/data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/CISOfy-lynis-2.7.1-summary_2019-02-18_12-16-01.png]]
-
+[[https://raw.github.com/nickanderson/cfengine-lynis/master/data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/CISOfy-lynis-2.7.1-summary_2019-02-18_12-16-01.png]]
