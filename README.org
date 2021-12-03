@@ -1,28 +1,20 @@
-#+Title: cfengine-lynis
+Lynis is a security tool for systems running Linux, macOS, or Unix-based operating system. It performs an extensive health scan of your systems to support system hardening and compliance testing. 
 
-CFEngine policy to automate the installation, running, and reporting of [[https://cisofy.com/lynis/][CISOfy's
-lynis]] system audits.
+This module provides policy to automate the installation, running, and reporting of [[https://cisofy.com/lynis/][CISOfy's lynis]] system audits finding.
 
-Inventories:
-- Hardening Index
-- Suggestion IDs
-- Suggestion Details
+* Inventory
+- CISOfy Lynis Version :: The version of Lynis installed
+- CISOfy Lynis Suggestions :: A list of suggestions from the last scan report.
+- CISOfy Lynis Warnings :: A list of warnings from the last scan report
+- CISOfy Lynis Control ID findings :: A list of the Lynis Control IDs surfaced as warnings or suggestions.
+- CISOfy Lynis finding count :: The number of findings resulting from a scan.
+- CISOfy Lynis datetime scan completed :: Datetime of last completed scan.
+- CISOfy Lynis Hardening Index :: Hardening index from last scan.
+- CISOfy Lynis Update Available :: Weather or not there is an updated version of Lynis available.
 
-#+DOWNLOADED: file:///home/nickanderson/Pictures/Screenshots/CISOfy-lynis-2.7.1-summary.png @ 2019-02-18 12:16:02
-[[file:data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/CISOfy-lynis-2.7.1-summary_2019-02-18_12-16-01.png]]
+[[https://raw.githubusercontent.com/nickanderson/cfengine-lynis/data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/CISOfy-lynis-2.7.1-summary_2019-02-18_12-16-01.png]]
 
-* Installation via cfbs
-
-** cfbs
-
-#+BEGIN_SRC sh
-  ❯ cfbs search lynis
-  lynis - CFEngine policy to automate the installation, running, and reporting of CISOfy's lynis system audits
-  ❯ cfbs add lynis
-  Added module: lynis
-#+END_SRC
-
-* Usage                                                              :ATTACH:
+* Usage
 :PROPERTIES:
 :ID:       4f23848e-ef9c-44aa-b268-dafe86ff7979
 :Attachments: 2017-10-09_Selection_003_2017-10-09_12-50-52.png 2017-10-09_Selection_003_2017-10-09_14-38-01.png CISOfy-lynis-2.7.1-summary_2019-02-18_12-16-01.png
@@ -58,6 +50,5 @@ R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.
 CFEngine Enterprise will automatically collect and report on inventoried
 variables.
 
-#+DOWNLOADED: file:///home/nickanderson/Pictures/Screenshots/CISOfy-lynis-2.7.1-summary.png @ 2019-02-18 12:16:02
-[[file:data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/CISOfy-lynis-2.7.1-summary_2019-02-18_12-16-01.png]]
+[[https://raw.githubusercontent.com/nickanderson/cfengine-lynis/data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/CISOfy-lynis-2.7.1-summary_2019-02-18_12-16-01.png]]
 
