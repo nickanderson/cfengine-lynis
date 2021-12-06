@@ -18,7 +18,7 @@ This module provides policy to automate the installation, running, and reporting
 * Usage
 :PROPERTIES:
 :ID:       4f23848e-ef9c-44aa-b268-dafe86ff7979
-:Attachments: 2017-10-09_Selection_003_2017-10-09_12-50-52.png 2021-12-06-Lynis-Suggestions.png 2021-12-06-CISOfy-Summary-Report.png.png
+:Attachments: 2017-10-09_Selection_003_2017-10-09_12-50-52.png 2021-12-06-Lynis-Suggestions.png 2021-12-06-CISOfy-Summary-Report.png
 :END:
 
 When the policy is run with the =inform_mode= class defined it will report the
@@ -88,4 +88,4 @@ R: KRNL-6000 net.ipv4.conf.default.log_martians -- net.ipv4.conf.default.log_mar
 CFEngine Enterprise will automatically collect and report on inventoried
 variables.
 
-[[https://raw.github.com/nickanderson/cfengine-lynis/master/data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/2021-12-06-CISOfy-Summary-Report.png.png]]
+[[https://raw.github.com/nickanderson/cfengine-lynis/master/data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/2021-12-06-CISOfy-Summary-Report.png]]
