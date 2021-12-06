@@ -14,6 +14,7 @@ This module provides policy to automate the installation, running, and reporting
 
 [[https://raw.github.com/nickanderson/cfengine-lynis/master/data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/2021-12-06-Lynis-Suggestions.png]]
 
+
 * Usage
 :PROPERTIES:
 :ID:       4f23848e-ef9c-44aa-b268-dafe86ff7979
