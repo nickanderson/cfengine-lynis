@@ -12,42 +12,79 @@ This module provides policy to automate the installation, running, and reporting
 - CISOfy Lynis Hardening Index :: Hardening index from last scan.
 - CISOfy Lynis Update Available :: Weather or not there is an updated version of Lynis available.
 
-[[https://raw.github.com/nickanderson/cfengine-lynis/master/data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/2017-10-09_Selection_003_2017-10-09_14-38-01.png]]
+[[https://raw.github.com/nickanderson/cfengine-lynis/master/data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/2021-12-06-Lynis-Summary.png]]
 
 * Usage
 :PROPERTIES:
 :ID:       4f23848e-ef9c-44aa-b268-dafe86ff7979
-:Attachments: 2017-10-09_Selection_003_2017-10-09_12-50-52.png 2017-10-09_Selection_003_2017-10-09_14-38-01.png CISOfy-lynis-2.7.1-summary_2019-02-18_12-16-01.png
+:Attachments: 2017-10-09_Selection_003_2017-10-09_12-50-52.png 2021-12-06-Lynis-Summary.png 2021-12-06-CISOfy-Summary-Report.png.png
 :END:
 
 When the policy is run with the =inform_mode= class defined it will report the
 findings.
 
 #+BEGIN_EXAMPLE
-R: bundle lynis_inventory: SSH-7408 sshd option AllowTcpForwarding. AllowTcpForwarding prefers NO over  YES
-R: bundle lynis_inventory: SSH-7408 sshd optio/cfenginen ClientAliveCountMax. ClientAliveCountMax prefers 2 over  3
-R: bundle lynis_inventory: SSH-7408 sshd option Compression. Compression prefers NO over  DELAYED
-R: bundle lynis_inventory: SSH-7408 sshd option LogLevel. LogLevel prefers VERBOSE over  INFO
-R: bundle lynis_inventory: SSH-7408 sshd option MaxAuthTries. MaxAuthTries prefers 2 over  6
-R: bundle lynis_inventory: SSH-7408 sshd option MaxSessions. MaxSessions prefers 2 over  10
-R: bundle lynis_inventory: SSH-7408 sshd option PermitRootLogin. PermitRootLogin prefers NO over  YES
-R: bundle lynis_inventory: SSH-7408 sshd option Port. Port prefers  over  22
-R: bundle lynis_inventory: SSH-7408 sshd option TCPKeepAlive. TCPKeepAlive prefers NO over  YES
-R: bundle lynis_inventory: SSH-7408 sshd option X11Forwarding. X11Forwarding prefers NO over  YES
-R: bundle lynis_inventory: KRNL-6000 Restrict use of dmesg. kernel.dmesg_restrict prefers 1 over  0
-R: bundle lynis_inventory: KRNL-6000 Restrict access to kernel symbols. kernel.kptr_restrict prefers 2 over  1
-R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv4.conf.all.accept_redirects prefers 0 over  1
-R: bundle lynis_inventory: KRNL-6000 Log all packages for which the host does not have a path back to the source. net.ipv4.conf.all.log_martians prefers 1 over  0
-R: bundle lynis_inventory: KRNL-6000 Enforce ingress/egress filtering for packets. net.ipv4.conf.all.rp_filter prefers 1 over  0
-R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv4.conf.all.send_redirects prefers 0 over  1
-R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv4.conf.default.accept_redirects prefers 0 over  1
-R: bundle lynis_inventory: KRNL-6000 Log all packages for which the host does not have a path back to the source. net.ipv4.conf.default.log_martians prefers 1 over  0
-R: bundle lynis_inventory: KRNL-6000 Do not use TCP time stamps. net.ipv4.tcp_timestamps prefers 0 over  1
-R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv6.conf.all.accept_redirects prefers 0 over  1
-R: bundle lynis_inventory: KRNL-6000 Disable/Ignore ICMP routing redirects. net.ipv6.conf.default.accept_redirects prefers 0 over  1
+R: ----- Warnings -----
+R: NETW-2704 -- Nameserver 192.168.1.1 does not respond
+R: PKGS-7392 -- Found one or more vulnerable packages.
+R: NETW-2705 -- Couldn't find 2 responsive nameservers
+R: ----- Suggestions -----
+R: NETW-2704 -- Check connection to this nameserver and make sure no outbound DNS queries are blocked (port 53 UDP and TCP).
+R: KRNL-6000 -- One or more sysctl values differ from the scan profile and could be tweaked
+R: HRDN-7222 -- Harden compilers like restricting access to root user only
+R: PKGS-7392 -- Update your system with apt-get update, apt-get upgrade, apt-get dist-upgrade and/or unattended-upgrades
+R: ACCT-9626 -- Enable sysstat to collect accounting (no results)
+R: MACF-6208 -- Check output of aa-status
+R: AUTH-9328 -- Default umask in /etc/login.defs could be more strict like 027
+R: BOOT-5122 -- Set a password on GRUB bootloader to prevent altering boot configuration (e.g. boot in single user mode without password)
+R: LOGG-2190 -- Check what deleted files are still in use and why.
+R: SSH-7408 -- Consider hardening SSH configuration
+R: NETW-2705 -- Check your resolv.conf file and fill in a backup nameserver if possible
+R: STRG-1846 -- Disable drivers like firewire storage when not used, to prevent unauthorized storage or data theft
+R: AUTH-9262 -- Install a PAM module for password strength testing like pam_cracklib or pam_passwdqc
+R: PROC-3614 -- Check process listing for processes waiting for IO requests
+R: FILE-6310 -- To decrease the impact of a full /var file system, place /var on a separate partition
+R: PKGS-7420 -- Consider using a tool to automatically apply upgrades
+R: FINT-4350 -- Install a file integrity tool to monitor changes to critical and sensitive files
+R: STRG-1840 -- Disable drivers like USB storage when not used, to prevent unauthorized storage or data theft
+R: NETW-3032 -- Consider running ARP monitoring software (arpwatch,arpon)
+R: BANN-7126 -- Add a legal banner to /etc/issue, to warn unauthorized users
+R: TIME-3128 -- Check ntpq peers output for time source candidates
+R: TIME-3124 -- Check ntpq peers output for selected time source
+R: AUTH-9286 -- Configure maximum password age in /etc/login.defs
+R: PKGS-7370 -- Install debsums utility for the verification of packages with known good database.
+R: PKGS-7346 -- Purge old/removed packages (5 found) with aptitude purge or dpkg --purge command. This will cleanup old configuration files, cron jobs and startup scripts.
+R: BANN-7130 -- Add legal banner to /etc/issue.net, to warn unauthorized users
+R: ACCT-9630 -- Audit daemon is enabled with an empty ruleset. Disable the daemon or define rules
+R: LYNIS -- This release is more than 4 months old. Consider upgrading
+R: ACCT-9622 -- Enable process accounting
+R: HRDN-7230 -- Harden the system by installing at least one malware scanner, to perform periodic file system scans
+R: ----- Details -----
+R: KRNL-6000 kernel.core_uses_pid -- kernel.core_uses_pid value is '0' prefer '1'
+R: SSH-7408 LogLevel -- LogLevel value is 'INFO' prefer 'VERBOSE'
+R: SSH-7408 TCPKeepAlive -- TCPKeepAlive value is 'YES' prefer 'NO'
+R: KRNL-6000 kernel.sysrq -- kernel.sysrq value is '438' prefer '0'
+R: SSH-7408 X11Forwarding -- X11Forwarding value is 'YES' prefer 'NO'
+R: KRNL-6000 net.ipv4.conf.default.accept_source_route -- net.ipv4.conf.default.accept_source_route value is '1' prefer '0'
+R: SSH-7408 AllowTcpForwarding -- AllowTcpForwarding value is 'YES' prefer 'NO'
+R: KRNL-6000 net.ipv6.conf.all.accept_redirects -- net.ipv6.conf.all.accept_redirects value is '1' prefer '0'
+R: KRNL-6000 net.ipv4.conf.default.accept_redirects -- net.ipv4.conf.default.accept_redirects value is '1' prefer '0'
+R: KRNL-6000 net.ipv4.conf.all.rp_filter -- net.ipv4.conf.all.rp_filter value is '0' prefer '1'
+R: KRNL-6000 net.ipv6.conf.default.accept_redirects -- net.ipv6.conf.default.accept_redirects value is '1' prefer '0'
+R: KRNL-6000 kernel.kptr_restrict -- kernel.kptr_restrict value is '0' prefer '2'
+R: SSH-7408 MaxSessions -- MaxSessions value is '10' prefer '2'
+R: SSH-7408 Port -- Port value is '22' prefer ''
+R: SSH-7408 ClientAliveCountMax -- ClientAliveCountMax value is '3' prefer '2'
+R: KRNL-6000 net.ipv4.conf.all.accept_redirects -- net.ipv4.conf.all.accept_redirects value is '1' prefer '0'
+R: KRNL-6000 net.ipv4.conf.all.log_martians -- net.ipv4.conf.all.log_martians value is '0' prefer '1'
+R: KRNL-6000 kernel.yama.ptrace_scope -- kernel.yama.ptrace_scope value is '0' prefer '1 2 3'
+R: SSH-7408 AllowAgentForwarding -- AllowAgentForwarding value is 'YES' prefer 'NO'
+R: KRNL-6000 net.ipv4.conf.all.send_redirects -- net.ipv4.conf.all.send_redirects value is '1' prefer '0'
+R: SSH-7408 Compression -- Compression value is 'YES' prefer 'NO'
+R: KRNL-6000 net.ipv4.conf.default.log_martians -- net.ipv4.conf.default.log_martians value is '0' prefer '1'
 #+END_EXAMPLE
 
 CFEngine Enterprise will automatically collect and report on inventoried
 variables.
 
-[[https://raw.github.com/nickanderson/cfengine-lynis/master/data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/CISOfy-lynis-2.7.1-summary_2019-02-18_12-16-01.png]]
+[[https://raw.github.com/nickanderson/cfengine-lynis/master/data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/2021-12-06-CISOfy-Summary-Report.png.png]]
