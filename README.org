@@ -1,4 +1,4 @@
-Lynis is a security tool for systems running Linux, macOS, or Unix-based operating system. It performs an extensive health scan of your systems to support system hardening and compliance testing. 
+Lynis is a security tool for hosts running Linux, macOS, or other Unix-based operating systems. It performs an extensive health scan of your host to support system hardening and compliance testing.
 
 This module provides policy to automate the installation, running, and reporting of [[https://cisofy.com/lynis/][CISOfy's lynis]] system audits finding.
 
