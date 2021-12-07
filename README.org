@@ -21,8 +21,7 @@ This module provides policy to automate the installation, running, and reporting
 :Attachments: 2017-10-09_Selection_003_2017-10-09_12-50-52.png 2021-12-06-Lynis-Suggestions.png 2021-12-06-CISOfy-Summary-Report.png
 :END:
 
-When the policy is run with the =inform_mode= class defined it will report the
-findings.
+If used from the command line, you can add the --info option to see all the results from Lynis:
 
 #+BEGIN_EXAMPLE
 R: ----- Warnings -----
