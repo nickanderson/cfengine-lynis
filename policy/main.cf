@@ -76,6 +76,9 @@ bundle agent install_tar_gz
       "archive_hash"   string => "$(globals.archive_hash)";
       "version"        string => "$(globals.version)";
 
+  classes:
+      "have_tar_file" expression => fileexists( $(lynis_archive) );
+
   files:
     default:linux::
       "$(prefix)/."
@@ -130,6 +133,8 @@ bundle agent install_tar_gz
       # $(globals.install_prefix)/lynis-$(globals.version) does
       # not exist.
 
+      have_tar_file::
+
       "$(default:paths.tar)"
         arglist => {
                      "-zxf",
@@ -140,8 +145,7 @@ bundle agent install_tar_gz
                      # Note, the tarball from github contains a directory named lynis-Major.Minor.Patch
                      "--strip-components=1"
                    },
-        if => and( fileexists( $(lynis_archive) ),
-                   strcmp(
+        if => and(strcmp(
                           file_hash( $(lynis_archive), $(hash_type) ),
                           $(archive_hash)),
                   not( fileexists( "$(prefix)/lynis-$(version)/lynis") ) );
