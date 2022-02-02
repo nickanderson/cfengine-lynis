@@ -140,7 +140,8 @@ bundle agent install_tar_gz
                      # Note, the tarball from github contains a directory named lynis-Major.Minor.Patch
                      "--strip-components=1"
                    },
-        if => and(strcmp(
+        if => and( fileexists( $(lynis_archive) ),
+                   strcmp(
                           file_hash( $(lynis_archive), $(hash_type) ),
                           $(archive_hash)),
                   not( fileexists( "$(prefix)/lynis-$(version)/lynis") ) );
