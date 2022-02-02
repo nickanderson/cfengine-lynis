@@ -93,7 +93,7 @@ bundle agent install_tar_gz
       # Download $(lynis_archive) if it does not match the
       # $(globals.hash_type) digest of $(globals.archive_hash)
 
-      "$(paths.curl)"
+      "$(default:paths.curl)"
         handle => "fetch_lynis_archive_using_curl",
         arglist => {
                      "--silent",
@@ -106,9 +106,9 @@ bundle agent install_tar_gz
                      #"-k"
                    },
         if => and( not(fileexists( $(lynis_archive) )),
-                   "_stdlib_path_exists_curl");
+                   "default:_stdlib_path_exists_curl");
 
-      "$(paths.wget)"
+      "$(default:paths.wget)"
         handle => "fetch_lynis_archive_using_wget",
         arglist => {
                      "--quiet",
@@ -121,13 +121,8 @@ bundle agent install_tar_gz
                      #"-k"
         },
         if => and( not(fileexists( $(lynis_archive) )),
-                   "_stdlib_path_exists_wget");
+                   "default:_stdlib_path_exists_wget");
 
-
-        # if => not(strcmp(
-        #                   file_hash( $(lynis_archive), $(hash_type) ),
-        #                   $(archive_hash)
-        #                 ));
 
       # Unpack $(lynis_archive) into $(globals.install_prefix) if
       # $(lynis_archive) matches the $(globals.hash_type) digest of
@@ -135,7 +130,7 @@ bundle agent install_tar_gz
       # $(globals.install_prefix)/lynis-$(globals.version) does
       # not exist.
 
-      "$(paths.tar)"
+      "$(default:paths.tar)"
         arglist => {
                      "-zxf",
                      "$(lynis_archive)",
