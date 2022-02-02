@@ -239,8 +239,13 @@ bundle agent inventory
       "di"
         slist => getindices( "details" );
 
+      # We combine suggestions and warning in this consolidated list so that we
+      # can get then extract the unique elements. REF: CFE-3911
+      "_finding_ids" -> { "CFE-3911" }
+        slist => { @(si), @(wi) };
+
       "finding_ids"
-        slist => { @(si), @(wi)},
+        slist => unique( @(_finding_ids) ),
         meta => { "inventory", "attribute_name=CISOfy Lynis Control ID findings" },
         comment => "A list of the Lynis Control IDs surfaced as warnings or suggestions";
 
