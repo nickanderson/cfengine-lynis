@@ -63,8 +63,11 @@ bundle agent install_tar_gz
 {
   vars:
     default:linux::
-      # The github and website packages have differnt shas
+      # The github and website packages have different SHAs
+      # Redirected download from github
       #"url[lynis]"     string => "https://github.com/CISOfy/lynis/archive/$(globals.version).tar.gz";
+      # Direct download from downloads.cisofy.com
+      #"url[lynis]"      string => "https://downloads.cisofy.com/lynis/lynis-$(version).tar.gz";
       "url[lynis]"     string => "$(globals.tar_url)";
       "lynis_archive"  string => "$(globals.install_prefix)/lynis-$(globals.version).tar.gz";
       "lynis"          string => "$(globals.install_prefix)/lynis-$(globals.version)/lynis";
@@ -91,18 +94,36 @@ bundle agent install_tar_gz
       # $(globals.hash_type) digest of $(globals.archive_hash)
 
       "$(paths.curl)"
-        handle => "fetch_lynis_archive",
+        handle => "fetch_lynis_archive_using_curl",
         arglist => {
                      "--silent",
                      "$(url[lynis])",
-                     #"-L",
+                     "-L",
                      #"--max-redirs",
                      #"3",
                      "--output",
                      "$(lynis_archive)",
                      #"-k"
                    },
-        if => not(fileexists( $(lynis_archive) ));
+        if => and( not(fileexists( $(lynis_archive) )),
+                   "_stdlib_path_exists_curl");
+
+      "$(paths.wget)"
+        handle => "fetch_lynis_archive_using_wget",
+        arglist => {
+                     "--quiet",
+                     "$(url[lynis])",
+                     #"-L",
+                     #"--max-redirs",
+                     #"3",
+                     "--output-document",
+                     "$(lynis_archive)",
+                     #"-k"
+        },
+        if => and( not(fileexists( $(lynis_archive) )),
+                   "_stdlib_path_exists_wget");
+
+
         # if => not(strcmp(
         #                   file_hash( $(lynis_archive), $(hash_type) ),
         #                   $(archive_hash)
