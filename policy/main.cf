@@ -276,7 +276,7 @@ bundle agent inventory
     default:inform_mode.!default:linux::
       "NOTICE: This platform is not currently supported by $(this.namespace):$(this.bundle) in $(this.promise_filename)";
 
-    default:inform_mode.default:linux::
+    default:verbose_mode.default:linux::
      # Report suggestion details
       "CISOfy Lynis Version: $(v)";
       "Last scan completed: $(report_datetime_end)";
