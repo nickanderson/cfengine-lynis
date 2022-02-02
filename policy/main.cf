@@ -11,14 +11,14 @@ bundle agent globals
         string => ifelse(
                           isvariable( "def.lynis[globals][version]"),
                                       "$(def.lynis[globals][version])",
-                          "2.7.5"); # "default:def.lynis" = {"globals": { "version": "3.0.6" } }
+                          "3.0.7"); # "default:def.lynis" = {"globals": { "version": "3.0.6" } }
 
       #https://cisofy.com/downloads/lynis/
       "archive_hash"
         string => ifelse(
                           isvariable( "def.lynis[globals][archive_hash]"),
                           "$(def.lynis[globals][archive_hash])",
-                          "3d27ade73a5c1248925ad9c060024940ce5d2029f40aaa901f43314888fe324d");
+                          "52891674347a463ce0fbbf1225cdb61f83c5db412d1c101cb48aa5f88a29e77d");
       # Website SHA256 hash: f23dd57561f273a7e39e4597277571973dadbab6a131a4712340a6d0b36091f5
       # "default:def.lynis" = {"globals": { "version": "3.0.6", "archive_hash": "3005346e90339c18a4c626169c6f1d9fb8643bb0d0a049bcaf64b7ccb4fd272c" } }
 
