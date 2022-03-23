@@ -11,17 +11,17 @@
         "copy policy/main.cf services/lynis/main.cf",
         "json cfbs/def.json def.json"
       ]
+    },
+    "lynis-compliance-report-example": {
+      "description": "An example compliance report for Lynis",
+      "dependencies": ["compliance-report-imports"],
+      "subdirectory": "./compliance-reports",
+      "tags": ["experimental", "security", "compliance"],
+      "repo": "https://github.com/nickanderson/cfengine-lynis",
+      "by": "https://github.com/nickanderson/",
+      "steps": [
+        "copy ./example.json .no-distrib/compliance-report-definitions/lynis-compliance-report-example.json"
+      ]
     }
-  },
-  "lynis-compliance-report-example": {
-    "description": "An example compliance report for Lynis",
-    "dependencies": ["compliance-report-imports"],
-    "subdirectory": "./compliance-reports",
-    "tags": ["experimental", "security", "compliance"],
-    "repo": "https://github.com/nickanderson/cfengine-lynis",
-    "by": "https://github.com/nickanderson/",
-    "steps": [
-      "copy ./example.json .no-distrib/compliance-report-definitions/lynis-compliance-report-example.json"
-    ]
   }
 }
