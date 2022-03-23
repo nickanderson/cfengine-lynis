@@ -1,0 +1,427 @@
+{
+  "reports": {
+    "lynis-compliance-example": {
+      "id": "lynis-compliance-example",
+      "type": "compliance",
+      "title": "Lynis Compliance Example",
+      "conditions": [
+        "software-updates-available",
+        "entire-cfengine-policy",
+        "policy-deployment",
+        "supported-centos",
+        "supported-ubuntu",
+        "supported-rhel",
+        "os-is-reported",
+        "packages-should-be-updated",
+        "supported-debian",
+        "available-disk-space",
+        "more-than-0-cpu-cores",
+        "low-disk-space",
+        "lynis:bann-7126",
+        "lynis:bann-7130",
+        "lynis:krnl-6000",
+        "lynis:hrdn-7222",
+        "lynis:usb-1000",
+        "lynis:acct-9628",
+        "lynis:acct-9632",
+        "lynis:acct-9636",
+        "lynis:mail-8818",
+        "lynis:time-3104",
+        "strg-1846",
+        "lynis:snmp-3302",
+        "lynis:strg-1902"
+      ]
+    }
+  },
+  "conditions": {
+    "software-updates-available": {
+      "id": "software-updates-available",
+      "name": "Software updates available",
+      "description": "Available software updates to any package.",
+      "type": "softwareupdate",
+      "condition_for": "failing",
+      "rules": { "package-name": null, "condition": null, "architecture": null },
+      "category": "uncategorized",
+      "severity": null,
+      "host_filter": null
+    },
+    "entire-cfengine-policy": {
+      "id": "entire-cfengine-policy",
+      "name": "Entire CFEngine policy",
+      "description": "Promises not kept in the entire policy.",
+      "type": "policy",
+      "condition_for": "failing",
+      "rules": {
+        "filter-by": null,
+        "value": null,
+        "promise-handle": null,
+        "promise-status": "NOTKEPT"
+      },
+      "category": "uncategorized",
+      "severity": null,
+      "host_filter": null
+    },
+    "policy-deployment": {
+      "id": "policy-deployment",
+      "name": "Policy Deployment",
+      "description": "Automatic policy deployment from upstream repository.",
+      "type": "policy",
+      "condition_for": "failing",
+      "rules": {
+        "filter-by": null,
+        "value": null,
+        "promise-handle": "masterfiles_update_stage",
+        "promise-status": "NOTKEPT"
+      },
+      "category": "uncategorized",
+      "severity": null,
+      "host_filter": null
+    },
+    "supported-centos": {
+      "id": "supported-centos",
+      "name": "Supported CentOS",
+      "description": "Host is running CentOS 6, 7, or 8",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "OS",
+          "operator": "regex_matches",
+          "value": "CentOS (6|7|8)"
+        }
+      ],
+      "category": "Operating System",
+      "severity": "low",
+      "host_filter": "centos"
+    },
+    "supported-ubuntu": {
+      "id": "supported-ubuntu",
+      "name": "Supported Ubuntu",
+      "description": "Ubuntu hosts are running Ubuntu 16, 18 or 20",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "OS",
+          "operator": "regex_matches",
+          "value": "Ubuntu (16|18|20)"
+        }
+      ],
+      "category": "Operating System",
+      "severity": "low",
+      "host_filter": "ubuntu"
+    },
+    "supported-rhel": {
+      "id": "supported-rhel",
+      "name": "Supported RHEL",
+      "description": "Red Hat hosts are running RHEL 6, 7, or 8",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "OS",
+          "operator": "regex_matches",
+          "value": "RHEL (6|7|8)"
+        }
+      ],
+      "category": "Operating System",
+      "severity": "low",
+      "host_filter": "redhat_pure"
+    },
+    "os-is-reported": {
+      "id": "os-is-reported",
+      "name": "OS is reported",
+      "description": "All hosts must report their own OS",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [{"attribute": "OS", "operator": "is_reported", "value": ""}],
+      "category": "Operating System",
+      "severity": "high",
+      "host_filter": null
+    },
+    "packages-should-be-updated": {
+      "id": "packages-should-be-updated",
+      "name": "Packages should be updated",
+      "description": "Fails if there are updates available",
+      "type": "softwareupdate",
+      "condition_for": "failing",
+      "rules": { "package-name": null, "condition": "is", "architecture": null },
+      "category": "Security",
+      "severity": "low",
+      "host_filter": null
+    },
+    "supported-debian": {
+      "id": "supported-debian",
+      "name": "Supported Debian",
+      "description": "Debian hosts are running Debian 9 or 10",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "OS",
+          "operator": "regex_matches",
+          "value": "Debian (9|10)"
+        }
+      ],
+      "category": "Operating System",
+      "severity": "low",
+      "host_filter": "debian_pure"
+    },
+    "available-disk-space": {
+      "id": "available-disk-space",
+      "name": "Available disk space",
+      "description": "All hosts must have above 25% available disk space",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [{"attribute": "Disk free (%)", "operator": ">", "value": 25}],
+      "category": "Other",
+      "severity": "medium",
+      "host_filter": null
+    },
+    "more-than-0-cpu-cores": {
+      "id": "more-than-0-cpu-cores",
+      "name": "More than 0 CPU cores",
+      "description": null,
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        { "attribute": "CPU physical cores", "operator": ">", "value": 0 }
+      ],
+      "category": "Hardware",
+      "severity": "low",
+      "host_filter": null
+    },
+    "low-disk-space": {
+      "id": "low-disk-space",
+      "name": "Low disk space",
+      "description": "Low disk space",
+      "type": "inventory",
+      "condition_for": "failing",
+      "rules": [{"attribute": "Disk free (%)", "operator": "<", "value": 15}],
+      "category": "uncategorized",
+      "severity": null,
+      "host_filter": null
+    },
+    "lynis:bann-7126": {
+      "id": "lynis:bann-7126",
+      "name": "Lynis:BANN-7126",
+      "description": "Add a legal banner to /etc/issue, to warn unauthorized users",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "BANN-7126"
+        }
+      ],
+      "category": "Legal",
+      "severity": "low",
+      "host_filter": null
+    },
+    "lynis:bann-7130": {
+      "id": "lynis:bann-7130",
+      "name": "Lynis:BANN-7130",
+      "description": "Add legal banner to /etc/issue.net, to warn unauthorized users.",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "BANN-7130"
+        }
+      ],
+      "category": "Legal",
+      "severity": "low",
+      "host_filter": null
+    },
+    "lynis:krnl-6000": {
+      "id": "lynis:krnl-6000",
+      "name": "Lynis:KRNL-6000",
+      "description": "One or more sysctl values differ from the scan profile and could be tweak.",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "KRNL-6000"
+        }
+      ],
+      "category": "Kernel",
+      "severity": "medium",
+      "host_filter": null
+    },
+    "lynis:hrdn-7222": {
+      "id": "lynis:hrdn-7222",
+      "name": "Lynis:HRDN-7222",
+      "description": "Harden compilers like restricting access to root user only.",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "HRDN-7222"
+        }
+      ],
+      "category": "Permissions",
+      "severity": "medium",
+      "host_filter": null
+    },
+    "lynis:usb-1000": {
+      "id": "lynis:usb-1000",
+      "name": "Lynis:USB-1000",
+      "description": "Disable drivers like USB storage when not used, to prevent unauthorized storage or data theft.",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "USB-1000"
+        }
+      ],
+      "category": "Hardware",
+      "severity": "high",
+      "host_filter": null
+    },
+    "lynis:acct-9628": {
+      "id": "lynis:acct-9628",
+      "name": "Lynis:ACCT-9628",
+      "description": "Check for auditd",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "ACCT-9628"
+        }
+      ],
+      "category": "Security",
+      "severity": "medium",
+      "host_filter": null
+    },
+    "lynis:acct-9632": {
+      "id": "lynis:acct-9632",
+      "name": "Lynis:ACCT-9632",
+      "description": "Check for auditd configuration file",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "ACCT-9632"
+        }
+      ],
+      "category": "Security",
+      "severity": "medium",
+      "host_filter": null
+    },
+    "lynis:acct-9636": {
+      "id": "lynis:acct-9636",
+      "name": "Lynis:ACCT-9636",
+      "description": "Check for Snoopy wrapper and logger",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "ACCT-9636"
+        }
+      ],
+      "category": "Security",
+      "severity": "medium",
+      "host_filter": null
+    },
+    "lynis:mail-8818": {
+      "id": "lynis:mail-8818",
+      "name": "Lynis:MAIL-8818",
+      "description": "Check Postfix configuration: banner.",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "MAIL-8818"
+        }
+      ],
+      "category": "Information Disclosure",
+      "severity": "medium",
+      "host_filter": null
+    },
+    "lynis:time-3104": {
+      "id": "lynis:time-3104",
+      "name": "Lynis:TIME-3104",
+      "description": "Check for running NTP daemon or client",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "TIME-3104"
+        }
+      ],
+      "category": "Time",
+      "severity": "medium",
+      "host_filter": null
+    },
+    "strg-1846": {
+      "id": "strg-1846",
+      "name": "STRG-1846",
+      "description": "Check if firewire storage is disabled",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "STRG-1846"
+        }
+      ],
+      "category": "Storage",
+      "severity": "low",
+      "host_filter": null
+    },
+    "lynis:snmp-3302": {
+      "id": "lynis:snmp-3302",
+      "name": "Lynis:SNMP-3302",
+      "description": "Check for running SNMP daemon",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "SNMP-3302"
+        }
+      ],
+      "category": "Security",
+      "severity": "low",
+      "host_filter": null
+    },
+    "lynis:strg-1902": {
+      "id": "lynis:strg-1902",
+      "name": "Lynis:STRG-1902",
+      "description": "Check rpcinfo registered programs",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "STRG-1902"
+        }
+      ],
+      "category": "Storage",
+      "severity": "medium",
+      "host_filter": null
+    }
+  }
+}
