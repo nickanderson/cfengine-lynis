@@ -14,7 +14,7 @@
         "lynis:acct-9636",
         "lynis:mail-8818",
         "lynis:time-3104",
-        "strg-1846",
+        "lynis:strg-1846",
         "lynis:snmp-3302",
         "lynis:strg-1902"
       ]
@@ -174,9 +174,9 @@
       "severity": "medium",
       "host_filter": null
     },
-    "strg-1846": {
-      "id": "strg-1846",
-      "name": "STRG-1846",
+    "lynis:strg-1846": {
+      "id": "lynis:strg-1846",
+      "name": "Lynis:STRG-1846",
       "description": "Check if firewire storage is disabled",
       "type": "inventory",
       "condition_for": "passing",
