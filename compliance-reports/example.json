@@ -36,7 +36,7 @@
       ],
       "category": "Legal",
       "severity": "low",
-      "host_filter": null
+      "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:bann-7130": {
       "id": "lynis:bann-7130",
@@ -53,7 +53,7 @@
       ],
       "category": "Legal",
       "severity": "low",
-      "host_filter": null
+      "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:hrdn-7222": {
       "id": "lynis:hrdn-7222",
@@ -70,7 +70,7 @@
       ],
       "category": "Permissions",
       "severity": "medium",
-      "host_filter": null
+      "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:usb-1000": {
       "id": "lynis:usb-1000",
@@ -87,7 +87,7 @@
       ],
       "category": "Hardware",
       "severity": "high",
-      "host_filter": null
+      "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:acct-9628": {
       "id": "lynis:acct-9628",
@@ -104,7 +104,7 @@
       ],
       "category": "Security",
       "severity": "medium",
-      "host_filter": null
+      "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:acct-9632": {
       "id": "lynis:acct-9632",
@@ -121,7 +121,7 @@
       ],
       "category": "Security",
       "severity": "medium",
-      "host_filter": null
+      "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:acct-9636": {
       "id": "lynis:acct-9636",
@@ -138,7 +138,7 @@
       ],
       "category": "Security",
       "severity": "medium",
-      "host_filter": null
+      "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:mail-8818": {
       "id": "lynis:mail-8818",
@@ -155,7 +155,7 @@
       ],
       "category": "Information Disclosure",
       "severity": "medium",
-      "host_filter": null
+      "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:time-3104": {
       "id": "lynis:time-3104",
@@ -172,7 +172,7 @@
       ],
       "category": "Time",
       "severity": "medium",
-      "host_filter": null
+      "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:strg-1846": {
       "id": "lynis:strg-1846",
@@ -189,7 +189,7 @@
       ],
       "category": "Storage",
       "severity": "low",
-      "host_filter": null
+      "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:snmp-3302": {
       "id": "lynis:snmp-3302",
@@ -206,7 +206,7 @@
       ],
       "category": "Security",
       "severity": "low",
-      "host_filter": null
+      "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:strg-1902": {
       "id": "lynis:strg-1902",
@@ -223,7 +223,7 @@
       ],
       "category": "Storage",
       "severity": "medium",
-      "host_filter": null
+      "host_filter": "lynis:lynis_supported_platform"
     }
   }
 }
