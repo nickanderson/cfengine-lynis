@@ -29,6 +29,12 @@ bundle agent globals
 
       "install_prefix" string => "/opt/lynis";
       "report_data" string => "/var/log/lynis-report.dat";
+
+  classes:
+      "lynis_supported_platform"
+        scope => "namespace",
+        meta => { "report" },
+        expression => "!windows";
 }
 
 bundle agent main
