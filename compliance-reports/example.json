@@ -5,21 +5,8 @@
       "type": "compliance",
       "title": "Lynis Compliance Example",
       "conditions": [
-        "software-updates-available",
-        "entire-cfengine-policy",
-        "policy-deployment",
-        "supported-centos",
-        "supported-ubuntu",
-        "supported-rhel",
-        "os-is-reported",
-        "packages-should-be-updated",
-        "supported-debian",
-        "available-disk-space",
-        "more-than-0-cpu-cores",
-        "low-disk-space",
         "lynis:bann-7126",
         "lynis:bann-7130",
-        "lynis:krnl-6000",
         "lynis:hrdn-7222",
         "lynis:usb-1000",
         "lynis:acct-9628",
@@ -34,174 +21,6 @@
     }
   },
   "conditions": {
-    "software-updates-available": {
-      "id": "software-updates-available",
-      "name": "Software updates available",
-      "description": "Available software updates to any package.",
-      "type": "softwareupdate",
-      "condition_for": "failing",
-      "rules": { "package-name": null, "condition": null, "architecture": null },
-      "category": "uncategorized",
-      "severity": null,
-      "host_filter": null
-    },
-    "entire-cfengine-policy": {
-      "id": "entire-cfengine-policy",
-      "name": "Entire CFEngine policy",
-      "description": "Promises not kept in the entire policy.",
-      "type": "policy",
-      "condition_for": "failing",
-      "rules": {
-        "filter-by": null,
-        "value": null,
-        "promise-handle": null,
-        "promise-status": "NOTKEPT"
-      },
-      "category": "uncategorized",
-      "severity": null,
-      "host_filter": null
-    },
-    "policy-deployment": {
-      "id": "policy-deployment",
-      "name": "Policy Deployment",
-      "description": "Automatic policy deployment from upstream repository.",
-      "type": "policy",
-      "condition_for": "failing",
-      "rules": {
-        "filter-by": null,
-        "value": null,
-        "promise-handle": "masterfiles_update_stage",
-        "promise-status": "NOTKEPT"
-      },
-      "category": "uncategorized",
-      "severity": null,
-      "host_filter": null
-    },
-    "supported-centos": {
-      "id": "supported-centos",
-      "name": "Supported CentOS",
-      "description": "Host is running CentOS 6, 7, or 8",
-      "type": "inventory",
-      "condition_for": "passing",
-      "rules": [
-        {
-          "attribute": "OS",
-          "operator": "regex_matches",
-          "value": "CentOS (6|7|8)"
-        }
-      ],
-      "category": "Operating System",
-      "severity": "low",
-      "host_filter": "centos"
-    },
-    "supported-ubuntu": {
-      "id": "supported-ubuntu",
-      "name": "Supported Ubuntu",
-      "description": "Ubuntu hosts are running Ubuntu 16, 18 or 20",
-      "type": "inventory",
-      "condition_for": "passing",
-      "rules": [
-        {
-          "attribute": "OS",
-          "operator": "regex_matches",
-          "value": "Ubuntu (16|18|20)"
-        }
-      ],
-      "category": "Operating System",
-      "severity": "low",
-      "host_filter": "ubuntu"
-    },
-    "supported-rhel": {
-      "id": "supported-rhel",
-      "name": "Supported RHEL",
-      "description": "Red Hat hosts are running RHEL 6, 7, or 8",
-      "type": "inventory",
-      "condition_for": "passing",
-      "rules": [
-        {
-          "attribute": "OS",
-          "operator": "regex_matches",
-          "value": "RHEL (6|7|8)"
-        }
-      ],
-      "category": "Operating System",
-      "severity": "low",
-      "host_filter": "redhat_pure"
-    },
-    "os-is-reported": {
-      "id": "os-is-reported",
-      "name": "OS is reported",
-      "description": "All hosts must report their own OS",
-      "type": "inventory",
-      "condition_for": "passing",
-      "rules": [{"attribute": "OS", "operator": "is_reported", "value": ""}],
-      "category": "Operating System",
-      "severity": "high",
-      "host_filter": null
-    },
-    "packages-should-be-updated": {
-      "id": "packages-should-be-updated",
-      "name": "Packages should be updated",
-      "description": "Fails if there are updates available",
-      "type": "softwareupdate",
-      "condition_for": "failing",
-      "rules": { "package-name": null, "condition": "is", "architecture": null },
-      "category": "Security",
-      "severity": "low",
-      "host_filter": null
-    },
-    "supported-debian": {
-      "id": "supported-debian",
-      "name": "Supported Debian",
-      "description": "Debian hosts are running Debian 9 or 10",
-      "type": "inventory",
-      "condition_for": "passing",
-      "rules": [
-        {
-          "attribute": "OS",
-          "operator": "regex_matches",
-          "value": "Debian (9|10)"
-        }
-      ],
-      "category": "Operating System",
-      "severity": "low",
-      "host_filter": "debian_pure"
-    },
-    "available-disk-space": {
-      "id": "available-disk-space",
-      "name": "Available disk space",
-      "description": "All hosts must have above 25% available disk space",
-      "type": "inventory",
-      "condition_for": "passing",
-      "rules": [{"attribute": "Disk free (%)", "operator": ">", "value": 25}],
-      "category": "Other",
-      "severity": "medium",
-      "host_filter": null
-    },
-    "more-than-0-cpu-cores": {
-      "id": "more-than-0-cpu-cores",
-      "name": "More than 0 CPU cores",
-      "description": null,
-      "type": "inventory",
-      "condition_for": "passing",
-      "rules": [
-        { "attribute": "CPU physical cores", "operator": ">", "value": 0 }
-      ],
-      "category": "Hardware",
-      "severity": "low",
-      "host_filter": null
-    },
-    "low-disk-space": {
-      "id": "low-disk-space",
-      "name": "Low disk space",
-      "description": "Low disk space",
-      "type": "inventory",
-      "condition_for": "failing",
-      "rules": [{"attribute": "Disk free (%)", "operator": "<", "value": 15}],
-      "category": "uncategorized",
-      "severity": null,
-      "host_filter": null
-    },
     "lynis:bann-7126": {
       "id": "lynis:bann-7126",
       "name": "Lynis:BANN-7126",
@@ -234,23 +53,6 @@
       ],
       "category": "Legal",
       "severity": "low",
-      "host_filter": null
-    },
-    "lynis:krnl-6000": {
-      "id": "lynis:krnl-6000",
-      "name": "Lynis:KRNL-6000",
-      "description": "One or more sysctl values differ from the scan profile and could be tweak.",
-      "type": "inventory",
-      "condition_for": "passing",
-      "rules": [
-        {
-          "attribute": "CISOfy Lynis Control ID findings",
-          "operator": "not_contain",
-          "value": "KRNL-6000"
-        }
-      ],
-      "category": "Kernel",
-      "severity": "medium",
       "host_filter": null
     },
     "lynis:hrdn-7222": {
