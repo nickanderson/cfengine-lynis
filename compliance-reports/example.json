@@ -8,12 +8,10 @@
         "lynis:file-6354",
         "lynis:bann-7126",
         "lynis:bann-7130",
-        "lynis:hrdn-7222",
         "lynis:usb-1000",
         "lynis:acct-9628",
         "lynis:acct-9632",
         "lynis:acct-9636",
-        "lynis:mail-8818",
         "lynis:time-3104",
         "lynis:strg-1846",
         "lynis:snmp-3302",
@@ -71,23 +69,6 @@
       ],
       "category": "Banner",
       "severity": "low",
-      "host_filter": null
-    },
-    "lynis:hrdn-7222": {
-      "id": "lynis:hrdn-7222",
-      "name": "Lynis:HRDN-7222",
-      "description": "Harden compilers like restricting access to root user only.",
-      "type": "inventory",
-      "condition_for": "passing",
-      "rules": [
-        {
-          "attribute": "CISOfy Lynis Control ID findings",
-          "operator": "not_contain",
-          "value": "HRDN-7222"
-        }
-      ],
-      "category": "Hardening",
-      "severity": "medium",
       "host_filter": null
     },
     "lynis:usb-1000": {
@@ -155,23 +136,6 @@
         }
       ],
       "category": "Accounting",
-      "severity": "medium",
-      "host_filter": null
-    },
-    "lynis:mail-8818": {
-      "id": "lynis:mail-8818",
-      "name": "Lynis:MAIL-8818",
-      "description": "Check Postfix configuration: banner.",
-      "type": "inventory",
-      "condition_for": "passing",
-      "rules": [
-        {
-          "attribute": "CISOfy Lynis Control ID findings",
-          "operator": "not_contain",
-          "value": "MAIL-8818"
-        }
-      ],
-      "category": "Mail",
       "severity": "medium",
       "host_filter": null
     },
