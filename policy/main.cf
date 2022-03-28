@@ -181,7 +181,7 @@ bundle agent audit
       #
       # For example: cf-agent -K --define lynis:want_report_generated_now
 
-    lynis_supported_platform(_report_missing|want_report_generated_now)::
+    lynis_supported_platform.(_report_missing|want_report_generated_now)::
 
       "$(lynis)"
         contain => default:in_dir_shell( "$(lynis_dir)" ),
