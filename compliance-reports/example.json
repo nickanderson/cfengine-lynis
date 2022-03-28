@@ -7,7 +7,6 @@
       "conditions": [
         "lynis:file-6354",
         "lynis:bann-7126",
-        "lynis:bann-7130",
         "lynis:acct-9628",
         "lynis:acct-9632",
         "lynis:acct-9636",
@@ -46,23 +45,6 @@
           "attribute": "CISOfy Lynis Control ID findings",
           "operator": "not_contain",
           "value": "BANN-7126"
-        }
-      ],
-      "category": "Banner",
-      "severity": "low",
-      "host_filter": null
-    },
-    "lynis:bann-7130": {
-      "id": "lynis:bann-7130",
-      "name": "Lynis:BANN-7130",
-      "description": "Add legal banner to /etc/issue.net, to warn unauthorized users.",
-      "type": "inventory",
-      "condition_for": "passing",
-      "rules": [
-        {
-          "attribute": "CISOfy Lynis Control ID findings",
-          "operator": "not_contain",
-          "value": "BANN-7130"
         }
       ],
       "category": "Banner",
