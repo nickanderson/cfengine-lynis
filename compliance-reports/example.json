@@ -8,7 +8,6 @@
         "lynis:file-6354",
         "lynis:bann-7126",
         "lynis:bann-7130",
-        "lynis:usb-1000",
         "lynis:acct-9628",
         "lynis:acct-9632",
         "lynis:acct-9636",
@@ -68,23 +67,6 @@
       ],
       "category": "Banner",
       "severity": "low",
-      "host_filter": null
-    },
-    "lynis:usb-1000": {
-      "id": "lynis:usb-1000",
-      "name": "Lynis:USB-1000",
-      "description": "Disable drivers like USB storage when not used, to prevent unauthorized storage or data theft.",
-      "type": "inventory",
-      "condition_for": "passing",
-      "rules": [
-        {
-          "attribute": "CISOfy Lynis Control ID findings",
-          "operator": "not_contain",
-          "value": "USB-1000"
-        }
-      ],
-      "category": "Uncategorized",
-      "severity": "high",
       "host_filter": null
     },
     "lynis:acct-9628": {
