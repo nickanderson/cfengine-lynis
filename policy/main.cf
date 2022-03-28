@@ -170,14 +170,22 @@ bundle agent audit
       "lynis" string => "$(install_tar_gz.lynis)";
       "lynis_dir" string => dirname( $(lynis) );
 
+  classes:
+      "_report_missing"
+        not => fileexists( $(report_data) );
+
   commands:
 
-    default:linux::
+      # We re-generate the report any time it's not found, or when the class
+      # lynis:want_report_generated_now is defined.
+      #
+      # For example: cf-agent -K --define lynis:want_report_generated_now
 
-     "$(lynis)"
+    lynis_supported_platform(_report_missing|want_report_generated_now)::
+
+      "$(lynis)"
         contain => default:in_dir_shell( "$(lynis_dir)" ),
-        arglist => { "audit", "system", "--quiet", "--auditor", "'CFEngine cf-agent'" },
-        if => not( fileexists( $(report_data) ) );
+        arglist => { "audit", "system", "--quiet", "--auditor", "'CFEngine cf-agent'" };
 }
 
 bundle agent inventory
