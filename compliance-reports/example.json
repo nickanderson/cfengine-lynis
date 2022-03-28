@@ -13,7 +13,6 @@
         "lynis:acct-9632",
         "lynis:acct-9636",
         "lynis:time-3104",
-        "lynis:strg-1846",
         "lynis:snmp-3302",
         "lynis:strg-1902"
       ]
@@ -154,23 +153,6 @@
       ],
       "category": "Time",
       "severity": "medium",
-      "host_filter": null
-    },
-    "lynis:strg-1846": {
-      "id": "lynis:strg-1846",
-      "name": "Lynis:STRG-1846",
-      "description": "Check if firewire storage is disabled",
-      "type": "inventory",
-      "condition_for": "passing",
-      "rules": [
-        {
-          "attribute": "CISOfy Lynis Control ID findings",
-          "operator": "not_contain",
-          "value": "STRG-1846"
-        }
-      ],
-      "category": "Storage",
-      "severity": "low",
       "host_filter": null
     },
     "lynis:snmp-3302": {
