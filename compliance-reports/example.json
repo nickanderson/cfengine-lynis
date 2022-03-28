@@ -5,6 +5,7 @@
       "type": "compliance",
       "title": "Lynis Compliance Example",
       "conditions": [
+        "lynis:file-6354",
         "lynis:bann-7126",
         "lynis:bann-7130",
         "lynis:hrdn-7222",
@@ -21,6 +22,23 @@
     }
   },
   "conditions": {
+      "lynis:file-6354": {
+          "id": "lynis:file-6354",
+          "name": "Lynis:FILE-6354",
+          "description": "Old files in /tmp",
+          "type": "inventory",
+          "condition_for": "passing",
+          "rules": [
+              {
+              "attribute": "CISOfy Lynis Control ID findings",
+              "operator": "not_contain",
+              "value": "FILE-6354"
+          }
+          ],
+          "category": "File Integrity",
+          "severity": "low",
+          "host_filter": null
+      },
     "lynis:bann-7126": {
       "id": "lynis:bann-7126",
       "name": "Lynis:BANN-7126",
@@ -34,7 +52,7 @@
           "value": "BANN-7126"
         }
       ],
-      "category": "Legal",
+      "category": "Banner",
       "severity": "low",
       "host_filter": null
     },
@@ -51,7 +69,7 @@
           "value": "BANN-7130"
         }
       ],
-      "category": "Legal",
+      "category": "Banner",
       "severity": "low",
       "host_filter": null
     },
@@ -68,7 +86,7 @@
           "value": "HRDN-7222"
         }
       ],
-      "category": "Permissions",
+      "category": "Hardening",
       "severity": "medium",
       "host_filter": null
     },
@@ -85,7 +103,7 @@
           "value": "USB-1000"
         }
       ],
-      "category": "Hardware",
+      "category": "Uncategorized",
       "severity": "high",
       "host_filter": null
     },
@@ -102,7 +120,7 @@
           "value": "ACCT-9628"
         }
       ],
-      "category": "Security",
+      "category": "Accounting",
       "severity": "medium",
       "host_filter": null
     },
@@ -119,7 +137,7 @@
           "value": "ACCT-9632"
         }
       ],
-      "category": "Security",
+      "category": "Accounting",
       "severity": "medium",
       "host_filter": null
     },
@@ -136,7 +154,7 @@
           "value": "ACCT-9636"
         }
       ],
-      "category": "Security",
+      "category": "Accounting",
       "severity": "medium",
       "host_filter": null
     },
@@ -153,7 +171,7 @@
           "value": "MAIL-8818"
         }
       ],
-      "category": "Information Disclosure",
+      "category": "Mail",
       "severity": "medium",
       "host_filter": null
     },
@@ -204,7 +222,7 @@
           "value": "SNMP-3302"
         }
       ],
-      "category": "Security",
+      "category": "Uncategorized",
       "severity": "low",
       "host_filter": null
     },
