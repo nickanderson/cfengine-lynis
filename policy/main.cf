@@ -294,6 +294,18 @@ bundle agent inventory
         meta => { "inventory", "attribute_name=CISOfy Lynis datetime scan completed"},
         if => isvariable( "kv[report_datetime_end]" );
 
+      # Inventory report scan completion date
+      "report_date_end"
+        string => nth( string_split("$(kv[report_datetime_end])", "\s+", inf ), 0 ),
+        meta => { "inventory", "attribute_name=CISOfy Lynis date scan completed"},
+        if => isvariable( "kv[report_datetime_end]" );
+
+      # Inventory report scan completion date
+      "report_date_days_since"
+        string => format( "%d", eval( execresult( 'echo \(\($(sys.systime) - `date +%s --date "$(report_date_end)"`\)/\(3600*24\)\)', useshell ), math, infix )),
+        meta => { "inventory", "attribute_name=CISOfy Lynis days since scan completed"},
+        if => isvariable( "kv[report_datetime_end]" );
+
       # Inventory Lynis Security Hardening index
       "hardening_index"
         int => "$(kv[hardening_index])",
