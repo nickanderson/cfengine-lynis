@@ -2,6 +2,13 @@ Lynis is a security tool for hosts running Linux, macOS, or other Unix-based ope
 
 This module provides policy to automate the installation, running, and reporting of [[https://cisofy.com/lynis/][CISOfy's lynis]] system audits finding.
 
+* Configuration
+
+** Variables
+
+- =lynis:globals.version= :: The version of Lynis desired to be installed.
+- =lynis:globals.archive_hash= :: The hash of the archive that Lynis is to be installed from (used for integrity checking). 
+
 * Inventory
 - CISOfy Lynis Version :: The version of Lynis installed
 - CISOfy Lynis Suggestions :: A list of suggestions from the last scan report.
