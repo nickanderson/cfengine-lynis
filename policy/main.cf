@@ -7,20 +7,20 @@ bundle agent globals
 {
   vars:
     default:linux::
+      # To override, define lynis:globals.version
+      # E.g. "lynis:globals.version": "3.0.6"
       "version"
-        string => ifelse(
-                          isvariable( "def.lynis[globals][version]"),
-                                      "$(def.lynis[globals][version])",
-                          "3.0.7"); # "default:def.lynis" = {"globals": { "version": "3.0.6" } }
+        string => "3.0.8",
+        unless => isvariable( $(this.promiser) ),
+        comment => "The version of Lynis that we desire to be installed.";
 
-      #https://cisofy.com/downloads/lynis/
+
+      # To override, define lynis:globals.version
+      # E.g. "lynis:globals.archive_hash": "3005346e90339c18a4c626169c6f1d9fb8643bb0d0a049bcaf64b7ccb4fd272c"
       "archive_hash"
-        string => ifelse(
-                          isvariable( "def.lynis[globals][archive_hash]"),
-                          "$(def.lynis[globals][archive_hash])",
-                          "52891674347a463ce0fbbf1225cdb61f83c5db412d1c101cb48aa5f88a29e77d");
-      # Website SHA256 hash: f23dd57561f273a7e39e4597277571973dadbab6a131a4712340a6d0b36091f5
-      # "default:def.lynis" = {"globals": { "version": "3.0.6", "archive_hash": "3005346e90339c18a4c626169c6f1d9fb8643bb0d0a049bcaf64b7ccb4fd272c" } }
+        string => "98373a4cc9d0471ab9bebb249e442fcf94b6bf6d4e9c6fc0b22bca1506646c63",
+        unless => isvariable( $(this.promiser) ),
+        comment => "The hash ($(hash_type)) listed for the tarball hosted on the Lynis website: https://cisofy.com/downloads/lynis/";
 
       "hash_type"    string => "sha256";
       "tar_url"      string => "https://downloads.cisofy.com/lynis/lynis-$(version).tar.gz";
@@ -35,6 +35,16 @@ bundle agent globals
         scope => "namespace",
         meta => { "report" },
         expression => "!windows";
+
+  reports:
+
+      "It looks like you have an old variable 'def.lynis[globals][version]' defined to override the desired version of Lynis. This variable is no longer supported. Please use 'lynis:globals.version' instead."
+        if => isvariable( "def.lynis[globals][version]"); # Does isvariable work on non default namespaced varaibles?
+
+      "It looks like you have an old variable 'def.lynis[globals][archive_hash]' defined to override the desired version of Lynis. This variable is no longer supported. Please use 'lynis:globals.archive_hash' instead."
+        if => isvariable( "def.lynis[globals][archive_hash]");
+
+
 }
 
 bundle agent main
