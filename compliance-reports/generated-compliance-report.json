@@ -3,7 +3,7 @@
     "cisofy-lynis": {
       "id": "cisofy-lynis",
       "type": "compliance",
-      "title": "CISOfy Lynis",
+      "title": "CISOfy Lynis (3.0.8)",
       "conditions": [
         "lynis:acct-2754",
         "lynis:acct-2760",
@@ -271,6 +271,7 @@
         "lynis:mail-8860",
         "lynis:mail-8880",
         "lynis:mail-8920",
+        "lynis:malw-3274",
         "lynis:malw-3275",
         "lynis:malw-3276",
         "lynis:malw-3278",
@@ -328,6 +329,7 @@
         "lynis:php-2378",
         "lynis:php-2379",
         "lynis:php-2382",
+        "lynis:pkgs-7200",
         "lynis:pkgs-7301",
         "lynis:pkgs-7302",
         "lynis:pkgs-7303",
@@ -364,6 +366,7 @@
         "lynis:pkgs-7392",
         "lynis:pkgs-7393",
         "lynis:pkgs-7394",
+        "lynis:pkgs-7395",
         "lynis:pkgs-7398",
         "lynis:pkgs-7410",
         "lynis:pkgs-7420",
@@ -4972,6 +4975,23 @@
       "severity": "medium",
       "host_filter": "linux"
     },
+    "lynis:malw-3274": {
+      "id": "lynis:malw-3274",
+      "name": "Lynis:MALW-3274",
+      "description": "Check for McAfee VirusScan Command Line Scanner",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "MALW-3274"
+        }
+      ],
+      "category": "security",
+      "severity": "medium",
+      "host_filter": "linux"
+    },
     "lynis:malw-3275": {
       "id": "lynis:malw-3275",
       "name": "Lynis:MALW-3275",
@@ -5941,6 +5961,23 @@
       "severity": "medium",
       "host_filter": "linux"
     },
+    "lynis:pkgs-7200": {
+      "id": "lynis:pkgs-7200",
+      "name": "Lynis:PKGS-7200",
+      "description": "Check Alpine Package Keeper (apk)",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "PKGS-7200"
+        }
+      ],
+      "category": "security",
+      "severity": "medium",
+      "host_filter": "linux"
+    },
     "lynis:pkgs-7301": {
       "id": "lynis:pkgs-7301",
       "name": "Lynis:PKGS-7301",
@@ -6547,6 +6584,23 @@
           "attribute": "CISOfy Lynis Control ID findings",
           "operator": "not_contain",
           "value": "PKGS-7394"
+        }
+      ],
+      "category": "security",
+      "severity": "medium",
+      "host_filter": "linux"
+    },
+    "lynis:pkgs-7395": {
+      "id": "lynis:pkgs-7395",
+      "name": "Lynis:PKGS-7395",
+      "description": "Check Alpine upgradeable packages",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "PKGS-7395"
         }
       ],
       "category": "security",

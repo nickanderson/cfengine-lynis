@@ -3,7 +3,17 @@
 # README.org
 
 exec 2>&1
-TestDB="$1"
+echo "Checking for latest lynis version..."
+LATEST_LYNIS_VERSION=$(curl -s https://cisofy.com/downloads/lynis/  | pandoc -f html -t plain  | awk '/Version/ {print $3}')
+LATEST_LYNIS_VERSION_DIGEST=$(curl -s https://cisofy.com/downloads/lynis/  | pandoc -f html -t plain | grep "SHA256 hash" -A1 | tail -n 1 | sed 's/ //g')
+TMPDIR=$(mktemp --directory lynis-compliance-report-generator.XXX.d)
+STARTDIR="$(pwd)"
+cd $TMPDIR
+curl --silent --remote-name "https://downloads.cisofy.com/lynis/lynis-${LATEST_LYNIS_VERSION}.tar.gz";
+tar zxf lynis-${LATEST_LYNIS_VERSION}.tar.gz
+echo Generating CFEngine Enterprise Compliance Report for Lynis $LATEST_LYNIS_VERSION
+cd "$STARTDIR"
+TestDB="$TMPDIR/lynis/db/tests.db"
 TMPFILE=$(mktemp compliance_report.XXX.json)
 > $TMPFILE
 echo "{" >> $TMPFILE
@@ -11,7 +21,7 @@ echo "\"reports\": {" >> $TMPFILE
 echo "\"cisofy-lynis\": {" >> $TMPFILE
 echo "\"id\": \"cisofy-lynis\"," >> $TMPFILE
 echo "\"type\": \"compliance\"," >> $TMPFILE
-echo "\"title\": \"CISOfy Lynis\"," >> $TMPFILE
+echo "\"title\": \"CISOfy Lynis ($LATEST_LYNIS_VERSION)\"," >> $TMPFILE
 echo "\"conditions\": [" >> $TMPFILE
 
 #MAX_CHECKS=30
@@ -123,5 +133,6 @@ done < $TestDB
   echo '}}' >> $TMPFILE
   cat $TMPFILE | jq > generated-compliance-report.json
   rm $TMPFILE
+  rm -rf $TMPDIR
   echo "DONE generating CFEngine Enterprise Compliance report (generated-compliance-report.json) with $CONDITION_COUNTER checks."
 :
