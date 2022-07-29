@@ -757,7 +757,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9208": {
       "id": "lynis:auth-9208",
@@ -774,7 +774,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9212": {
       "id": "lynis:auth-9212",
@@ -791,7 +791,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9216": {
       "id": "lynis:auth-9216",
@@ -808,7 +808,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9218": {
       "id": "lynis:auth-9218",
@@ -842,7 +842,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9226": {
       "id": "lynis:auth-9226",
@@ -859,7 +859,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9228": {
       "id": "lynis:auth-9228",
@@ -876,7 +876,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9229": {
       "id": "lynis:auth-9229",
@@ -893,7 +893,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9230": {
       "id": "lynis:auth-9230",
@@ -910,7 +910,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9234": {
       "id": "lynis:auth-9234",
@@ -927,7 +927,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9240": {
       "id": "lynis:auth-9240",
@@ -944,7 +944,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9242": {
       "id": "lynis:auth-9242",
@@ -961,7 +961,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9250": {
       "id": "lynis:auth-9250",
@@ -978,7 +978,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9252": {
       "id": "lynis:auth-9252",
@@ -995,7 +995,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9254": {
       "id": "lynis:auth-9254",
@@ -1029,7 +1029,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9264": {
       "id": "lynis:auth-9264",
@@ -1046,7 +1046,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9266": {
       "id": "lynis:auth-9266",
@@ -1063,7 +1063,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9268": {
       "id": "lynis:auth-9268",
@@ -1080,7 +1080,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9278": {
       "id": "lynis:auth-9278",
@@ -1097,7 +1097,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9282": {
       "id": "lynis:auth-9282",
@@ -1114,7 +1114,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9283": {
       "id": "lynis:auth-9283",
@@ -1131,7 +1131,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9284": {
       "id": "lynis:auth-9284",
@@ -1148,7 +1148,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9286": {
       "id": "lynis:auth-9286",
@@ -1165,7 +1165,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9288": {
       "id": "lynis:auth-9288",
@@ -1182,7 +1182,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9304": {
       "id": "lynis:auth-9304",
@@ -1250,7 +1250,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9340": {
       "id": "lynis:auth-9340",
@@ -1284,7 +1284,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9406": {
       "id": "lynis:auth-9406",
@@ -1301,7 +1301,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9408": {
       "id": "lynis:auth-9408",
@@ -1318,7 +1318,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:auth-9409": {
       "id": "lynis:auth-9409",
@@ -1386,7 +1386,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:bann-7126": {
       "id": "lynis:bann-7126",
@@ -1403,7 +1403,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:bann-7128": {
       "id": "lynis:bann-7128",
@@ -1420,7 +1420,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:bann-7130": {
       "id": "lynis:bann-7130",
@@ -1437,7 +1437,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:boot-5102": {
       "id": "lynis:boot-5102",
@@ -1471,7 +1471,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:boot-5106": {
       "id": "lynis:boot-5106",
@@ -1539,7 +1539,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:boot-5117": {
       "id": "lynis:boot-5117",
@@ -1573,7 +1573,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:boot-5122": {
       "id": "lynis:boot-5122",
@@ -1590,7 +1590,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:boot-5124": {
       "id": "lynis:boot-5124",
@@ -1641,7 +1641,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:boot-5140": {
       "id": "lynis:boot-5140",
@@ -1658,7 +1658,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:boot-5142": {
       "id": "lynis:boot-5142",
@@ -1675,7 +1675,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:boot-5155": {
       "id": "lynis:boot-5155",
@@ -1692,7 +1692,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:boot-5159": {
       "id": "lynis:boot-5159",
@@ -1794,7 +1794,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:boot-5202": {
       "id": "lynis:boot-5202",
@@ -1811,7 +1811,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:boot-5260": {
       "id": "lynis:boot-5260",
@@ -1828,7 +1828,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:boot-5261": {
       "id": "lynis:boot-5261",
@@ -1930,7 +1930,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:cont-8104": {
       "id": "lynis:cont-8104",
@@ -1947,7 +1947,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:cont-8106": {
       "id": "lynis:cont-8106",
@@ -1964,7 +1964,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:cont-8107": {
       "id": "lynis:cont-8107",
@@ -1981,7 +1981,7 @@
       ],
       "category": "performance",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:cont-8108": {
       "id": "lynis:cont-8108",
@@ -1998,7 +1998,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:core-1000": {
       "id": "lynis:core-1000",
@@ -2015,7 +2015,7 @@
       ],
       "category": "performance",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:cryp-7902": {
       "id": "lynis:cryp-7902",
@@ -2032,7 +2032,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:cryp-7930": {
       "id": "lynis:cryp-7930",
@@ -2151,7 +2151,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:dbs-1804": {
       "id": "lynis:dbs-1804",
@@ -2168,7 +2168,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:dbs-1816": {
       "id": "lynis:dbs-1816",
@@ -2185,7 +2185,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:dbs-1818": {
       "id": "lynis:dbs-1818",
@@ -2202,7 +2202,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:dbs-1820": {
       "id": "lynis:dbs-1820",
@@ -2219,7 +2219,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:dbs-1826": {
       "id": "lynis:dbs-1826",
@@ -2236,7 +2236,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:dbs-1828": {
       "id": "lynis:dbs-1828",
@@ -2253,7 +2253,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:dbs-1840": {
       "id": "lynis:dbs-1840",
@@ -2270,7 +2270,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:dbs-1860": {
       "id": "lynis:dbs-1860",
@@ -2287,7 +2287,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:dbs-1880": {
       "id": "lynis:dbs-1880",
@@ -2304,7 +2304,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:dbs-1882": {
       "id": "lynis:dbs-1882",
@@ -2321,7 +2321,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:dbs-1884": {
       "id": "lynis:dbs-1884",
@@ -2338,7 +2338,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:dbs-1886": {
       "id": "lynis:dbs-1886",
@@ -2355,7 +2355,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:dbs-1888": {
       "id": "lynis:dbs-1888",
@@ -2372,7 +2372,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:file-6310": {
       "id": "lynis:file-6310",
@@ -2389,7 +2389,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:file-6311": {
       "id": "lynis:file-6311",
@@ -2406,7 +2406,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:file-6312": {
       "id": "lynis:file-6312",
@@ -2423,7 +2423,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:file-6323": {
       "id": "lynis:file-6323",
@@ -2457,7 +2457,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:file-6330": {
       "id": "lynis:file-6330",
@@ -2491,7 +2491,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:file-6336": {
       "id": "lynis:file-6336",
@@ -2508,7 +2508,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:file-6344": {
       "id": "lynis:file-6344",
@@ -2542,7 +2542,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:file-6362": {
       "id": "lynis:file-6362",
@@ -2559,7 +2559,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:file-6363": {
       "id": "lynis:file-6363",
@@ -2576,7 +2576,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:file-6368": {
       "id": "lynis:file-6368",
@@ -2678,7 +2678,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:file-6430": {
       "id": "lynis:file-6430",
@@ -2695,7 +2695,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:file-6439": {
       "id": "lynis:file-6439",
@@ -2729,7 +2729,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fint-4310": {
       "id": "lynis:fint-4310",
@@ -2746,7 +2746,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fint-4314": {
       "id": "lynis:fint-4314",
@@ -2763,7 +2763,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fint-4315": {
       "id": "lynis:fint-4315",
@@ -2780,7 +2780,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fint-4316": {
       "id": "lynis:fint-4316",
@@ -2797,7 +2797,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fint-4318": {
       "id": "lynis:fint-4318",
@@ -2814,7 +2814,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fint-4322": {
       "id": "lynis:fint-4322",
@@ -2831,7 +2831,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fint-4326": {
       "id": "lynis:fint-4326",
@@ -2848,7 +2848,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fint-4328": {
       "id": "lynis:fint-4328",
@@ -2865,7 +2865,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fint-4330": {
       "id": "lynis:fint-4330",
@@ -2882,7 +2882,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fint-4334": {
       "id": "lynis:fint-4334",
@@ -2899,7 +2899,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fint-4336": {
       "id": "lynis:fint-4336",
@@ -2916,7 +2916,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fint-4338": {
       "id": "lynis:fint-4338",
@@ -2933,7 +2933,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fint-4339": {
       "id": "lynis:fint-4339",
@@ -3001,7 +3001,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fint-4402": {
       "id": "lynis:fint-4402",
@@ -3018,7 +3018,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fire-4502": {
       "id": "lynis:fire-4502",
@@ -3052,7 +3052,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fire-4512": {
       "id": "lynis:fire-4512",
@@ -3069,7 +3069,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fire-4513": {
       "id": "lynis:fire-4513",
@@ -3086,7 +3086,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fire-4518": {
       "id": "lynis:fire-4518",
@@ -3103,7 +3103,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fire-4520": {
       "id": "lynis:fire-4520",
@@ -3120,7 +3120,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fire-4524": {
       "id": "lynis:fire-4524",
@@ -3137,7 +3137,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fire-4526": {
       "id": "lynis:fire-4526",
@@ -3273,7 +3273,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fire-4590": {
       "id": "lynis:fire-4590",
@@ -3290,7 +3290,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:fire-4594": {
       "id": "lynis:fire-4594",
@@ -3307,7 +3307,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:home-9302": {
       "id": "lynis:home-9302",
@@ -3324,7 +3324,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:home-9304": {
       "id": "lynis:home-9304",
@@ -3341,7 +3341,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:home-9306": {
       "id": "lynis:home-9306",
@@ -3358,7 +3358,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:home-9310": {
       "id": "lynis:home-9310",
@@ -3375,7 +3375,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:home-9350": {
       "id": "lynis:home-9350",
@@ -3392,7 +3392,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:hrdn-7220": {
       "id": "lynis:hrdn-7220",
@@ -3409,7 +3409,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:hrdn-7222": {
       "id": "lynis:hrdn-7222",
@@ -3426,7 +3426,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:hrdn-7230": {
       "id": "lynis:hrdn-7230",
@@ -3443,7 +3443,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:hrdn-7231": {
       "id": "lynis:hrdn-7231",
@@ -3477,7 +3477,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:http-6624": {
       "id": "lynis:http-6624",
@@ -3494,7 +3494,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:http-6626": {
       "id": "lynis:http-6626",
@@ -3511,7 +3511,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:http-6632": {
       "id": "lynis:http-6632",
@@ -3528,7 +3528,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:http-6640": {
       "id": "lynis:http-6640",
@@ -3545,7 +3545,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:http-6641": {
       "id": "lynis:http-6641",
@@ -3562,7 +3562,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:http-6643": {
       "id": "lynis:http-6643",
@@ -3579,7 +3579,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:http-6702": {
       "id": "lynis:http-6702",
@@ -3596,7 +3596,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:http-6704": {
       "id": "lynis:http-6704",
@@ -3613,7 +3613,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:http-6706": {
       "id": "lynis:http-6706",
@@ -3630,7 +3630,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:http-6708": {
       "id": "lynis:http-6708",
@@ -3647,7 +3647,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:http-6710": {
       "id": "lynis:http-6710",
@@ -3664,7 +3664,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:http-6712": {
       "id": "lynis:http-6712",
@@ -3681,7 +3681,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:http-6714": {
       "id": "lynis:http-6714",
@@ -3698,7 +3698,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:http-6716": {
       "id": "lynis:http-6716",
@@ -3715,7 +3715,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:http-6720": {
       "id": "lynis:http-6720",
@@ -3732,7 +3732,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:inse-8000": {
       "id": "lynis:inse-8000",
@@ -3749,7 +3749,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:inse-8002": {
       "id": "lynis:inse-8002",
@@ -3766,7 +3766,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:inse-8004": {
       "id": "lynis:inse-8004",
@@ -3783,7 +3783,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:inse-8006": {
       "id": "lynis:inse-8006",
@@ -3800,7 +3800,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:inse-8016": {
       "id": "lynis:inse-8016",
@@ -3817,7 +3817,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:inse-8050": {
       "id": "lynis:inse-8050",
@@ -3851,7 +3851,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:inse-8116": {
       "id": "lynis:inse-8116",
@@ -3868,7 +3868,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:inse-8200": {
       "id": "lynis:inse-8200",
@@ -3885,7 +3885,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:inse-8300": {
       "id": "lynis:inse-8300",
@@ -3902,7 +3902,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:inse-8302": {
       "id": "lynis:inse-8302",
@@ -3919,7 +3919,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:inse-8310": {
       "id": "lynis:inse-8310",
@@ -3936,7 +3936,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:inse-8312": {
       "id": "lynis:inse-8312",
@@ -3953,7 +3953,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:inse-8314": {
       "id": "lynis:inse-8314",
@@ -3970,7 +3970,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:inse-8316": {
       "id": "lynis:inse-8316",
@@ -3987,7 +3987,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:inse-8318": {
       "id": "lynis:inse-8318",
@@ -4004,7 +4004,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:inse-8320": {
       "id": "lynis:inse-8320",
@@ -4021,7 +4021,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:krnl-5622": {
       "id": "lynis:krnl-5622",
@@ -4259,7 +4259,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:ldap-2219": {
       "id": "lynis:ldap-2219",
@@ -4276,7 +4276,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:ldap-2224": {
       "id": "lynis:ldap-2224",
@@ -4293,7 +4293,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2130": {
       "id": "lynis:logg-2130",
@@ -4310,7 +4310,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2132": {
       "id": "lynis:logg-2132",
@@ -4327,7 +4327,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2134": {
       "id": "lynis:logg-2134",
@@ -4344,7 +4344,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2136": {
       "id": "lynis:logg-2136",
@@ -4361,7 +4361,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2138": {
       "id": "lynis:logg-2138",
@@ -4412,7 +4412,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2148": {
       "id": "lynis:logg-2148",
@@ -4429,7 +4429,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2150": {
       "id": "lynis:logg-2150",
@@ -4446,7 +4446,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2152": {
       "id": "lynis:logg-2152",
@@ -4463,7 +4463,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2153": {
       "id": "lynis:logg-2153",
@@ -4480,7 +4480,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2154": {
       "id": "lynis:logg-2154",
@@ -4497,7 +4497,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2160": {
       "id": "lynis:logg-2160",
@@ -4514,7 +4514,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2162": {
       "id": "lynis:logg-2162",
@@ -4531,7 +4531,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2164": {
       "id": "lynis:logg-2164",
@@ -4548,7 +4548,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2170": {
       "id": "lynis:logg-2170",
@@ -4565,7 +4565,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2180": {
       "id": "lynis:logg-2180",
@@ -4582,7 +4582,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2190": {
       "id": "lynis:logg-2190",
@@ -4599,7 +4599,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2192": {
       "id": "lynis:logg-2192",
@@ -4616,7 +4616,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2210": {
       "id": "lynis:logg-2210",
@@ -4633,7 +4633,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2230": {
       "id": "lynis:logg-2230",
@@ -4650,7 +4650,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:logg-2240": {
       "id": "lynis:logg-2240",
@@ -4667,7 +4667,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:macf-6204": {
       "id": "lynis:macf-6204",
@@ -4684,7 +4684,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:macf-6208": {
       "id": "lynis:macf-6208",
@@ -4701,7 +4701,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:macf-6232": {
       "id": "lynis:macf-6232",
@@ -4718,7 +4718,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:macf-6234": {
       "id": "lynis:macf-6234",
@@ -4735,7 +4735,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:macf-6240": {
       "id": "lynis:macf-6240",
@@ -4752,7 +4752,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:macf-6242": {
       "id": "lynis:macf-6242",
@@ -4769,7 +4769,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:macf-6290": {
       "id": "lynis:macf-6290",
@@ -4786,7 +4786,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:mail-8802": {
       "id": "lynis:mail-8802",
@@ -4803,7 +4803,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:mail-8804": {
       "id": "lynis:mail-8804",
@@ -4820,7 +4820,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:mail-8814": {
       "id": "lynis:mail-8814",
@@ -4837,7 +4837,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:mail-8816": {
       "id": "lynis:mail-8816",
@@ -4854,7 +4854,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:mail-8817": {
       "id": "lynis:mail-8817",
@@ -4871,7 +4871,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:mail-8818": {
       "id": "lynis:mail-8818",
@@ -4888,7 +4888,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:mail-8820": {
       "id": "lynis:mail-8820",
@@ -4905,7 +4905,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:mail-8838": {
       "id": "lynis:mail-8838",
@@ -4922,7 +4922,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:mail-8860": {
       "id": "lynis:mail-8860",
@@ -4939,7 +4939,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:mail-8880": {
       "id": "lynis:mail-8880",
@@ -4956,7 +4956,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:mail-8920": {
       "id": "lynis:mail-8920",
@@ -4973,7 +4973,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:malw-3274": {
       "id": "lynis:malw-3274",
@@ -4990,7 +4990,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:malw-3275": {
       "id": "lynis:malw-3275",
@@ -5007,7 +5007,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:malw-3276": {
       "id": "lynis:malw-3276",
@@ -5024,7 +5024,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:malw-3278": {
       "id": "lynis:malw-3278",
@@ -5041,7 +5041,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:malw-3280": {
       "id": "lynis:malw-3280",
@@ -5058,7 +5058,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:malw-3282": {
       "id": "lynis:malw-3282",
@@ -5075,7 +5075,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:malw-3284": {
       "id": "lynis:malw-3284",
@@ -5092,7 +5092,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:malw-3286": {
       "id": "lynis:malw-3286",
@@ -5109,7 +5109,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:malw-3288": {
       "id": "lynis:malw-3288",
@@ -5126,7 +5126,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:malw-3290": {
       "id": "lynis:malw-3290",
@@ -5143,7 +5143,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4016": {
       "id": "lynis:name-4016",
@@ -5160,7 +5160,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4018": {
       "id": "lynis:name-4018",
@@ -5177,7 +5177,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4020": {
       "id": "lynis:name-4020",
@@ -5194,7 +5194,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4024": {
       "id": "lynis:name-4024",
@@ -5245,7 +5245,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4032": {
       "id": "lynis:name-4032",
@@ -5262,7 +5262,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4034": {
       "id": "lynis:name-4034",
@@ -5279,7 +5279,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4036": {
       "id": "lynis:name-4036",
@@ -5296,7 +5296,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4202": {
       "id": "lynis:name-4202",
@@ -5313,7 +5313,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4204": {
       "id": "lynis:name-4204",
@@ -5330,7 +5330,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4206": {
       "id": "lynis:name-4206",
@@ -5347,7 +5347,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4210": {
       "id": "lynis:name-4210",
@@ -5364,7 +5364,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4230": {
       "id": "lynis:name-4230",
@@ -5381,7 +5381,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4232": {
       "id": "lynis:name-4232",
@@ -5398,7 +5398,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4236": {
       "id": "lynis:name-4236",
@@ -5415,7 +5415,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4238": {
       "id": "lynis:name-4238",
@@ -5432,7 +5432,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4304": {
       "id": "lynis:name-4304",
@@ -5449,7 +5449,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4306": {
       "id": "lynis:name-4306",
@@ -5466,7 +5466,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4402": {
       "id": "lynis:name-4402",
@@ -5483,7 +5483,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4404": {
       "id": "lynis:name-4404",
@@ -5500,7 +5500,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4406": {
       "id": "lynis:name-4406",
@@ -5517,7 +5517,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:name-4408": {
       "id": "lynis:name-4408",
@@ -5534,7 +5534,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:netw-2400": {
       "id": "lynis:netw-2400",
@@ -5551,7 +5551,7 @@
       ],
       "category": "basics",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:netw-2600": {
       "id": "lynis:netw-2600",
@@ -5585,7 +5585,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:netw-2705": {
       "id": "lynis:netw-2705",
@@ -5602,7 +5602,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:netw-2706": {
       "id": "lynis:netw-2706",
@@ -5619,7 +5619,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:netw-3001": {
       "id": "lynis:netw-3001",
@@ -5636,7 +5636,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:netw-3004": {
       "id": "lynis:netw-3004",
@@ -5653,7 +5653,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:netw-3006": {
       "id": "lynis:netw-3006",
@@ -5670,7 +5670,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:netw-3008": {
       "id": "lynis:netw-3008",
@@ -5687,7 +5687,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:netw-3012": {
       "id": "lynis:netw-3012",
@@ -5704,7 +5704,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:netw-3014": {
       "id": "lynis:netw-3014",
@@ -5721,7 +5721,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:netw-3015": {
       "id": "lynis:netw-3015",
@@ -5755,7 +5755,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:netw-3030": {
       "id": "lynis:netw-3030",
@@ -5772,7 +5772,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:netw-3032": {
       "id": "lynis:netw-3032",
@@ -5806,7 +5806,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:php-2211": {
       "id": "lynis:php-2211",
@@ -5823,7 +5823,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:php-2320": {
       "id": "lynis:php-2320",
@@ -5840,7 +5840,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:php-2368": {
       "id": "lynis:php-2368",
@@ -5857,7 +5857,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:php-2372": {
       "id": "lynis:php-2372",
@@ -5874,7 +5874,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:php-2374": {
       "id": "lynis:php-2374",
@@ -5891,7 +5891,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:php-2376": {
       "id": "lynis:php-2376",
@@ -5908,7 +5908,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:php-2378": {
       "id": "lynis:php-2378",
@@ -5925,7 +5925,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:php-2379": {
       "id": "lynis:php-2379",
@@ -5942,7 +5942,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:php-2382": {
       "id": "lynis:php-2382",
@@ -5959,7 +5959,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7200": {
       "id": "lynis:pkgs-7200",
@@ -5993,7 +5993,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7302": {
       "id": "lynis:pkgs-7302",
@@ -6010,7 +6010,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7303": {
       "id": "lynis:pkgs-7303",
@@ -6027,7 +6027,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7304": {
       "id": "lynis:pkgs-7304",
@@ -6044,7 +6044,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7306": {
       "id": "lynis:pkgs-7306",
@@ -6078,7 +6078,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7310": {
       "id": "lynis:pkgs-7310",
@@ -6095,7 +6095,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7312": {
       "id": "lynis:pkgs-7312",
@@ -6112,7 +6112,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7314": {
       "id": "lynis:pkgs-7314",
@@ -6129,7 +6129,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7320": {
       "id": "lynis:pkgs-7320",
@@ -6180,7 +6180,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7330": {
       "id": "lynis:pkgs-7330",
@@ -6197,7 +6197,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7332": {
       "id": "lynis:pkgs-7332",
@@ -6214,7 +6214,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7334": {
       "id": "lynis:pkgs-7334",
@@ -6231,7 +6231,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7345": {
       "id": "lynis:pkgs-7345",
@@ -6248,7 +6248,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7346": {
       "id": "lynis:pkgs-7346",
@@ -6265,7 +6265,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7348": {
       "id": "lynis:pkgs-7348",
@@ -6299,7 +6299,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7352": {
       "id": "lynis:pkgs-7352",
@@ -6316,7 +6316,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7354": {
       "id": "lynis:pkgs-7354",
@@ -6333,7 +6333,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7366": {
       "id": "lynis:pkgs-7366",
@@ -6350,7 +6350,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7370": {
       "id": "lynis:pkgs-7370",
@@ -6367,7 +6367,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7378": {
       "id": "lynis:pkgs-7378",
@@ -6384,7 +6384,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7380": {
       "id": "lynis:pkgs-7380",
@@ -6418,7 +6418,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7382": {
       "id": "lynis:pkgs-7382",
@@ -6435,7 +6435,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7383": {
       "id": "lynis:pkgs-7383",
@@ -6452,7 +6452,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7384": {
       "id": "lynis:pkgs-7384",
@@ -6469,7 +6469,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7386": {
       "id": "lynis:pkgs-7386",
@@ -6486,7 +6486,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7387": {
       "id": "lynis:pkgs-7387",
@@ -6503,7 +6503,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7388": {
       "id": "lynis:pkgs-7388",
@@ -6520,7 +6520,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7390": {
       "id": "lynis:pkgs-7390",
@@ -6571,7 +6571,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7394": {
       "id": "lynis:pkgs-7394",
@@ -6622,7 +6622,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7410": {
       "id": "lynis:pkgs-7410",
@@ -6639,7 +6639,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:pkgs-7420": {
       "id": "lynis:pkgs-7420",
@@ -6656,7 +6656,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:prnt-2302": {
       "id": "lynis:prnt-2302",
@@ -6690,7 +6690,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:prnt-2306": {
       "id": "lynis:prnt-2306",
@@ -6707,7 +6707,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:prnt-2307": {
       "id": "lynis:prnt-2307",
@@ -6724,7 +6724,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:prnt-2308": {
       "id": "lynis:prnt-2308",
@@ -6741,7 +6741,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:prnt-2314": {
       "id": "lynis:prnt-2314",
@@ -6758,7 +6758,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:prnt-2316": {
       "id": "lynis:prnt-2316",
@@ -6860,7 +6860,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:proc-3614": {
       "id": "lynis:proc-3614",
@@ -6877,7 +6877,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:proc-3802": {
       "id": "lynis:proc-3802",
@@ -6894,7 +6894,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:rbac-6272": {
       "id": "lynis:rbac-6272",
@@ -6911,7 +6911,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:schd-7702": {
       "id": "lynis:schd-7702",
@@ -6928,7 +6928,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:schd-7704": {
       "id": "lynis:schd-7704",
@@ -6945,7 +6945,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:schd-7718": {
       "id": "lynis:schd-7718",
@@ -6962,7 +6962,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:schd-7720": {
       "id": "lynis:schd-7720",
@@ -6979,7 +6979,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:schd-7724": {
       "id": "lynis:schd-7724",
@@ -6996,7 +6996,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:shll-6202": {
       "id": "lynis:shll-6202",
@@ -7030,7 +7030,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:shll-6220": {
       "id": "lynis:shll-6220",
@@ -7047,7 +7047,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:shll-6230": {
       "id": "lynis:shll-6230",
@@ -7064,7 +7064,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:sint-7010": {
       "id": "lynis:sint-7010",
@@ -7098,7 +7098,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:snmp-3304": {
       "id": "lynis:snmp-3304",
@@ -7115,7 +7115,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:snmp-3306": {
       "id": "lynis:snmp-3306",
@@ -7132,7 +7132,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:sqd-3602": {
       "id": "lynis:sqd-3602",
@@ -7149,7 +7149,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:sqd-3604": {
       "id": "lynis:sqd-3604",
@@ -7166,7 +7166,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:sqd-3606": {
       "id": "lynis:sqd-3606",
@@ -7183,7 +7183,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:sqd-3610": {
       "id": "lynis:sqd-3610",
@@ -7200,7 +7200,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:sqd-3613": {
       "id": "lynis:sqd-3613",
@@ -7217,7 +7217,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:sqd-3614": {
       "id": "lynis:sqd-3614",
@@ -7234,7 +7234,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:sqd-3616": {
       "id": "lynis:sqd-3616",
@@ -7251,7 +7251,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:sqd-3620": {
       "id": "lynis:sqd-3620",
@@ -7268,7 +7268,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:sqd-3624": {
       "id": "lynis:sqd-3624",
@@ -7285,7 +7285,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:sqd-3630": {
       "id": "lynis:sqd-3630",
@@ -7302,7 +7302,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:sqd-3680": {
       "id": "lynis:sqd-3680",
@@ -7319,7 +7319,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:ssh-7402": {
       "id": "lynis:ssh-7402",
@@ -7336,7 +7336,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:ssh-7404": {
       "id": "lynis:ssh-7404",
@@ -7353,7 +7353,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:ssh-7406": {
       "id": "lynis:ssh-7406",
@@ -7370,7 +7370,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:ssh-7408": {
       "id": "lynis:ssh-7408",
@@ -7387,7 +7387,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:ssh-7440": {
       "id": "lynis:ssh-7440",
@@ -7404,7 +7404,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:strg-1846": {
       "id": "lynis:strg-1846",
@@ -7438,7 +7438,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:strg-1904": {
       "id": "lynis:strg-1904",
@@ -7455,7 +7455,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:strg-1906": {
       "id": "lynis:strg-1906",
@@ -7472,7 +7472,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:strg-1920": {
       "id": "lynis:strg-1920",
@@ -7489,7 +7489,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:strg-1926": {
       "id": "lynis:strg-1926",
@@ -7506,7 +7506,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:strg-1928": {
       "id": "lynis:strg-1928",
@@ -7523,7 +7523,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:strg-1930": {
       "id": "lynis:strg-1930",
@@ -7540,7 +7540,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:time-3104": {
       "id": "lynis:time-3104",
@@ -7557,7 +7557,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:time-3106": {
       "id": "lynis:time-3106",
@@ -7574,7 +7574,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:time-3112": {
       "id": "lynis:time-3112",
@@ -7591,7 +7591,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:time-3116": {
       "id": "lynis:time-3116",
@@ -7608,7 +7608,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:time-3120": {
       "id": "lynis:time-3120",
@@ -7625,7 +7625,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:time-3124": {
       "id": "lynis:time-3124",
@@ -7642,7 +7642,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:time-3128": {
       "id": "lynis:time-3128",
@@ -7659,7 +7659,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:time-3132": {
       "id": "lynis:time-3132",
@@ -7676,7 +7676,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:time-3136": {
       "id": "lynis:time-3136",
@@ -7744,7 +7744,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:time-3180": {
       "id": "lynis:time-3180",
@@ -7761,7 +7761,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:time-3181": {
       "id": "lynis:time-3181",
@@ -7778,7 +7778,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:time-3182": {
       "id": "lynis:time-3182",
@@ -7795,7 +7795,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:time-3185": {
       "id": "lynis:time-3185",
@@ -7812,7 +7812,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:tool-5002": {
       "id": "lynis:tool-5002",
@@ -7829,7 +7829,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:tool-5102": {
       "id": "lynis:tool-5102",
@@ -7846,7 +7846,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:tool-5104": {
       "id": "lynis:tool-5104",
@@ -7863,7 +7863,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:tool-5120": {
       "id": "lynis:tool-5120",
@@ -7880,7 +7880,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:tool-5122": {
       "id": "lynis:tool-5122",
@@ -7897,7 +7897,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:tool-5130": {
       "id": "lynis:tool-5130",
@@ -7914,7 +7914,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:tool-5160": {
       "id": "lynis:tool-5160",
@@ -7931,7 +7931,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:tool-5190": {
       "id": "lynis:tool-5190",
@@ -7948,7 +7948,7 @@
       ],
       "category": "security",
       "severity": "medium",
-      "host_filter": "linux"
+      "host_filter": "lynis_supported_platform"
     },
     "lynis:usb-1000": {
       "id": "lynis:usb-1000",
