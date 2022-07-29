@@ -66,7 +66,7 @@ while read line; do
 
         case $OperatingSystem in
             "")
-                class="linux"
+                class="lynis_supported_platform"
                 ;;
             Linux)
                 class="linux"

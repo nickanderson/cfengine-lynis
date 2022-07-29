@@ -90,7 +90,7 @@ See the [[./generated-compliance-report.json][generated-compliance-report.json]]
 
           case $OperatingSystem in
               "")
-                  class="linux"
+                  class="lynis_supported_platform"
                   ;;
               Linux)
                   class="linux"
