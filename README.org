@@ -37,7 +37,7 @@ This module provides policy to automate the installation, running, and reporting
 - CISOfy Lynis date scan completed :: Date of last completed scan (YYYY-MM-DD).
 - CISOfy Lynis days since scan completed :: Days since Lynis scan last completed.
 - CISOfy Lynis Hardening Index :: Hardening index from last scan.
-- CISOfy Lynis Update Available :: Weather or not there is an updated version of Lynis available.
+- CISOfy Lynis Update Available :: Whether or not there is an updated version of Lynis available.
 
 [[https://raw.github.com/nickanderson/cfengine-lynis/master/images/CISOfy_Lynis_Inventory_Attributes.png]]
 
