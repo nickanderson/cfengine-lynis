@@ -6,8 +6,26 @@ This module provides policy to automate the installation, running, and reporting
 
 ** Variables
 
-- =lynis:globals.version= :: The version of Lynis desired to be installed.
-- =lynis:globals.archive_hash= :: The hash of the archive that Lynis is to be installed from (used for integrity checking). 
+- =lynis:globals.version= :: The version of Lynis desired to be installed. (default =3.0.8=)
+- =lynis:globals.archive_hash= :: The hash of the archive that Lynis is to be installed from (used for integrity checking). (default =98373a4cc9d0471ab9bebb249e442fcf94b6bf6d4e9c6fc0b22bca1506646c63=)
+
+*Note:* Configuring these variables via Augments /requires/ the use of the =variables= key (introduced in CFEngine 3.18.0).
+
+#+caption: Example Augments configuration
+#+begin_src json
+  {
+    "variables": {
+      "lynis:globals.version": {
+        "value": "3.0.8",
+        "comment": "The version of Lynis desired."
+      },
+      "lynis:globals.archive_hash": {
+        "value": "98373a4cc9d0471ab9bebb249e442fcf94b6bf6d4e9c6fc0b22bca1506646c63",
+        "comment": "The hash (sha256) listed for the tarball hosted on the Lynis website (https://cisofy.com/downloads/lynis/)."
+      }
+    }
+  }
+#+end_src
 
 * Inventory
 - CISOfy Lynis Version :: The version of Lynis installed
@@ -21,7 +39,13 @@ This module provides policy to automate the installation, running, and reporting
 - CISOfy Lynis Hardening Index :: Hardening index from last scan.
 - CISOfy Lynis Update Available :: Weather or not there is an updated version of Lynis available.
 
-[[https://raw.github.com/nickanderson/cfengine-lynis/master/data/4f/23848e-ef9c-44aa-b268-dafe86ff7979/2021-12-06-Lynis-Suggestions.png]]
+[[https://raw.github.com/nickanderson/cfengine-lynis/master/CISOfy_Lynis_Inventory_Attributes.png]]
+
+* Compliance Report
+
+Tools and example compliance reports for use with CFEngine Enterprise can be found under [[./compliance-reports][./compliance./compliance-reports/]].
+
+[[https://raw.github.com/nickanderson/cfengine-lynis/master/images/CISOfy_Lynis_Compliance_Report_3.0.8.png]]
 
 * Usage
 :PROPERTIES:

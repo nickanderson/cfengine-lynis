@@ -19,6 +19,10 @@ We can generate a JSON that is importable from the information in =db/tests.db= 
 
 See the [[./generated-compliance-report.json][generated-compliance-report.json]].
 
+* Example
+
+[[https://raw.github.com/nickanderson/cfengine-lynis/master/images/CISOfy_Lynis_Compliance_Report_3.0.8.png]]
+
 *  Source                                                          :noexport:
 
 #+begin_src sh :results output :exports none :tangle ./city-cfengine-enterprise-compliance-report-generator.sh :tangle-mode (identity #o700)
