@@ -39,7 +39,7 @@ This module provides policy to automate the installation, running, and reporting
 - CISOfy Lynis Hardening Index :: Hardening index from last scan.
 - CISOfy Lynis Update Available :: Weather or not there is an updated version of Lynis available.
 
-[[https://raw.github.com/nickanderson/cfengine-lynis/master/CISOfy_Lynis_Inventory_Attributes.png]]
+[[https://raw.github.com/nickanderson/cfengine-lynis/master/images/CISOfy_Lynis_Inventory_Attributes.png]]
 
 * Compliance Report
 
