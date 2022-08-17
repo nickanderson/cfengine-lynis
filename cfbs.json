@@ -12,15 +12,15 @@
         "json cfbs/def.json def.json"
       ]
     },
-    "lynis-compliance-report": {
+    "compliance-report-lynis": {
       "description": "Compliance report with Lynis checks",
-      "dependencies": ["compliance-report-imports"],
+      "dependencies": ["compliance-report-imports", "lynis"],
       "subdirectory": "./compliance-reports",
       "tags": ["experimental", "security", "compliance"],
       "repo": "https://github.com/nickanderson/cfengine-lynis",
       "by": "https://github.com/nickanderson/",
       "steps": [
-          "copy ./generated-compliance-report.json .no-distrib/compliance-report-definitions/lynis-compliance-report.json"
+        "copy ./generated-compliance-report.json .no-distrib/compliance-report-definitions/lynis-compliance-report.json"
       ]
     }
   }
