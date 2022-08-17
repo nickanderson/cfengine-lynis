@@ -27,25 +27,39 @@ echo "\"conditions\": [" >> $TMPFILE
 #MAX_CHECKS=30
 MAX_CHECKS=1000
 CONDITION_COUNTER=0
+LynisControlIdAllowListFile="./LynisControlIdAllowList.txt"
+if [ -f "${LynisControlIdAllowListFile}" ]; then
+    echo "Found Lynis Control ID Allow List ${LynisControlIdAllowListFile}, minimizing generated compliance report"
+else
+    echo "Lynis Control ID Allow List ${LynisControlIdAllowListFile} not found, generating compliance report with all available Lynis Controls"
+fi
+
 while read line; do
     if echo "$line" | grep -P "^\s*#.*" > /dev/null; then
         # Do nothing with comments
         # echo "$line matched comment"
         :
     else
-        ID=$(echo "$line" | awk -F: '{print $1}')
-        ID_lowercase="lynis:$(echo $ID | tr '[:upper:]' '[:lower:]' )"
-        echo "\"${ID_lowercase}\"," >> $TMPFILE
+        #ID=$(echo "$line" | awk -F: '{print $1}') # TODO REDACT
+        LynisControlId=$(echo "$line" | awk -F: '{print $1}')
+        ConditionId="lynis:$(echo $LynisControlId | tr '[:upper:]' '[:lower:]' )"
+        if [ -f "${LynisControlIdAllowListFile}" ]; then
+            if grep --ignore-case --silent "${LynisControlId}" "${LynisControlIdAllowListFile}"; then
+                echo "\"${ConditionId}\"," >> $TMPFILE
+            fi
+        else
+            echo "\"${ConditionId}\"," >> $TMPFILE
+        fi
     fi
     CONDITION_COUNTER=$((CONDITION_COUNTER+1))
     if [ "$CONDITION_COUNTER" = "$MAX_CHECKS" ]; then
         break
     fi
 done < $TestDB
-  truncate -s -2 $TMPFILE
-  echo ']}},' >> $TMPFILE
+truncate -s -2 $TMPFILE
+echo ']}},' >> $TMPFILE
 
-  echo '"conditions": {' >> $TMPFILE
+echo '"conditions": {' >> $TMPFILE
 
 CONDITION_COUNTER=0
 while read line; do
@@ -56,83 +70,120 @@ while read line; do
         :
     else
 
-        ID=$(echo "$line" | awk -F: '{print $1}')
-        Type=$(echo "$line" | awk -F: '{print $2}')
-        Category=$(echo "$line" | awk -F: '{print $3}')
-        Group=$(echo "$line" | awk -F: '{print $4}')
-        OperatingSystem=$(echo "$line" | awk -F: '{print $5}')
-        Description=$(echo "$line" | awk -F: '{print $6}')
-        class="";
+        LynisControlId=$(echo "$line" | awk -F: '{print $1}')
+        # ID=$(echo "$line" | awk -F: '{print $1}') # TODO REDACT
+        LynisType=$(echo "$line" | awk -F: '{print $2}')
+        LynisCategory=$(echo "$line" | awk -F: '{print $3}')
+        LynisGroup=$(echo "$line" | awk -F: '{print $4}')
+        LynisOperatingSystem=$(echo "$line" | awk -F: '{print $5}')
+        LynisDescription=$(echo "$line" | awk -F: '{print $6}')
+        CFEngineClassForLynisOperatingSystem="";
 
-        case $OperatingSystem in
+        case $LynisOperatingSystem in
             "")
-                class="lynis_supported_platform"
+                CFEngineClassForLynisOperatingSystem="lynis:lynis_supported_platform"
                 ;;
             Linux)
-                class="linux"
+                CFEngineClassForLynisOperatingSystem="linux"
                 ;;
             FreeBSD)
-                class="freebsd"
+                CFEngineClassForLynisOperatingSystem="freebsd"
                 ;;
             OpenBSD)
-                class="openbsd"
+                CFEngineClassForLynisOperatingSystem="openbsd"
                 ;;
             NetBSD)
-                class="netbsd"
+                CFEngineClassForLynisOperatingSystem="netbsd"
                 ;;
             DragonFly)
-                class="dragonfly"
+                CFEngineClassForLynisOperatingSystem="dragonfly"
                 ;;
             Solaris)
-                class="solaris"
+                CFEngineClassForLynisOperatingSystem="solaris"
                 ;;
             MacOS)
-                class="darwin"
+                CFEngineClassForLynisOperatingSystem="darwin"
                 ;;
             HP-UX)
-                class="hpux"
+                CFEngineClassForLynisOperatingSystem="hpux"
                 ;;
             AIX)
-                class="aix"
+                CFEngineClassForLynisOperatingSystem="aix"
                 ;;
             *)
-                class="UNKNOWN"
+                CFEngineClassForLynisOperatingSystem="UNKNOWN"
                 ;;
         esac
 
-        #echo $ID $Type $Category $Group $OperatingSystem $class $Description
-        ID_lowercase="lynis:$(echo $ID | tr '[:upper:]' '[:lower:]' )"
-        echo "\"${ID_lowercase}\": {" >> $TMPFILE
-        echo "\"id\": \"${ID_lowercase}\"," >> $TMPFILE
-        echo "\"name\": \"Lynis:${ID}\"," >> $TMPFILE
-        echo "\"description\": \"${Description}\"," >> $TMPFILE
-        # Herman dislikes using the control ID for the name, I tried to use the description string directly for name, but nop
-        #echo "\"name\": \"${Description}\"," >> $TMPFILE
-        #echo "\"name\": \"${Description}\"," >> $TMPFILE
-        #echo "\"description\": \"$(printf \"%q\" \"${ID}: ${Description}\")," >> $TMPFILE
-        echo "\"type\": \"inventory\"," >> $TMPFILE
-        echo "\"condition_for\": \"passing\"," >> $TMPFILE
-        echo "\"rules\": [" >> $TMPFILE
-        echo "{" >> $TMPFILE
-        echo "\"attribute\": \"CISOfy Lynis Control ID findings\"," >> $TMPFILE
-        echo "\"operator\": \"not_contain\"," >> $TMPFILE
-        echo "\"value\": \"$ID\"" >> $TMPFILE
-        echo "}" >> $TMPFILE
-        echo "]," >> $TMPFILE
-        echo "\"category\": \"$Category\"," >> $TMPFILE
-        echo "\"severity\": \"medium\"," >> $TMPFILE
-        echo "\"host_filter\": \"$class\"" >> $TMPFILE
-        echo "}," >> $TMPFILE
+        # @ole wants the compliance report to show human readable description of check (without requiring the hover js, so that it works in pdf too)
+        ConditionId="lynis:$(echo $LynisControlId | tr '[:upper:]' '[:lower:]' )"
+        ConditionName="Lynis:${LynisControlId}"
+        ConditionCategory="${LynisGroup}-${LynisCategory}"
+
+        case $CFEngineClassForLynisOperatingSystem in
+            "lynis_supported_platform")
+                ConditionDescriptionOsPhrase="any Lynis supported Operating system"
+                ;;
+            *)
+                ConditionDescriptionOsPhrase="the $LynisOperatingSystem operating system"
+                ;;
+        esac
+        CheckDescription="${LynisDescription}.\\\\n\\\\nConsidered part of ${LynisGroup} ${LynisCategory} by CISOfy.\\\\nThis condition applies to ${LynisOperatingSystem} which CFEngine identifies by the class ${CFEngineClassForLynisOperatingSystem}.\\\\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/${LynisControlId}/)."
+
+        #echo $LynisControlId $LynisType $LynisCategory $LynisGroup $LynisOperatingSystem $CFEngineClassForLynisOperatingSystem $LynisDescription
+        ConditionId="lynis:$(echo $LynisControlId | tr '[:upper:]' '[:lower:]' )"
+
+
+        if [ -f "${LynisControlIdAllowListFile}" ]; then
+            if grep --ignore-case --silent "${LynisControlId}" "${LynisControlIdAllowListFile}"; then
+                echo "\"${ConditionId}\": {" >> $TMPFILE
+                echo "\"id\": \"${ConditionId}\"," >> $TMPFILE
+                #echo "\"name\": \"Lynis:${LynisControlId}\"," >> $TMPFILE
+                echo "\"name\": \"${ConditionName}\"," >> $TMPFILE
+                echo "\"description\": \"${CheckDescription}\"," >> $TMPFILE
+                echo "\"type\": \"inventory\"," >> $TMPFILE
+                echo "\"condition_for\": \"passing\"," >> $TMPFILE
+                echo "\"rules\": [" >> $TMPFILE
+                echo "{" >> $TMPFILE
+                echo "\"attribute\": \"CISOfy Lynis Control ID findings\"," >> $TMPFILE
+                echo "\"operator\": \"not_contain\"," >> $TMPFILE
+                echo "\"value\": \"$LynisControlId\"" >> $TMPFILE
+                echo "}" >> $TMPFILE
+                echo "]," >> $TMPFILE
+                echo "\"category\": \"$ConditionCategory\"," >> $TMPFILE
+                echo "\"severity\": \"medium\"," >> $TMPFILE
+                echo "\"host_filter\": \"$CFEngineClassForLynisOperatingSystem\"" >> $TMPFILE
+                echo "}," >> $TMPFILE
+            fi
+        else
+                echo "\"${ConditionId}\": {" >> $TMPFILE
+                echo "\"id\": \"${ConditionId}\"," >> $TMPFILE
+                echo "\"name\": \"${ConditionName}\"," >> $TMPFILE
+                echo "\"description\": \"${CheckDescription}\"," >> $TMPFILE
+                echo "\"type\": \"inventory\"," >> $TMPFILE
+                echo "\"condition_for\": \"passing\"," >> $TMPFILE
+                echo "\"rules\": [" >> $TMPFILE
+                echo "{" >> $TMPFILE
+                echo "\"attribute\": \"CISOfy Lynis Control ID findings\"," >> $TMPFILE
+                echo "\"operator\": \"not_contain\"," >> $TMPFILE
+                echo "\"value\": \"$LynisControlId\"" >> $TMPFILE
+                echo "}" >> $TMPFILE
+                echo "]," >> $TMPFILE
+                echo "\"category\": \"$ConditionCategory\"," >> $TMPFILE
+                echo "\"severity\": \"medium\"," >> $TMPFILE
+                echo "\"host_filter\": \"$CFEngineClassForLynisOperatingSystem\"" >> $TMPFILE
+                echo "}," >> $TMPFILE
+        fi
     fi
     CONDITION_COUNTER=$((CONDITION_COUNTER+1))
     if [ "$CONDITION_COUNTER" = "$MAX_CHECKS" ]; then
         break
     fi
 done < $TestDB
-  truncate -s -2 $TMPFILE
-  echo '}}' >> $TMPFILE
-  cat $TMPFILE | jq > generated-compliance-report.json
-  rm $TMPFILE
-  rm -rf $TMPDIR
-  echo "DONE generating CFEngine Enterprise Compliance report (generated-compliance-report.json) with $CONDITION_COUNTER checks."
+truncate -s -2 $TMPFILE
+echo '}}' >> $TMPFILE
+cat $TMPFILE | jq > generated-compliance-report.json
+rm $TMPFILE
+rm -rf $TMPDIR
+echo "DONE generating CFEngine Enterprise Compliance report (generated-compliance-report.json)."
 :

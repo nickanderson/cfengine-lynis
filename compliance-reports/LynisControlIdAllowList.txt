@@ -1,0 +1,113 @@
+aCcT-2754
+BANN-7126
+time-3148
+acct-9622
+acct-9628
+FILE-6394
+NETW-2400
+# Accounting Security
+Lynis:ACCT-9622
+Lynis:ACCT-9626
+Lynis:ACCT-9628
+# Authentication Security
+Lynis:AUTH-9204
+Lynis:AUTH-9218
+Lynis:AUTH-9229
+# Banners Security
+Lynis:BANN-7126
+Lynis:BANN-7124
+Lynis:BANN-7113
+# Boot Services Security
+Lynis:BOOT-5104
+Lynis:BOOT-5102
+Lynis:BOOT-5202
+# Containers Performance
+Lynis:CONT-8107
+# Containers Security
+Lynis:CONT-8004
+Lynis:CONT-8102
+# Crypto Security
+Lynis:CRYP-8002
+Lynis:CRYP-8005
+# Databases Security
+Lynis:DBS-1826
+Lynis:DBS-1804
+# DNS Security
+Lynis:DNS-1600
+# File Integrity Security
+Lynis:FINT-4310
+Lynis:FINT-4350
+# File Permissions Security
+Lynis:FILE-7524
+# Filesystems Performance
+Lynis:FILE-6394
+# Filesystems Security
+Lynis:FILE-6310
+Lynis:FILE-6363
+# Firewalls security
+Lynis:FIRE-4502
+Lynis:FIRE-4586
+# Hardening Security
+Lynis:HOME-9302
+Lynis:HOME-9306
+# Insecure Services Security
+Lynis:INSE-8000
+Lynis:INSE-8312
+# Kernel Security
+Lynis:KRNL-5820
+Lynis:KRNL-5622
+# Kernel Hardening Security
+Lynis:KRNL-6000
+# LDAP Security
+Lynis:LOGG-2130
+Lynis:LOGG-2192
+# MAC Frameworks security
+Lynis:MACF-6232
+Lynis:MACF-6204
+# Mail Messaging Security
+Lynis:MAIL-8818
+Lynis:MALW-3274
+# Memory Process Security
+Lynis:PROC-3602
+# Name services Security
+Lynis:NAME-4016
+Lynis:NAME-4028
+# Networking basics
+Lynis:NETW-2400
+# Networking Security
+Lynis:NETW-2600
+Lynis:NETW-3200
+# PHP security
+Lynis:PHP-2211
+# Ports Packages Security
+Lynis:PKGS-7308
+Lynis:PKGS-7384
+# Printers Spools Security
+Lynis:PRNT-2304
+# Scheduling Security
+Lynis:SCHD-7702
+# Shells Security
+Lynis:SHLL-6211
+# SNMP Security
+Lynis:SNMP-3302
+# Squid Security
+Lynis:SQD-3602
+# SSH Security
+Lynis:SSH-7402
+# Storage Security
+Lynis:USB-1000
+# Storage NFS Security
+Lynis:STRG-1902
+# System Integrity Performance
+Lynis:CORE-1000
+# System integrity security
+Lynis:SINT-7010
+# Time performance
+Lynis:TIME-3148
+# Time security
+Lynis:TIME-3104
+# Tooling Security
+Lynis:TOOL-5002
+# Webserver Security
+Lynis:HTTP-6622
+
