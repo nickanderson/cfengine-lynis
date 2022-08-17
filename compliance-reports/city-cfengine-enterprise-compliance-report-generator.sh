@@ -133,6 +133,21 @@ while read line; do
         #echo $LynisControlId $LynisType $LynisCategory $LynisGroup $LynisOperatingSystem $CFEngineClassForLynisOperatingSystem $LynisDescription
         ConditionId="lynis:$(echo $LynisControlId | tr '[:upper:]' '[:lower:]' )"
 
+        case $LynisCategory in
+            "basics")
+                ConditionSeverity="low"
+                ;;
+            "performance")
+                          ConditionSeverity="medium"
+                          ;;
+
+            "security")
+                ConditionSeverity="high"
+                ;;
+            *)
+                ConditionSeverity="low"
+                ;;
+        esac
 
         if [ -f "${LynisControlIdAllowListFile}" ]; then
             if grep --ignore-case --silent "${LynisControlId}" "${LynisControlIdAllowListFile}"; then
@@ -151,7 +166,7 @@ while read line; do
                 echo "}" >> $TMPFILE
                 echo "]," >> $TMPFILE
                 echo "\"category\": \"$ConditionCategory\"," >> $TMPFILE
-                echo "\"severity\": \"medium\"," >> $TMPFILE
+                echo "\"severity\": \"$ConditionSeverity\"," >> $TMPFILE
                 echo "\"host_filter\": \"$CFEngineClassForLynisOperatingSystem\"" >> $TMPFILE
                 echo "}," >> $TMPFILE
             fi
@@ -170,7 +185,7 @@ while read line; do
                 echo "}" >> $TMPFILE
                 echo "]," >> $TMPFILE
                 echo "\"category\": \"$ConditionCategory\"," >> $TMPFILE
-                echo "\"severity\": \"medium\"," >> $TMPFILE
+                echo "\"severity\": \"$ConditionSeverity\"," >> $TMPFILE
                 echo "\"host_filter\": \"$CFEngineClassForLynisOperatingSystem\"" >> $TMPFILE
                 echo "}," >> $TMPFILE
         fi

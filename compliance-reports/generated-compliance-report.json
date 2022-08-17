@@ -88,7 +88,7 @@
         }
       ],
       "category": "accounting-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "freebsd"
     },
     "lynis:acct-9622": {
@@ -105,7 +105,7 @@
         }
       ],
       "category": "accounting-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "linux"
     },
     "lynis:acct-9626": {
@@ -122,7 +122,7 @@
         }
       ],
       "category": "accounting-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "linux"
     },
     "lynis:acct-9628": {
@@ -139,7 +139,7 @@
         }
       ],
       "category": "accounting-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "linux"
     },
     "lynis:auth-9204": {
@@ -156,7 +156,7 @@
         }
       ],
       "category": "authentication-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:auth-9218": {
@@ -173,7 +173,7 @@
         }
       ],
       "category": "authentication-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "freebsd"
     },
     "lynis:auth-9229": {
@@ -190,7 +190,7 @@
         }
       ],
       "category": "authentication-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:bann-7113": {
@@ -207,7 +207,7 @@
         }
       ],
       "category": "banners-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "freebsd"
     },
     "lynis:bann-7124": {
@@ -224,7 +224,7 @@
         }
       ],
       "category": "banners-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:bann-7126": {
@@ -241,7 +241,7 @@
         }
       ],
       "category": "banners-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:boot-5102": {
@@ -258,7 +258,7 @@
         }
       ],
       "category": "boot_services-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "aix"
     },
     "lynis:boot-5104": {
@@ -275,7 +275,7 @@
         }
       ],
       "category": "boot_services-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:boot-5202": {
@@ -292,7 +292,7 @@
         }
       ],
       "category": "boot_services-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:cont-8004": {
@@ -309,7 +309,7 @@
         }
       ],
       "category": "containers-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "solaris"
     },
     "lynis:cont-8102": {
@@ -326,7 +326,7 @@
         }
       ],
       "category": "containers-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:cont-8107": {
@@ -377,7 +377,7 @@
         }
       ],
       "category": "crypto-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "linux"
     },
     "lynis:cryp-8005": {
@@ -394,7 +394,7 @@
         }
       ],
       "category": "crypto-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "linux"
     },
     "lynis:dns-1600": {
@@ -411,7 +411,7 @@
         }
       ],
       "category": "dns-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:dbs-1804": {
@@ -428,7 +428,7 @@
         }
       ],
       "category": "databases-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:dbs-1826": {
@@ -445,7 +445,7 @@
         }
       ],
       "category": "databases-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:file-6310": {
@@ -462,7 +462,7 @@
         }
       ],
       "category": "filesystems-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:file-6363": {
@@ -479,7 +479,7 @@
         }
       ],
       "category": "filesystems-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:file-6394": {
@@ -513,7 +513,7 @@
         }
       ],
       "category": "file_permissions-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:fint-4310": {
@@ -530,7 +530,7 @@
         }
       ],
       "category": "file_integrity-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:fint-4350": {
@@ -547,7 +547,7 @@
         }
       ],
       "category": "file_integrity-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:fire-4502": {
@@ -564,7 +564,7 @@
         }
       ],
       "category": "firewalls-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "linux"
     },
     "lynis:fire-4586": {
@@ -581,7 +581,7 @@
         }
       ],
       "category": "firewalls-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:home-9302": {
@@ -598,7 +598,7 @@
         }
       ],
       "category": "homedirs-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:home-9306": {
@@ -615,7 +615,7 @@
         }
       ],
       "category": "homedirs-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:http-6622": {
@@ -632,7 +632,7 @@
         }
       ],
       "category": "webservers-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:inse-8000": {
@@ -649,7 +649,7 @@
         }
       ],
       "category": "insecure_services-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:inse-8312": {
@@ -666,7 +666,7 @@
         }
       ],
       "category": "insecure_services-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:krnl-5622": {
@@ -683,7 +683,7 @@
         }
       ],
       "category": "kernel-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "linux"
     },
     "lynis:krnl-5820": {
@@ -700,7 +700,7 @@
         }
       ],
       "category": "kernel-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "linux"
     },
     "lynis:krnl-6000": {
@@ -717,7 +717,7 @@
         }
       ],
       "category": "kernel_hardening-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:logg-2130": {
@@ -734,7 +734,7 @@
         }
       ],
       "category": "logging-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:logg-2192": {
@@ -751,7 +751,7 @@
         }
       ],
       "category": "logging-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:macf-6204": {
@@ -768,7 +768,7 @@
         }
       ],
       "category": "mac_frameworks-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:macf-6232": {
@@ -785,7 +785,7 @@
         }
       ],
       "category": "mac_frameworks-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:mail-8818": {
@@ -802,7 +802,7 @@
         }
       ],
       "category": "mail_messaging-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:malw-3274": {
@@ -819,7 +819,7 @@
         }
       ],
       "category": "malware-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:name-4016": {
@@ -836,7 +836,7 @@
         }
       ],
       "category": "nameservices-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:name-4028": {
@@ -853,7 +853,7 @@
         }
       ],
       "category": "nameservices-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:netw-2400": {
@@ -870,7 +870,7 @@
         }
       ],
       "category": "networking-basics",
-      "severity": "medium",
+      "severity": "low",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:netw-2600": {
@@ -887,7 +887,7 @@
         }
       ],
       "category": "networking-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "linux"
     },
     "lynis:netw-3200": {
@@ -904,7 +904,7 @@
         }
       ],
       "category": "networking-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:php-2211": {
@@ -921,7 +921,7 @@
         }
       ],
       "category": "php-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:pkgs-7308": {
@@ -938,7 +938,7 @@
         }
       ],
       "category": "ports_packages-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:pkgs-7384": {
@@ -955,7 +955,7 @@
         }
       ],
       "category": "ports_packages-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:prnt-2304": {
@@ -972,7 +972,7 @@
         }
       ],
       "category": "printers_spools-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:proc-3602": {
@@ -989,7 +989,7 @@
         }
       ],
       "category": "memory_processes-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "linux"
     },
     "lynis:schd-7702": {
@@ -1006,7 +1006,7 @@
         }
       ],
       "category": "scheduling-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:shll-6211": {
@@ -1023,7 +1023,7 @@
         }
       ],
       "category": "shells-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:sint-7010": {
@@ -1040,7 +1040,7 @@
         }
       ],
       "category": "system_integrity-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "darwin"
     },
     "lynis:snmp-3302": {
@@ -1057,7 +1057,7 @@
         }
       ],
       "category": "snmp-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:sqd-3602": {
@@ -1074,7 +1074,7 @@
         }
       ],
       "category": "squid-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:ssh-7402": {
@@ -1091,7 +1091,7 @@
         }
       ],
       "category": "ssh-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:strg-1902": {
@@ -1108,7 +1108,7 @@
         }
       ],
       "category": "storage_nfs-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:time-3104": {
@@ -1125,7 +1125,7 @@
         }
       ],
       "category": "time-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:time-3148": {
@@ -1159,7 +1159,7 @@
         }
       ],
       "category": "tooling-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:usb-1000": {
@@ -1176,7 +1176,7 @@
         }
       ],
       "category": "storage-security",
-      "severity": "medium",
+      "severity": "high",
       "host_filter": "linux"
     }
   }
