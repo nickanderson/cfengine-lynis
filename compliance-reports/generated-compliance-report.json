@@ -5,14 +5,11 @@
       "type": "compliance",
       "title": "CISOfy Lynis (3.0.8)",
       "conditions": [
-        "lynis:acct-2754",
         "lynis:acct-9622",
         "lynis:acct-9626",
         "lynis:acct-9628",
         "lynis:auth-9204",
-        "lynis:auth-9218",
         "lynis:auth-9229",
-        "lynis:bann-7113",
         "lynis:bann-7124",
         "lynis:bann-7126",
         "lynis:boot-5102",
@@ -74,26 +71,9 @@
     }
   },
   "conditions": {
-    "lynis:acct-2754": {
-      "id": "lynis:acct-2754",
-      "name": "Lynis:ACCT-2754",
-      "description": "Check for available FreeBSD accounting information.\n\nConsidered part of accounting security by CISOfy.\nThis condition applies to FreeBSD which CFEngine identifies by the class freebsd.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/ACCT-2754/).",
-      "type": "inventory",
-      "condition_for": "passing",
-      "rules": [
-        {
-          "attribute": "CISOfy Lynis Control ID findings",
-          "operator": "not_contain",
-          "value": "ACCT-2754"
-        }
-      ],
-      "category": "accounting-security",
-      "severity": "high",
-      "host_filter": "freebsd"
-    },
     "lynis:acct-9622": {
       "id": "lynis:acct-9622",
-      "name": "Lynis:ACCT-9622",
+      "name": "Lynis:ACCT-9622 - Linux accounting information",
       "description": "Check for available Linux accounting information.\n\nConsidered part of accounting security by CISOfy.\nThis condition applies to Linux which CFEngine identifies by the class linux.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/ACCT-9622/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -104,13 +84,13 @@
           "value": "ACCT-9622"
         }
       ],
-      "category": "accounting-security",
+      "category": "Logging",
       "severity": "high",
       "host_filter": "linux"
     },
     "lynis:acct-9626": {
       "id": "lynis:acct-9626",
-      "name": "Lynis:ACCT-9626",
+      "name": "Lynis:ACCT-9626 - sysstat accounting data",
       "description": "Check for sysstat accounting data.\n\nConsidered part of accounting security by CISOfy.\nThis condition applies to Linux which CFEngine identifies by the class linux.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/ACCT-9626/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -121,13 +101,13 @@
           "value": "ACCT-9626"
         }
       ],
-      "category": "accounting-security",
+      "category": "Logging",
       "severity": "high",
       "host_filter": "linux"
     },
     "lynis:acct-9628": {
       "id": "lynis:acct-9628",
-      "name": "Lynis:ACCT-9628",
+      "name": "Lynis:ACCT-9628 - auditd",
       "description": "Check for auditd.\n\nConsidered part of accounting security by CISOfy.\nThis condition applies to Linux which CFEngine identifies by the class linux.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/ACCT-9628/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -138,13 +118,13 @@
           "value": "ACCT-9628"
         }
       ],
-      "category": "accounting-security",
+      "category": "Logging",
       "severity": "high",
       "host_filter": "linux"
     },
     "lynis:auth-9204": {
       "id": "lynis:auth-9204",
-      "name": "Lynis:AUTH-9204",
+      "name": "Lynis:AUTH-9204 - Multiple users with UID zero",
       "description": "Check users with an UID of zero.\n\nConsidered part of authentication security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/AUTH-9204/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -155,30 +135,13 @@
           "value": "AUTH-9204"
         }
       ],
-      "category": "authentication-security",
+      "category": "Authentication",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
-    "lynis:auth-9218": {
-      "id": "lynis:auth-9218",
-      "name": "Lynis:AUTH-9218",
-      "description": "Check harmful login shells.\n\nConsidered part of authentication security by CISOfy.\nThis condition applies to FreeBSD which CFEngine identifies by the class freebsd.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/AUTH-9218/).",
-      "type": "inventory",
-      "condition_for": "passing",
-      "rules": [
-        {
-          "attribute": "CISOfy Lynis Control ID findings",
-          "operator": "not_contain",
-          "value": "AUTH-9218"
-        }
-      ],
-      "category": "authentication-security",
-      "severity": "high",
-      "host_filter": "freebsd"
-    },
     "lynis:auth-9229": {
       "id": "lynis:auth-9229",
-      "name": "Lynis:AUTH-9229",
+      "name": "Lynis:AUTH-9229 - Password hashing methods",
       "description": "Check password hashing methods.\n\nConsidered part of authentication security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/AUTH-9229/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -189,30 +152,13 @@
           "value": "AUTH-9229"
         }
       ],
-      "category": "authentication-security",
+      "category": "Authentication",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
-    "lynis:bann-7113": {
-      "id": "lynis:bann-7113",
-      "name": "Lynis:BANN-7113",
-      "description": "Check COPYRIGHT banner file.\n\nConsidered part of banners security by CISOfy.\nThis condition applies to FreeBSD which CFEngine identifies by the class freebsd.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/BANN-7113/).",
-      "type": "inventory",
-      "condition_for": "passing",
-      "rules": [
-        {
-          "attribute": "CISOfy Lynis Control ID findings",
-          "operator": "not_contain",
-          "value": "BANN-7113"
-        }
-      ],
-      "category": "banners-security",
-      "severity": "high",
-      "host_filter": "freebsd"
-    },
     "lynis:bann-7124": {
       "id": "lynis:bann-7124",
-      "name": "Lynis:BANN-7124",
+      "name": "Lynis:BANN-7124 - Issue banner file",
       "description": "Check issue banner file.\n\nConsidered part of banners security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/BANN-7124/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -223,13 +169,13 @@
           "value": "BANN-7124"
         }
       ],
-      "category": "banners-security",
+      "category": "Banners",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:bann-7126": {
       "id": "lynis:bann-7126",
-      "name": "Lynis:BANN-7126",
+      "name": "Lynis:BANN-7126 - Issue banner file contents",
       "description": "Check issue banner file contents.\n\nConsidered part of banners security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/BANN-7126/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -240,13 +186,13 @@
           "value": "BANN-7126"
         }
       ],
-      "category": "banners-security",
+      "category": "Banners",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:boot-5102": {
       "id": "lynis:boot-5102",
-      "name": "Lynis:BOOT-5102",
+      "name": "Lynis:BOOT-5102 - AIX boot device",
       "description": "Check for AIX boot device.\n\nConsidered part of boot_services security by CISOfy.\nThis condition applies to AIX which CFEngine identifies by the class aix.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/BOOT-5102/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -257,13 +203,13 @@
           "value": "BOOT-5102"
         }
       ],
-      "category": "boot_services-security",
+      "category": "System integrity",
       "severity": "high",
       "host_filter": "aix"
     },
     "lynis:boot-5104": {
       "id": "lynis:boot-5104",
-      "name": "Lynis:BOOT-5104",
+      "name": "Lynis:BOOT-5104 - Service manager",
       "description": "Determine service manager.\n\nConsidered part of boot_services security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/BOOT-5104/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -274,13 +220,13 @@
           "value": "BOOT-5104"
         }
       ],
-      "category": "boot_services-security",
+      "category": "System integrity",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:boot-5202": {
       "id": "lynis:boot-5202",
-      "name": "Lynis:BOOT-5202",
+      "name": "Lynis:BOOT-5202 - Uptime",
       "description": "Check uptime of system.\n\nConsidered part of boot_services security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/BOOT-5202/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -291,13 +237,13 @@
           "value": "BOOT-5202"
         }
       ],
-      "category": "boot_services-security",
+      "category": "System integrity",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:cont-8004": {
       "id": "lynis:cont-8004",
-      "name": "Lynis:CONT-8004",
+      "name": "Lynis:CONT-8004 - Solaris zones",
       "description": "Query running Solaris zones.\n\nConsidered part of containers security by CISOfy.\nThis condition applies to Solaris which CFEngine identifies by the class solaris.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/CONT-8004/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -308,13 +254,13 @@
           "value": "CONT-8004"
         }
       ],
-      "category": "containers-security",
+      "category": "Containers",
       "severity": "high",
       "host_filter": "solaris"
     },
     "lynis:cont-8102": {
       "id": "lynis:cont-8102",
-      "name": "Lynis:CONT-8102",
+      "name": "Lynis:CONT-8102 - Docker status",
       "description": "Checking Docker status and information.\n\nConsidered part of containers security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/CONT-8102/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -325,13 +271,13 @@
           "value": "CONT-8102"
         }
       ],
-      "category": "containers-security",
+      "category": "Containers",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:cont-8107": {
       "id": "lynis:cont-8107",
-      "name": "Lynis:CONT-8107",
+      "name": "Lynis:CONT-8107 - Unused Docker containers",
       "description": "Check number of unused Docker containers.\n\nConsidered part of containers performance by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/CONT-8107/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -342,13 +288,13 @@
           "value": "CONT-8107"
         }
       ],
-      "category": "containers-performance",
+      "category": "Containers",
       "severity": "medium",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:core-1000": {
       "id": "lynis:core-1000",
-      "name": "Lynis:CORE-1000",
+      "name": "Lynis:CORE-1000 - System binaries",
       "description": "Check all system binaries.\n\nConsidered part of system_integrity performance by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/CORE-1000/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -359,13 +305,13 @@
           "value": "CORE-1000"
         }
       ],
-      "category": "system_integrity-performance",
+      "category": "System integrity",
       "severity": "medium",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:cryp-8002": {
       "id": "lynis:cryp-8002",
-      "name": "Lynis:CRYP-8002",
+      "name": "Lynis:CRYP-8002 - Kernel entropy",
       "description": "Gather kernel entropy.\n\nConsidered part of crypto security by CISOfy.\nThis condition applies to Linux which CFEngine identifies by the class linux.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/CRYP-8002/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -376,13 +322,13 @@
           "value": "CRYP-8002"
         }
       ],
-      "category": "crypto-security",
+      "category": "Kernel",
       "severity": "high",
       "host_filter": "linux"
     },
     "lynis:cryp-8005": {
       "id": "lynis:cryp-8005",
-      "name": "Lynis:CRYP-8005",
+      "name": "Lynis:CRYP-8005 - Software pseudo random number generators",
       "description": "Presence of software pseudo random number generators.\n\nConsidered part of crypto security by CISOfy.\nThis condition applies to Linux which CFEngine identifies by the class linux.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/CRYP-8005/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -393,13 +339,13 @@
           "value": "CRYP-8005"
         }
       ],
-      "category": "crypto-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "linux"
     },
     "lynis:dns-1600": {
       "id": "lynis:dns-1600",
-      "name": "Lynis:DNS-1600",
+      "name": "Lynis:DNS-1600 - DNSSEC signatures",
       "description": "Validating that the DNSSEC signatures are checked.\n\nConsidered part of dns security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/DNS-1600/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -410,13 +356,13 @@
           "value": "DNS-1600"
         }
       ],
-      "category": "dns-security",
+      "category": "Networking",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:dbs-1804": {
       "id": "lynis:dbs-1804",
-      "name": "Lynis:DBS-1804",
+      "name": "Lynis:DBS-1804 - MySQL processes",
       "description": "Checking active MySQL process.\n\nConsidered part of databases security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/DBS-1804/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -427,13 +373,13 @@
           "value": "DBS-1804"
         }
       ],
-      "category": "databases-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:dbs-1826": {
       "id": "lynis:dbs-1826",
-      "name": "Lynis:DBS-1826",
+      "name": "Lynis:DBS-1826 - PostgreSQL processes",
       "description": "Checking active PostgreSQL processes.\n\nConsidered part of databases security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/DBS-1826/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -444,13 +390,13 @@
           "value": "DBS-1826"
         }
       ],
-      "category": "databases-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:file-6310": {
       "id": "lynis:file-6310",
-      "name": "Lynis:FILE-6310",
+      "name": "Lynis:FILE-6310 - /tmp, /home, and /var directories",
       "description": "Checking /tmp, /home and /var directory.\n\nConsidered part of filesystems security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/FILE-6310/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -461,13 +407,13 @@
           "value": "FILE-6310"
         }
       ],
-      "category": "filesystems-security",
+      "category": "Files, directories & permissions",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:file-6363": {
       "id": "lynis:file-6363",
-      "name": "Lynis:FILE-6363",
+      "name": "Lynis:FILE-6363 - /var/tmp sticky bit",
       "description": "Checking /var/tmp sticky bit.\n\nConsidered part of filesystems security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/FILE-6363/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -478,13 +424,13 @@
           "value": "FILE-6363"
         }
       ],
-      "category": "filesystems-security",
+      "category": "Files, directories & permissions",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:file-6394": {
       "id": "lynis:file-6394",
-      "name": "Lynis:FILE-6394",
+      "name": "Lynis:FILE-6394 - Virtual memory swappiness",
       "description": "Test swappiness of virtual memory.\n\nConsidered part of filesystems performance by CISOfy.\nThis condition applies to Linux which CFEngine identifies by the class linux.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/FILE-6394/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -495,13 +441,13 @@
           "value": "FILE-6394"
         }
       ],
-      "category": "filesystems-performance",
+      "category": "Storage",
       "severity": "medium",
       "host_filter": "linux"
     },
     "lynis:file-7524": {
       "id": "lynis:file-7524",
-      "name": "Lynis:FILE-7524",
+      "name": "Lynis:FILE-7524 - File permissions",
       "description": "Perform file permissions check.\n\nConsidered part of file_permissions security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/FILE-7524/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -512,13 +458,13 @@
           "value": "FILE-7524"
         }
       ],
-      "category": "file_permissions-security",
+      "category": "Files, directories & permissions",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:fint-4310": {
       "id": "lynis:fint-4310",
-      "name": "Lynis:FINT-4310",
+      "name": "Lynis:FINT-4310 - AFICK availability",
       "description": "AFICK availability.\n\nConsidered part of file_integrity security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/FINT-4310/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -529,13 +475,13 @@
           "value": "FINT-4310"
         }
       ],
-      "category": "file_integrity-security",
+      "category": "Files, directories & permissions",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:fint-4350": {
       "id": "lynis:fint-4350",
-      "name": "Lynis:FINT-4350",
+      "name": "Lynis:FINT-4350 - File integrity software",
       "description": "File integrity software installed.\n\nConsidered part of file_integrity security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/FINT-4350/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -546,13 +492,13 @@
           "value": "FINT-4350"
         }
       ],
-      "category": "file_integrity-security",
+      "category": "Files, directories & permissions",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:fire-4502": {
       "id": "lynis:fire-4502",
-      "name": "Lynis:FIRE-4502",
+      "name": "Lynis:FIRE-4502 - iptables kernel module",
       "description": "Check iptables kernel module.\n\nConsidered part of firewalls security by CISOfy.\nThis condition applies to Linux which CFEngine identifies by the class linux.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/FIRE-4502/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -563,13 +509,13 @@
           "value": "FIRE-4502"
         }
       ],
-      "category": "firewalls-security",
+      "category": "Networking",
       "severity": "high",
       "host_filter": "linux"
     },
     "lynis:fire-4586": {
       "id": "lynis:fire-4586",
-      "name": "Lynis:FIRE-4586",
+      "name": "Lynis:FIRE-4586 - Firewall logging",
       "description": "Check firewall logging.\n\nConsidered part of firewalls security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/FIRE-4586/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -580,13 +526,13 @@
           "value": "FIRE-4586"
         }
       ],
-      "category": "firewalls-security",
+      "category": "Networking",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:home-9302": {
       "id": "lynis:home-9302",
-      "name": "Lynis:HOME-9302",
+      "name": "Lynis:HOME-9302 - List of home directories",
       "description": "Create list with home directories.\n\nConsidered part of homedirs security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/HOME-9302/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -597,13 +543,13 @@
           "value": "HOME-9302"
         }
       ],
-      "category": "homedirs-security",
+      "category": "Files, directories & permissions",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:home-9306": {
       "id": "lynis:home-9306",
-      "name": "Lynis:HOME-9306",
+      "name": "Lynis:HOME-9306 - Ownership of home directories",
       "description": "Test ownership of user home directories.\n\nConsidered part of homedirs security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/HOME-9306/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -614,13 +560,13 @@
           "value": "HOME-9306"
         }
       ],
-      "category": "homedirs-security",
+      "category": "Files, directories & permissions",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:http-6622": {
       "id": "lynis:http-6622",
-      "name": "Lynis:HTTP-6622",
+      "name": "Lynis:HTTP-6622 - Apache",
       "description": "Checking Apache presence.\n\nConsidered part of webservers security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/HTTP-6622/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -631,13 +577,13 @@
           "value": "HTTP-6622"
         }
       ],
-      "category": "webservers-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:inse-8000": {
       "id": "lynis:inse-8000",
-      "name": "Lynis:INSE-8000",
+      "name": "Lynis:INSE-8000 - inetd package",
       "description": "Installed inetd package.\n\nConsidered part of insecure_services security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/INSE-8000/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -648,13 +594,13 @@
           "value": "INSE-8000"
         }
       ],
-      "category": "insecure_services-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:inse-8312": {
       "id": "lynis:inse-8312",
-      "name": "Lynis:INSE-8312",
+      "name": "Lynis:INSE-8312 - telnet server",
       "description": "Presence of telnet server.\n\nConsidered part of insecure_services security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/INSE-8312/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -665,13 +611,13 @@
           "value": "INSE-8312"
         }
       ],
-      "category": "insecure_services-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:krnl-5622": {
       "id": "lynis:krnl-5622",
-      "name": "Lynis:KRNL-5622",
+      "name": "Lynis:KRNL-5622 - Linux default run level",
       "description": "Determine Linux default run level.\n\nConsidered part of kernel security by CISOfy.\nThis condition applies to Linux which CFEngine identifies by the class linux.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/KRNL-5622/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -682,13 +628,13 @@
           "value": "KRNL-5622"
         }
       ],
-      "category": "kernel-security",
+      "category": "Kernel",
       "severity": "high",
       "host_filter": "linux"
     },
     "lynis:krnl-5820": {
       "id": "lynis:krnl-5820",
-      "name": "Lynis:KRNL-5820",
+      "name": "Lynis:KRNL-5820 - Core dumps",
       "description": "Checking core dumps configuration.\n\nConsidered part of kernel security by CISOfy.\nThis condition applies to Linux which CFEngine identifies by the class linux.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/KRNL-5820/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -699,13 +645,13 @@
           "value": "KRNL-5820"
         }
       ],
-      "category": "kernel-security",
+      "category": "Kernel",
       "severity": "high",
       "host_filter": "linux"
     },
     "lynis:krnl-6000": {
       "id": "lynis:krnl-6000",
-      "name": "Lynis:KRNL-6000",
+      "name": "Lynis:KRNL-6000 - Scan profile sysctl key pairs",
       "description": "Check sysctl key pairs in scan profile.\n\nConsidered part of kernel_hardening security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/KRNL-6000/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -716,13 +662,13 @@
           "value": "KRNL-6000"
         }
       ],
-      "category": "kernel_hardening-security",
+      "category": "Kernel",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:logg-2130": {
       "id": "lynis:logg-2130",
-      "name": "Lynis:LOGG-2130",
+      "name": "Lynis:LOGG-2130 - syslog daemon",
       "description": "Check for running syslog daemon.\n\nConsidered part of logging security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/LOGG-2130/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -733,13 +679,13 @@
           "value": "LOGG-2130"
         }
       ],
-      "category": "logging-security",
+      "category": "Logging",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:logg-2192": {
       "id": "lynis:logg-2192",
-      "name": "Lynis:LOGG-2192",
+      "name": "Lynis:LOGG-2192 - Empty log files",
       "description": "Checking for opened log files that are empty.\n\nConsidered part of logging security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/LOGG-2192/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -750,13 +696,13 @@
           "value": "LOGG-2192"
         }
       ],
-      "category": "logging-security",
+      "category": "Logging",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:macf-6204": {
       "id": "lynis:macf-6204",
-      "name": "Lynis:MACF-6204",
+      "name": "Lynis:MACF-6204 - AppArmor",
       "description": "Check AppArmor presence.\n\nConsidered part of mac_frameworks security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/MACF-6204/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -767,13 +713,13 @@
           "value": "MACF-6204"
         }
       ],
-      "category": "mac_frameworks-security",
+      "category": "System integrity",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:macf-6232": {
       "id": "lynis:macf-6232",
-      "name": "Lynis:MACF-6232",
+      "name": "Lynis:MACF-6232 - SELINUX",
       "description": "Check SELINUX presence.\n\nConsidered part of mac_frameworks security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/MACF-6232/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -784,13 +730,13 @@
           "value": "MACF-6232"
         }
       ],
-      "category": "mac_frameworks-security",
+      "category": "System integrity",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:mail-8818": {
       "id": "lynis:mail-8818",
-      "name": "Lynis:MAIL-8818",
+      "name": "Lynis:MAIL-8818 - Postfix banner",
       "description": "Postfix banner.\n\nConsidered part of mail_messaging security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/MAIL-8818/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -801,13 +747,13 @@
           "value": "MAIL-8818"
         }
       ],
-      "category": "mail_messaging-security",
+      "category": "Banners",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:malw-3274": {
       "id": "lynis:malw-3274",
-      "name": "Lynis:MALW-3274",
+      "name": "Lynis:MALW-3274 - McAfeee VirusScan",
       "description": "Check for McAfee VirusScan Command Line Scanner.\n\nConsidered part of malware security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/MALW-3274/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -818,13 +764,13 @@
           "value": "MALW-3274"
         }
       ],
-      "category": "malware-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:name-4016": {
       "id": "lynis:name-4016",
-      "name": "Lynis:NAME-4016",
+      "name": "Lynis:NAME-4016 - /etc/resolv.conf",
       "description": "Check /etc/resolv.conf default domain.\n\nConsidered part of nameservices security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/NAME-4016/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -835,13 +781,13 @@
           "value": "NAME-4016"
         }
       ],
-      "category": "nameservices-security",
+      "category": "Networking",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:name-4028": {
       "id": "lynis:name-4028",
-      "name": "Lynis:NAME-4028",
+      "name": "Lynis:NAME-4028 - Domain name",
       "description": "Check domain name.\n\nConsidered part of nameservices security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/NAME-4028/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -852,13 +798,13 @@
           "value": "NAME-4028"
         }
       ],
-      "category": "nameservices-security",
+      "category": "Networking",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:netw-2400": {
       "id": "lynis:netw-2400",
-      "name": "Lynis:NETW-2400",
+      "name": "Lynis:NETW-2400 - Hostname length and characters",
       "description": "Test hostname for valid characters and length.\n\nConsidered part of networking basics by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/NETW-2400/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -869,13 +815,13 @@
           "value": "NETW-2400"
         }
       ],
-      "category": "networking-basics",
+      "category": "Networking",
       "severity": "low",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:netw-2600": {
       "id": "lynis:netw-2600",
-      "name": "Lynis:NETW-2600",
+      "name": "Lynis:NETW-2600 - IPv6 configuration",
       "description": "Checking IPv6 configuration.\n\nConsidered part of networking security by CISOfy.\nThis condition applies to Linux which CFEngine identifies by the class linux.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/NETW-2600/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -886,13 +832,13 @@
           "value": "NETW-2600"
         }
       ],
-      "category": "networking-security",
+      "category": "Networking",
       "severity": "high",
       "host_filter": "linux"
     },
     "lynis:netw-3200": {
       "id": "lynis:netw-3200",
-      "name": "Lynis:NETW-3200",
+      "name": "Lynis:NETW-3200 - Available network protocols",
       "description": "Determine available network protocols.\n\nConsidered part of networking security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/NETW-3200/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -903,13 +849,13 @@
           "value": "NETW-3200"
         }
       ],
-      "category": "networking-security",
+      "category": "Networking",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:php-2211": {
       "id": "lynis:php-2211",
-      "name": "Lynis:PHP-2211",
+      "name": "Lynis:PHP-2211 - Presence of php.ini",
       "description": "Check php.ini presence.\n\nConsidered part of php security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/PHP-2211/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -920,13 +866,13 @@
           "value": "PHP-2211"
         }
       ],
-      "category": "php-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:pkgs-7308": {
       "id": "lynis:pkgs-7308",
-      "name": "Lynis:PKGS-7308",
+      "name": "Lynis:PKGS-7308 - RPM package list",
       "description": "Checking package list with RPM.\n\nConsidered part of ports_packages security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/PKGS-7308/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -937,13 +883,13 @@
           "value": "PKGS-7308"
         }
       ],
-      "category": "ports_packages-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:pkgs-7384": {
       "id": "lynis:pkgs-7384",
-      "name": "Lynis:PKGS-7384",
+      "name": "Lynis:PKGS-7384 - YUM utils package",
       "description": "Check for YUM utils package.\n\nConsidered part of ports_packages security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/PKGS-7384/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -954,13 +900,13 @@
           "value": "PKGS-7384"
         }
       ],
-      "category": "ports_packages-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:prnt-2304": {
       "id": "lynis:prnt-2304",
-      "name": "Lynis:PRNT-2304",
+      "name": "Lynis:PRNT-2304 - Status of cupsd",
       "description": "Check cupsd status.\n\nConsidered part of printers_spools security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/PRNT-2304/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -971,13 +917,13 @@
           "value": "PRNT-2304"
         }
       ],
-      "category": "printers_spools-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:proc-3602": {
       "id": "lynis:proc-3602",
-      "name": "Lynis:PROC-3602",
+      "name": "Lynis:PROC-3602 - Memory details in /proc/meminfo",
       "description": "Checking /proc/meminfo for memory details.\n\nConsidered part of memory_processes security by CISOfy.\nThis condition applies to Linux which CFEngine identifies by the class linux.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/PROC-3602/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -988,13 +934,13 @@
           "value": "PROC-3602"
         }
       ],
-      "category": "memory_processes-security",
+      "category": "System integrity",
       "severity": "high",
       "host_filter": "linux"
     },
     "lynis:schd-7702": {
       "id": "lynis:schd-7702",
-      "name": "Lynis:SCHD-7702",
+      "name": "Lynis:SCHD-7702 - Status of cron",
       "description": "Check status of cron daemon.\n\nConsidered part of scheduling security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/SCHD-7702/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -1005,13 +951,13 @@
           "value": "SCHD-7702"
         }
       ],
-      "category": "scheduling-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:shll-6211": {
       "id": "lynis:shll-6211",
-      "name": "Lynis:SHLL-6211",
+      "name": "Lynis:SHLL-6211 - Valid shells",
       "description": "Checking available and valid shells.\n\nConsidered part of shells security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/SHLL-6211/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -1022,13 +968,13 @@
           "value": "SHLL-6211"
         }
       ],
-      "category": "shells-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:sint-7010": {
       "id": "lynis:sint-7010",
-      "name": "Lynis:SINT-7010",
+      "name": "Lynis:SINT-7010 - System integrity",
       "description": "System Integrity Status.\n\nConsidered part of system_integrity security by CISOfy.\nThis condition applies to MacOS which CFEngine identifies by the class darwin.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/SINT-7010/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -1039,13 +985,13 @@
           "value": "SINT-7010"
         }
       ],
-      "category": "system_integrity-security",
+      "category": "System integrity",
       "severity": "high",
       "host_filter": "darwin"
     },
     "lynis:snmp-3302": {
       "id": "lynis:snmp-3302",
-      "name": "Lynis:SNMP-3302",
+      "name": "Lynis:SNMP-3302 - SNMP daemon",
       "description": "Check for running SNMP daemon.\n\nConsidered part of snmp security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/SNMP-3302/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -1056,13 +1002,13 @@
           "value": "SNMP-3302"
         }
       ],
-      "category": "snmp-security",
+      "category": "Networking",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:sqd-3602": {
       "id": "lynis:sqd-3602",
-      "name": "Lynis:SQD-3602",
+      "name": "Lynis:SQD-3602 - Squid daemon",
       "description": "Check for running Squid daemon.\n\nConsidered part of squid security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/SQD-3602/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -1073,13 +1019,13 @@
           "value": "SQD-3602"
         }
       ],
-      "category": "squid-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:ssh-7402": {
       "id": "lynis:ssh-7402",
-      "name": "Lynis:SSH-7402",
+      "name": "Lynis:SSH-7402 - SSH daemon",
       "description": "Check for running SSH daemon.\n\nConsidered part of ssh security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/SSH-7402/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -1090,13 +1036,13 @@
           "value": "SSH-7402"
         }
       ],
-      "category": "ssh-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:strg-1902": {
       "id": "lynis:strg-1902",
-      "name": "Lynis:STRG-1902",
+      "name": "Lynis:STRG-1902 - rpcinfo registered programs",
       "description": "Check rpcinfo registered programs.\n\nConsidered part of storage_nfs security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/STRG-1902/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -1107,13 +1053,13 @@
           "value": "STRG-1902"
         }
       ],
-      "category": "storage_nfs-security",
+      "category": "Storage",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:time-3104": {
       "id": "lynis:time-3104",
-      "name": "Lynis:TIME-3104",
+      "name": "Lynis:TIME-3104 - NTP daemon",
       "description": "Check for running NTP daemon or client.\n\nConsidered part of time security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/TIME-3104/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -1124,13 +1070,13 @@
           "value": "TIME-3104"
         }
       ],
-      "category": "time-security",
+      "category": "Time",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:time-3148": {
       "id": "lynis:time-3148",
-      "name": "Lynis:TIME-3148",
+      "name": "Lynis:TIME-3148 - Time zone variable",
       "description": "Check TZ variable.\n\nConsidered part of time performance by CISOfy.\nThis condition applies to Linux which CFEngine identifies by the class linux.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/TIME-3148/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -1141,13 +1087,13 @@
           "value": "TIME-3148"
         }
       ],
-      "category": "time-performance",
+      "category": "Time",
       "severity": "medium",
       "host_filter": "linux"
     },
     "lynis:tool-5002": {
       "id": "lynis:tool-5002",
-      "name": "Lynis:TOOL-5002",
+      "name": "Lynis:TOOL-5002 - Automation tools",
       "description": "Checking for automation tools.\n\nConsidered part of tooling security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/TOOL-5002/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -1158,13 +1104,13 @@
           "value": "TOOL-5002"
         }
       ],
-      "category": "tooling-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
     "lynis:usb-1000": {
       "id": "lynis:usb-1000",
-      "name": "Lynis:USB-1000",
+      "name": "Lynis:USB-1000 - USB storage",
       "description": "Check if USB storage is disabled.\n\nConsidered part of storage security by CISOfy.\nThis condition applies to Linux which CFEngine identifies by the class linux.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/USB-1000/).",
       "type": "inventory",
       "condition_for": "passing",
@@ -1175,7 +1121,7 @@
           "value": "USB-1000"
         }
       ],
-      "category": "storage-security",
+      "category": "Storage",
       "severity": "high",
       "host_filter": "linux"
     }
