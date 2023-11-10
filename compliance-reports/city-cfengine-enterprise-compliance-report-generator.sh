@@ -149,6 +149,48 @@ while read line; do
                 ;;
         esac
 
+        # Herman hand categorized the checks, so here we follow those categorizations automatically.
+
+        case $ConditionCategory in
+            "accounting-security"|"logging-security")
+                ConditionCategory="Logging"
+                ;;
+            "authentication-security")
+                ConditionCategory="Authentication"
+                ;;
+            "banners-security"|"mail_messaging-security")
+                ConditionCategory="Banners"
+                ;;
+            "boot_services-security"|"mac_frameworks-security"|"memory_processes-security"|"system_integrity-security"|"system_integrity-performance")
+                ConditionCategory="System integrity"
+                ;;
+            "containers-security"|"containers-performance")
+                ConditionCategory="Containers"
+                ;;
+            "tooling-security"|"ssh-security"|"squid-security"|"shells-security"|"databases-security"|"webservers-security"|"insecure_services-security"|"malware-security"|"php-security"|"ports_packages-security"|"printers_spools-security"|"scheduling-security"|"crypto-security")
+                ConditionCategory="Software"
+                case $ConditionName in
+                    "Lynis:CRYP-8002")
+                      ConditionCategory="Kernel"
+                      ;;
+                esac
+                ;;
+            "dns-security"|"firewalls-security"|"nameservices-security"|"networking-basics"|"networking-security"|"snmp-security")
+                ConditionCategory="Networking"
+                ;;
+            "filesystems-security"|"homedirs-security"|"file_permissions-security"|"file_integrity-security")
+                ConditionCategory="Files, directories & permissions"
+                ;;
+            "filesystems-performance"|"storage_nfs-security"|"storage-security")
+                ConditionCategory="Storage"
+                ;;
+            "kernel-security"|"kernel_hardening-security")
+                ConditionCategory="Kernel"
+                ;;
+            "time-security"|"time-performance")
+                ConditionCategory="Time"
+                ;;
+        esac
         if [ -f "${LynisControlIdAllowListFile}" ]; then
             if grep --ignore-case --silent "${LynisControlId}" "${LynisControlIdAllowListFile}"; then
                 echo "\"${ConditionId}\": {" >> $TMPFILE
@@ -200,5 +242,14 @@ echo '}}' >> $TMPFILE
 cat $TMPFILE | jq > generated-compliance-report.json
 rm $TMPFILE
 rm -rf $TMPDIR
+# Don't separate fields so we loop over each line
+if [ -e "pretty-names.txt" ]; then
+   echo "Found ./pretty-names.txt, re-writing names in generated-compliance-report.json"
+  cat pretty-names.txt | while read -r each; do
+      generated_name=$(echo "${each}" | awk -F " - " '{print $1}')
+      pretty_name=$each
+      sed -i "s|${generated_name}|${pretty_name}|g" generated-compliance-report.json
+  done
+fi
 echo "DONE generating CFEngine Enterprise Compliance report (generated-compliance-report.json)."
 :
