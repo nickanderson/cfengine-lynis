@@ -3,13 +3,16 @@
     "cisofy-lynis": {
       "id": "cisofy-lynis",
       "type": "compliance",
-      "title": "CISOfy Lynis (3.0.8)",
+      "title": "CISOfy Lynis (3.0.9)",
       "conditions": [
+        "lynis:acct-2754",
         "lynis:acct-9622",
         "lynis:acct-9626",
         "lynis:acct-9628",
         "lynis:auth-9204",
+        "lynis:auth-9218",
         "lynis:auth-9229",
+        "lynis:bann-7113",
         "lynis:bann-7124",
         "lynis:bann-7126",
         "lynis:boot-5102",
@@ -71,6 +74,23 @@
     }
   },
   "conditions": {
+    "lynis:acct-2754": {
+      "id": "lynis:acct-2754",
+      "name": "Lynis:ACCT-2754 - FreeBSD accounting",
+      "description": "Check for available FreeBSD accounting information.\n\nConsidered part of accounting security by CISOfy.\nThis condition applies to FreeBSD which CFEngine identifies by the class freebsd.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/ACCT-2754/).",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "ACCT-2754"
+        }
+      ],
+      "category": "Logging",
+      "severity": "high",
+      "host_filter": "freebsd"
+    },
     "lynis:acct-9622": {
       "id": "lynis:acct-9622",
       "name": "Lynis:ACCT-9622 - Linux accounting information",
@@ -139,6 +159,23 @@
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
+    "lynis:auth-9218": {
+      "id": "lynis:auth-9218",
+      "name": "Lynis:AUTH-9218 - Harmful login shells",
+      "description": "Check harmful login shells.\n\nConsidered part of authentication security by CISOfy.\nThis condition applies to FreeBSD which CFEngine identifies by the class freebsd.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/AUTH-9218/).",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "AUTH-9218"
+        }
+      ],
+      "category": "Authentication",
+      "severity": "high",
+      "host_filter": "freebsd"
+    },
     "lynis:auth-9229": {
       "id": "lynis:auth-9229",
       "name": "Lynis:AUTH-9229 - Password hashing methods",
@@ -155,6 +192,23 @@
       "category": "Authentication",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
+    },
+    "lynis:bann-7113": {
+      "id": "lynis:bann-7113",
+      "name": "Lynis:BANN-7113 - FreeBSD Copyright banner file",
+      "description": "Check COPYRIGHT banner file.\n\nConsidered part of banners security by CISOfy.\nThis condition applies to FreeBSD which CFEngine identifies by the class freebsd.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/BANN-7113/).",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "BANN-7113"
+        }
+      ],
+      "category": "Banners",
+      "severity": "high",
+      "host_filter": "freebsd"
     },
     "lynis:bann-7124": {
       "id": "lynis:bann-7124",

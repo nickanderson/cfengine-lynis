@@ -1,0 +1,65 @@
+Lynis:ACCT-9622 - Linux accounting information
+Lynis:ACCT-9626 - sysstat accounting data
+Lynis:ACCT-9628 - auditd
+Lynis:AUTH-9204 - Multiple users with UID zero
+Lynis:AUTH-9229 - Password hashing methods
+Lynis:BANN-7124 - Issue banner file
+Lynis:BANN-7126 - Issue banner file contents
+Lynis:BOOT-5102 - AIX boot device
+Lynis:BOOT-5104 - Service manager
+Lynis:BOOT-5202 - Uptime
+Lynis:CONT-8004 - Solaris zones
+Lynis:CONT-8102 - Docker status
+Lynis:CONT-8107 - Unused Docker containers
+Lynis:CORE-1000 - System binaries
+Lynis:CRYP-8002 - Kernel entropy
+Lynis:CRYP-8005 - Software pseudo random number generators
+Lynis:DNS-1600 - DNSSEC signatures
+Lynis:DBS-1804 - MySQL processes
+Lynis:DBS-1826 - PostgreSQL processes
+Lynis:FILE-6310 - /tmp, /home, and /var directories
+Lynis:FILE-6363 - /var/tmp sticky bit
+Lynis:FILE-6394 - Virtual memory swappiness
+Lynis:FILE-7524 - File permissions
+Lynis:FINT-4310 - AFICK availability
+Lynis:FINT-4350 - File integrity software
+Lynis:FIRE-4502 - iptables kernel module
+Lynis:FIRE-4586 - Firewall logging
+Lynis:HOME-9302 - List of home directories
+Lynis:HOME-9306 - Ownership of home directories
+Lynis:HTTP-6622 - Apache
+Lynis:INSE-8000 - inetd package
+Lynis:INSE-8312 - telnet server
+Lynis:KRNL-5622 - Linux default run level
+Lynis:KRNL-5820 - Core dumps
+Lynis:KRNL-6000 - Scan profile sysctl key pairs
+Lynis:LOGG-2130 - syslog daemon
+Lynis:LOGG-2192 - Empty log files
+Lynis:MACF-6204 - AppArmor
+Lynis:MACF-6232 - SELINUX
+Lynis:MAIL-8818 - Postfix banner
+Lynis:MALW-3274 - McAfeee VirusScan
+Lynis:NAME-4016 - /etc/resolv.conf
+Lynis:NAME-4028 - Domain name
+Lynis:NETW-2400 - Hostname length and characters
+Lynis:NETW-2600 - IPv6 configuration
+Lynis:NETW-3200 - Available network protocols
+Lynis:PHP-2211 - Presence of php.ini
+Lynis:PKGS-7308 - RPM package list
+Lynis:PKGS-7384 - YUM utils package
+Lynis:PRNT-2304 - Status of cupsd
+Lynis:PROC-3602 - Memory details in /proc/meminfo
+Lynis:SCHD-7702 - Status of cron
+Lynis:SHLL-6211 - Valid shells
+Lynis:SINT-7010 - System integrity
+Lynis:SNMP-3302 - SNMP daemon
+Lynis:SQD-3602 - Squid daemon
+Lynis:SSH-7402 - SSH daemon
+Lynis:STRG-1902 - rpcinfo registered programs
+Lynis:TIME-3104 - NTP daemon
+Lynis:TIME-3148 - Time zone variable
+Lynis:TOOL-5002 - Automation tools
+Lynis:USB-1000 - USB storage
+Lynis:AUTH-9218 - Harmful login shells
+Lynis:BANN-7113 - FreeBSD Copyright banner file
+Lynis:ACCT-2754 - FreeBSD accounting
