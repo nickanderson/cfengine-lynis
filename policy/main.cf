@@ -11,7 +11,7 @@ bundle agent globals
       # E.g. "lynis:globals.version": "3.0.6"
       # Get from lynis website: curl -s https://cisofy.com/downloads/lynis/  | pandoc -f html -t plain  | awk '/Version/ {print $3}'
       "version"
-        string => "3.0.9",
+        string => "3.1.0",
         unless => isvariable( $(this.promiser) ),
         comment => "The version of Lynis that we desire to be installed.";
 
@@ -20,7 +20,7 @@ bundle agent globals
       # E.g. "lynis:globals.archive_hash": "3005346e90339c18a4c626169c6f1d9fb8643bb0d0a049bcaf64b7ccb4fd272c"
       # Get from lynis website: curl -s https://cisofy.com/downloads/lynis/  | pandoc -f html -t plain | grep "SHA256 hash" -A1 | tail -n 1 | sed 's/ //g'
       "archive_hash"
-        string => "f394df7d20391fb76e975ae88f3eba1da05ac9c4945e2c7f709326e185e17025",
+        string => "ca192ac67411b07ec8421d579b1f16c038299ff727a53d739403b729817bc2e7",
         unless => isvariable( $(this.promiser) ),
         comment => "The hash ($(hash_type)) listed for the tarball hosted on the Lynis website: https://cisofy.com/downloads/lynis/";
 
