@@ -290,7 +290,7 @@ Generate a CFEngine Enterprise Compliance Report definition from the Lynis test 
 
 #+RESULTS:
 : Checking for latest lynis version...
-: Generating CFEngine Enterprise Compliance Report for Lynis 3.0.9
+: Generating CFEngine Enterprise Compliance Report for Lynis 3.1.0
 : Found Lynis Control ID Allow List ./LynisControlIdAllowList.txt, minimizing generated compliance report
 : Found ./pretty-names.txt, re-writing names in generated-compliance-report.json
 : DONE generating CFEngine Enterprise Compliance report (generated-compliance-report.json).
