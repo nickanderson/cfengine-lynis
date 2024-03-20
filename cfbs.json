@@ -15,7 +15,7 @@
     "compliance-report-lynis": {
       "description": "Compliance report with Lynis checks",
       "dependencies": ["compliance-report-imports", "lynis"],
-      "subdirectory": "./compliance-reports",
+      "subdirectory": "compliance-reports",
       "tags": ["experimental", "security", "compliance"],
       "repo": "https://github.com/nickanderson/cfengine-lynis",
       "by": "https://github.com/nickanderson/",
