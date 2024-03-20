@@ -128,7 +128,7 @@ while read line; do
                 ConditionDescriptionOsPhrase="the $LynisOperatingSystem operating system"
                 ;;
         esac
-        CheckDescription="${LynisDescription}.\\\\n\\\\nConsidered part of ${LynisGroup} ${LynisCategory} by CISOfy.\\\\nThis condition applies to ${LynisOperatingSystem} which CFEngine identifies by the class ${CFEngineClassForLynisOperatingSystem}.\\\\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/${LynisControlId}/)."
+        CheckDescription="${LynisDescription}.\\n\\nConsidered part of ${LynisGroup} ${LynisCategory} by CISOfy.\\nThis condition applies to ${LynisOperatingSystem} which CFEngine identifies by the class ${CFEngineClassForLynisOperatingSystem}.\\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/${LynisControlId}/)."
 
         #echo $LynisControlId $LynisType $LynisCategory $LynisGroup $LynisOperatingSystem $CFEngineClassForLynisOperatingSystem $LynisDescription
         ConditionId="lynis:$(echo $LynisControlId | tr '[:upper:]' '[:lower:]' )"
