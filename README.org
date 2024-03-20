@@ -6,8 +6,8 @@ This module provides policy to automate the installation, running, and reporting
 
 ** Variables
 
-- =lynis:globals.version= :: The version of Lynis desired to be installed. (default =3.1.0=)
-- =lynis:globals.archive_hash= :: The hash of the archive that Lynis is to be installed from (used for integrity checking). (default =ca192ac67411b07ec8421d579b1f16c038299ff727a53d739403b729817bc2e7=)
+- =lynis:globals.version= :: The version of Lynis desired to be installed. (default =3.1.1=)
+- =lynis:globals.archive_hash= :: The hash of the archive that Lynis is to be installed from (used for integrity checking). (default =d72f4ee7325816bb8dbfcf31eb104207b9fe58a2493c2a875373746a71284cc3=)
 
 *Note:* Configuring these variables via Augments /requires/ the use of the =variables= key (introduced in CFEngine 3.18.0).
 
