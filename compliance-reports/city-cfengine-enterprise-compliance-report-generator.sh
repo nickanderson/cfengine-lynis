@@ -82,37 +82,48 @@ while read line; do
 
         case $LynisOperatingSystem in
             "")
+                # If no platform is specified then it should be checked on all
+                # supported platforms. The lynis policy defines the
+                # lynis:lynis_supported_platform class which tells us the lynis
+                # policy is running, so we target that so that we don't run
+                # checks against hosts that aren't reporting lynis inventory.
                 CFEngineClassForLynisOperatingSystem="lynis:lynis_supported_platform"
                 ;;
             Linux)
-                CFEngineClassForLynisOperatingSystem="linux"
+                # If a check targets a specific OS we target the relevant class
+                # plus the lynis:lynis_supported_platform class so that we only
+                # consider the check on hosts that have that platform AND are
+                # running and reporting lynis policy.
+                CFEngineClassForLynisOperatingSystem="linux.lynis:lynis_supported_platform"
                 ;;
             FreeBSD)
-                CFEngineClassForLynisOperatingSystem="freebsd"
+                CFEngineClassForLynisOperatingSystem="freebsd.lynis:lynis_supported_platform"
                 ;;
             OpenBSD)
-                CFEngineClassForLynisOperatingSystem="openbsd"
+                CFEngineClassForLynisOperatingSystem="openbsd.lynis:lynis_supported_platform"
                 ;;
             NetBSD)
-                CFEngineClassForLynisOperatingSystem="netbsd"
+                CFEngineClassForLynisOperatingSystem="netbsd.lynis:lynis_supported_platform"
                 ;;
             DragonFly)
-                CFEngineClassForLynisOperatingSystem="dragonfly"
+                CFEngineClassForLynisOperatingSystem="dragonfly.lynis:lynis_supported_platform"
                 ;;
             Solaris)
-                CFEngineClassForLynisOperatingSystem="solaris"
+                CFEngineClassForLynisOperatingSystem="solaris.lynis:lynis_supported_platform"
                 ;;
             MacOS)
-                CFEngineClassForLynisOperatingSystem="darwin"
+                CFEngineClassForLynisOperatingSystem="darwin.lynis:lynis_supported_platform"
                 ;;
             HP-UX)
-                CFEngineClassForLynisOperatingSystem="hpux"
+                CFEngineClassForLynisOperatingSystem="hpux.lynis:lynis_supported_platform"
                 ;;
             AIX)
-                CFEngineClassForLynisOperatingSystem="aix"
+                CFEngineClassForLynisOperatingSystem="aix.lynis:lynis_supported_platform"
                 ;;
             *)
-                CFEngineClassForLynisOperatingSystem="UNKNOWN"
+                # If it's not one of these that are know, we don't target on any hosts
+                # We really shouldn't have any of these.
+                CFEngineClassForLynisOperatingSystem="!cfengine"
                 ;;
         esac
 
@@ -255,4 +266,9 @@ if [ -e "pretty-names.txt" ]; then
   done
 fi
 echo "DONE generating CFEngine Enterprise Compliance report (generated-compliance-report.json)."
+if grep '!cfengine' generated-compliacne-report.json; then
+    echo "TODO Fix OS classification. At least one check is targeting !cfengine, probably because it is targeting an OS that is not known by this script."
+else
+    echo "Sanity checks passed, look good to go."
+fi
 :
