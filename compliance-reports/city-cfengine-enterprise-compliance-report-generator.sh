@@ -25,9 +25,10 @@ echo "\"title\": \"CISOfy Lynis ($LATEST_LYNIS_VERSION)\"," >> $TMPFILE
 echo "\"conditions\": [" >> $TMPFILE
 
 #MAX_CHECKS=30
-MAX_CHECKS=1000
+MAX_CHECKS=9000
 CONDITION_COUNTER=0
-LynisControlIdAllowListFile="./LynisControlIdAllowList.txt"
+# With CFEngine Enterprise 3.24.0 compliance report speed is dramatically improved, we can handle all the checks, no need to filter down to a subset
+#LynisControlIdAllowListFile="./LynisControlIdAllowList.txt"
 if [ -f "${LynisControlIdAllowListFile}" ]; then
     echo "Found Lynis Control ID Allow List ${LynisControlIdAllowListFile}, minimizing generated compliance report"
 else
@@ -117,7 +118,8 @@ while read line; do
 
         # @ole wants the compliance report to show human readable description of check (without requiring the hover js, so that it works in pdf too)
         ConditionId="lynis:$(echo $LynisControlId | tr '[:upper:]' '[:lower:]' )"
-        ConditionName="Lynis:${LynisControlId}"
+        # Let's use the lynis check description for the name by default
+        ConditionName="Lynis:${LynisControlId} - ${LynisDescription}"
         ConditionCategory="${LynisGroup}-${LynisCategory}"
 
         case $CFEngineClassForLynisOperatingSystem in
@@ -243,12 +245,13 @@ cat $TMPFILE | jq > generated-compliance-report.json
 rm $TMPFILE
 rm -rf $TMPDIR
 # Don't separate fields so we loop over each line
+# If we have defined a pretty name for a check let's use that instead of the lynis description
 if [ -e "pretty-names.txt" ]; then
    echo "Found ./pretty-names.txt, re-writing names in generated-compliance-report.json"
   cat pretty-names.txt | while read -r each; do
       generated_name=$(echo "${each}" | awk -F " - " '{print $1}')
       pretty_name=$each
-      sed -i "s|${generated_name}|${pretty_name}|g" generated-compliance-report.json
+      sed -i "s|${generated_name}.*|${pretty_name}\",|g" generated-compliance-report.json
   done
 fi
 echo "DONE generating CFEngine Enterprise Compliance report (generated-compliance-report.json)."
