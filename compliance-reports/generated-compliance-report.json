@@ -3426,7 +3426,7 @@
           "value": "HRDN-7220"
         }
       ],
-      "category": "hardening-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
@@ -3443,7 +3443,7 @@
           "value": "HRDN-7222"
         }
       ],
-      "category": "hardening-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
@@ -3460,7 +3460,7 @@
           "value": "HRDN-7230"
         }
       ],
-      "category": "hardening-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
@@ -3477,7 +3477,7 @@
           "value": "HRDN-7231"
         }
       ],
-      "category": "hardening-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "linux.lynis:lynis_supported_platform"
     },
@@ -4293,7 +4293,7 @@
           "value": "LDAP-2219"
         }
       ],
-      "category": "ldap-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },
@@ -4310,7 +4310,7 @@
           "value": "LDAP-2224"
         }
       ],
-      "category": "ldap-security",
+      "category": "Software",
       "severity": "high",
       "host_filter": "lynis:lynis_supported_platform"
     },

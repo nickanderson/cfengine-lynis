@@ -180,7 +180,7 @@ while read line; do
             "containers-security"|"containers-performance")
                 ConditionCategory="Containers"
                 ;;
-            "tooling-security"|"ssh-security"|"squid-security"|"shells-security"|"databases-security"|"webservers-security"|"insecure_services-security"|"malware-security"|"php-security"|"ports_packages-security"|"printers_spools-security"|"scheduling-security"|"crypto-security")
+            "tooling-security"|"ssh-security"|"squid-security"|"shells-security"|"databases-security"|"webservers-security"|"insecure_services-security"|"malware-security"|"php-security"|"ports_packages-security"|"printers_spools-security"|"scheduling-security"|"crypto-security"|"hardening-security"|"ldap-security")
                 ConditionCategory="Software"
                 case $ConditionName in
                     "Lynis:CRYP-8002")
