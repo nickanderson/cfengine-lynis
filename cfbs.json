@@ -10,6 +10,32 @@
       "steps": [
         "copy policy/main.cf services/lynis/main.cf",
         "json cfbs/def.json def.json"
+      ],
+      "input": [
+        {
+          "type": "string",
+          "namespace": "lynis",
+          "bundle": "globals",
+          "variable": "tar_url",
+          "label": "Tarball url",
+          "question": "Where should clients download lynis from (https)"
+        },
+        {
+          "type": "string",
+          "namespace": "lynis",
+          "bundle": "globals",
+          "variable": "archive_hash",
+          "label": "Hash of the tarball",
+          "question": "What is the hash of the tarball?"
+        },
+        {
+          "type": "string",
+          "namespace": "lynis",
+          "bundle": "globals",
+          "variable": "hash_type",
+          "label": "Hash type to verify",
+          "question": "What hashing algorithm should be used to verify the Lynis script?"
+        }
       ]
     },
     "compliance-report-lynis": {

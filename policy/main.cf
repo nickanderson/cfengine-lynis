@@ -24,8 +24,13 @@ bundle agent globals
         unless => isvariable( $(this.promiser) ),
         comment => "The hash ($(hash_type)) listed for the tarball hosted on the Lynis website: https://cisofy.com/downloads/lynis/";
 
-      "hash_type"    string => "sha256";
-      "tar_url"      string => "https://downloads.cisofy.com/lynis/lynis-$(version).tar.gz";
+      "hash_type"
+        string => "sha256",
+        if => not( isvariable( "hash_type" ) );
+
+      "tar_url"
+        string => "https://downloads.cisofy.com/lynis/lynis-$(version).tar.gz",
+        if => not( isvariable( "tar_url" ) );
 
       "max_age" string => "1";
 
