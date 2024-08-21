@@ -9,7 +9,8 @@
       "by": "https://github.com/nickanderson/",
       "steps": [
         "copy policy/main.cf services/lynis/main.cf",
-        "json cfbs/def.json def.json"
+        "json cfbs/def.json def.json",
+        "input ./input.json def.json"
       ],
       "input": [
         {
