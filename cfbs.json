@@ -16,9 +16,20 @@
           "type": "string",
           "namespace": "lynis",
           "bundle": "globals",
+          "variable": "version",
+          "label": "Lynis version",
+          "question": "What version of Lynis should be used?",
+          "default": "3.1.1"
+        },
+        {
+          "type": "string",
+          "namespace": "lynis",
+          "bundle": "globals",
           "variable": "tar_url",
           "label": "Tarball url",
-          "question": "Where should clients download lynis from (https)"
+          "question": "Where should clients download lynis from (http/https)",
+          "default": "https://downloads.cisofy.com/lynis/lynis-$(version).tar.gz",
+          "comment": "Some may want to self host the tarball within their own infrastructure. This provides an easy way to do that. Note, the archive should be named for the version of Lynis selected."
         },
         {
           "type": "string",
@@ -26,7 +37,8 @@
           "bundle": "globals",
           "variable": "archive_hash",
           "label": "Hash of the tarball",
-          "question": "What is the hash of the tarball?"
+          "question": "What is the hash of the tarball?",
+          "default": "d72f4ee7325816bb8dbfcf31eb104207b9fe58a2493c2a875373746a71284cc3"
         },
         {
           "type": "string",
@@ -34,7 +46,8 @@
           "bundle": "globals",
           "variable": "hash_type",
           "label": "Hash type to verify",
-          "question": "What hashing algorithm should be used to verify the Lynis script?"
+          "question": "What hashing algorithm should be used to verify the Lynis script?",
+          "default": "sha256"
         }
       ]
     },

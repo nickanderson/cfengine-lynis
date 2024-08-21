@@ -22,7 +22,7 @@ bundle agent globals
       "archive_hash"
         string => "d72f4ee7325816bb8dbfcf31eb104207b9fe58a2493c2a875373746a71284cc3",
         unless => isvariable( $(this.promiser) ),
-        comment => "The hash ($(hash_type)) listed for the tarball hosted on the Lynis website: https://cisofy.com/downloads/lynis/";
+        comment => "The hash of the tarball ($(hash_type)). For example the sha256 listed for the tarball hosted on the Lynis website: https://cisofy.com/downloads/lynis/";
 
       "hash_type"
         string => "sha256",
