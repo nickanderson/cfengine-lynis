@@ -20,7 +20,7 @@
           "variable": "version",
           "label": "Lynis version",
           "question": "What version of Lynis should be used?",
-          "default": "3.1.1"
+          "default": "3.1.2"
         },
         {
           "type": "string",
@@ -39,7 +39,7 @@
           "variable": "archive_hash",
           "label": "Hash of the tarball",
           "question": "What is the hash of the tarball?",
-          "default": "d72f4ee7325816bb8dbfcf31eb104207b9fe58a2493c2a875373746a71284cc3"
+          "default": "882c46d28005c7c35d2829e646deabbd9834358d885489f7e3a472c7c10972d4"
         },
         {
           "type": "string",
