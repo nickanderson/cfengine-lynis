@@ -282,6 +282,7 @@
         "lynis:malw-3286",
         "lynis:malw-3288",
         "lynis:malw-3290",
+        "lynis:malw-3291",
         "lynis:name-4016",
         "lynis:name-4018",
         "lynis:name-4020",
@@ -5158,6 +5159,23 @@
           "attribute": "CISOfy Lynis Control ID findings",
           "operator": "not_contain",
           "value": "MALW-3290"
+        }
+      ],
+      "category": "Software",
+      "severity": "high",
+      "host_filter": "lynis:lynis_supported_platform"
+    },
+    "lynis:malw-3291": {
+      "id": "lynis:malw-3291",
+      "name": "Lynis:MALW-3291 - Check for Microsoft Defender Antivirus",
+      "description": "Check for Microsoft Defender Antivirus.\n\nConsidered part of malware security by CISOfy.\nThis condition applies to  which CFEngine identifies by the class lynis:lynis_supported_platform.\nMore information about this Lynis control may be found on CISOfy's website (https://cisofy.com/lynis/controls/MALW-3291/).",
+      "type": "inventory",
+      "condition_for": "passing",
+      "rules": [
+        {
+          "attribute": "CISOfy Lynis Control ID findings",
+          "operator": "not_contain",
+          "value": "MALW-3291"
         }
       ],
       "category": "Software",
