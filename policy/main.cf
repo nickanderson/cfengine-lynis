@@ -200,9 +200,9 @@ bundle agent audit
 
     lynis_supported_platform.(_report_missing|want_report_generated_now)::
 
-      "$(lynis)"
+      "LC_ALL=C $(lynis)"
         contain => default:in_dir_shell( "$(lynis_dir)" ),
-        arglist => { "audit", "system", "--quiet", "--auditor", "'CFEngine cf-agent'" };
+        arglist => { "audit", "system", "--quiet", "--auditor", "CFEngine" };
 }
 
 bundle agent inventory
