@@ -266,7 +266,7 @@ if [ -e "pretty-names.txt" ]; then
   done
 fi
 echo "DONE generating CFEngine Enterprise Compliance report (generated-compliance-report.json)."
-if grep '!cfengine' generated-compliacne-report.json; then
+if grep '!cfengine' generated-compliance-report.json; then
     echo "TODO Fix OS classification. At least one check is targeting !cfengine, probably because it is targeting an OS that is not known by this script."
 else
     echo "Sanity checks passed, look good to go."
