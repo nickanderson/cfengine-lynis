@@ -10,6 +10,10 @@ This module provides policy to automate the installation, running, and reporting
 - =lynis:globals.archive_hash= :: The hash of the archive that Lynis is to be installed from (used for integrity checking). (default =bb51569c8f9e67bd2d2aa5cfcdd8e2d82726552b69fde4abddff9d991706f554=)
 - =lynis:globals.hash_type= :: The type of hash to verify the downloaded archive with.
 - =lynis:globals.tar_url= :: The http/https url from which to download the archive. Note that the filename should follow the default pattern (=lynis-$(version).tar.gz=).
+- =lynis:globals.verify_signature= :: Whether to verify the GPG signature of the tarball before extracting. Requires =gpg= to be installed on the host. (default =true=)
+- =lynis:globals.sig_url= :: URL for the GPG signature (=.asc=) of the tarball. (default =$(tar_url).asc=)
+- =lynis:globals.gpg_pubkey_url= :: URL to download the CISOfy GPG public signing key. (default =https://downloads.cisofy.com/files/cisofy-software.pub=)
+- =lynis:globals.gpg_key_fingerprint= :: Expected fingerprint of the CISOfy signing key. (default =84FAA9983B24AEF24D6C87F1FEBB7D1812576482=)
 
 *Note:* Configuring these variables via Augments /requires/ the use of the =variables= key (introduced in CFEngine 3.18.0). These variables are also configurable via module input.
 
@@ -24,6 +28,25 @@ This module provides policy to automate the installation, running, and reporting
       "lynis:globals.archive_hash": {
         "value": "98373a4cc9d0471ab9bebb249e442fcf94b6bf6d4e9c6fc0b22bca1506646c63",
         "comment": "The hash (sha256) listed for the tarball hosted on the Lynis website (https://cisofy.com/downloads/lynis/)."
+      }
+    }
+  }
+#+end_src
+
+** GPG Signature Verification
+
+When =verify_signature= is =true= (the default), the module downloads the =.asc= signature file and the CISOfy public signing key, then verifies the tarball signature before extraction. A dedicated GPG keyring is created at =install_prefix/cisofy-keyring.gpg= so the system keyring is not modified.
+
+All URLs (tarball, signature, public key) are overridable for self-hosting.
+
+To disable signature verification (e.g. on hosts without =gpg=):
+
+#+begin_src json
+  {
+    "variables": {
+      "lynis:globals.verify_signature": {
+        "value": "false",
+        "comment": "Disable GPG signature verification."
       }
     }
   }
