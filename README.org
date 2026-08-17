@@ -6,8 +6,8 @@ This module provides policy to automate the installation, running, and reporting
 
 ** Variables
 
-- =lynis:globals.version= :: The version of Lynis desired to be installed. (default =3.1.3=)
-- =lynis:globals.archive_hash= :: The hash of the archive that Lynis is to be installed from (used for integrity checking). (default =bb51569c8f9e67bd2d2aa5cfcdd8e2d82726552b69fde4abddff9d991706f554=)
+- =lynis:globals.version= :: The version of Lynis desired to be installed. (default =3.1.7=)
+- =lynis:globals.archive_hash= :: The hash of the archive that Lynis is to be installed from (used for integrity checking). (default =b5314a07fd85fa3ffc7da57b508f0108ec3280d84e4af823f805d95cbbc2428c=)
 - =lynis:globals.hash_type= :: The type of hash to verify the downloaded archive with.
 - =lynis:globals.tar_url= :: The http/https url from which to download the archive. Note that the filename should follow the default pattern (=lynis-$(version).tar.gz=).
 - =lynis:globals.verify_signature= :: Whether to verify the GPG signature of the tarball before extracting. Requires =gpg= to be installed on the host. (default =true=)
